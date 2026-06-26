@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 import { Award, CheckCircle, Quote, FileDown, PieChart, TrendingUp, Heart } from "lucide-react";
 
 export const metadata = {
@@ -9,10 +10,10 @@ export const metadata = {
 };
 
 const STATS = [
-  { label: "Lives Impacted", value: "10,000+", desc: "Children, widows, and vulnerable family members supported." },
-  { label: "Scholarships Awarded", value: "500+", desc: "Full-tuition covers for primary and university students." },
-  { label: "Intervention Projects", value: "150+", desc: "Healthcare camps, classroom builds, and coding camps." },
-  { label: "Active Partners", value: "50+", desc: "Local clinics, corporate bodies, and global donors." },
+  { label: "Lives Impacted", end: 10000, suffix: "+", desc: "Children, widows, and vulnerable family members supported." },
+  { label: "Scholarships Awarded", end: 500, suffix: "+", desc: "Full-tuition covers for primary and university students." },
+  { label: "Intervention Projects", end: 150, suffix: "+", desc: "Healthcare camps, classroom builds, and coding camps." },
+  { label: "Active Partners", end: 50, suffix: "+", desc: "Local clinics, corporate bodies, and global donors." },
 ];
 
 const DEFAULT_TESTIMONIALS = [
@@ -81,7 +82,7 @@ export default async function ImpactPage() {
                 className="rounded-3xl border border-zinc-150 bg-white p-8 text-center dark:bg-zinc-900 dark:border-zinc-800 hover:border-blue-600 transition-all shadow-lg shadow-zinc-200/30 dark:shadow-none hover:-translate-y-1"
               >
                 <span className="block text-4xl font-extrabold text-blue-600 dark:text-blue-400 font-poppins">
-                  {stat.value}
+                  <CountUp end={stat.end} suffix={stat.suffix} />
                 </span>
                 <h3 className="mt-4 font-bold text-zinc-900 dark:text-white text-base font-poppins">{stat.label}</h3>
                 <p className="mt-2 text-xs leading-6 text-zinc-500 dark:text-zinc-400">{stat.desc}</p>

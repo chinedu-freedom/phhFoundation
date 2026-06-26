@@ -2,6 +2,8 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/CookieConsent";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,9 +30,11 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col text-zinc-900 bg-neutral-bg dark:bg-zinc-950 dark:text-zinc-100 font-sans">
+        <Analytics />
         <Header />
         <main className="flex-1 flex flex-col pt-20">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

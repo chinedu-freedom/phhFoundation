@@ -20,7 +20,7 @@ export default function Footer() {
               Dedicated to transforming lives through impactful humanitarian aid, quality educational access, medical outreaches, and skill empowerment programs.
             </p>
             <div className="flex items-center gap-4 text-xs font-semibold text-zinc-400">
-              <span>© {new Date().getFullYear()} PHH Foundation.</span>
+              <span>© {new Date().getFullYear()} PHH Foundation. All rights reserved.</span>
             </div>
           </div>
 
@@ -41,13 +41,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
-                  Active Projects
+                <Link href="/events" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Outreach Events
                 </Link>
               </li>
               <li>
-                <Link href="/impact" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
-                  Impact Reports
+                <Link href="/gallery" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Media Gallery
                 </Link>
               </li>
             </ul>
@@ -67,6 +67,11 @@ export default function Footer() {
               <li>
                 <Link href="/get-involved" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
                   Become a Volunteer
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Reports & Resources
                 </Link>
               </li>
               <li>
@@ -103,6 +108,24 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Sub Footer Bar (Legal Links) */}
+        <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+            <Link href="/privacy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Terms of Service
+            </Link>
+            <Link href="/cookies" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Cookie Policy
+            </Link>
+          </div>
+          <span className="text-xs text-zinc-400">
+            Designed to build trust, transparency and hope.
+          </span>
         </div>
       </div>
     </footer>

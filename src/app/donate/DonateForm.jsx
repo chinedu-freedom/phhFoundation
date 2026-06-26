@@ -281,71 +281,17 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "" }) {
         {/* 4. Payment Method */}
         <div>
           <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300">
-            Choose Payment Method
+            Payment Provider
           </label>
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {/* Paystack */}
-            <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
-              paymentMethod === "PAYSTACK"
-                ? "border-blue-500 bg-blue-50/20 text-blue-700 dark:border-blue-400 dark:bg-blue-950/10 dark:text-blue-400"
-                : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-950"
-            }`}>
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="PAYSTACK"
-                checked={paymentMethod === "PAYSTACK"}
-                onChange={() => setPaymentMethod("PAYSTACK")}
-                className="sr-only"
-              />
-              <CreditCard className="h-5 w-5" />
+          <div className="mt-4 max-w-sm">
+            {/* Paystack ONLY */}
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-blue-600 bg-blue-50/20 text-blue-700 dark:border-blue-400 dark:bg-blue-950/10 dark:text-blue-400">
+              <CreditCard className="h-5 w-5 text-blue-600" />
               <div className="flex flex-col">
-                <span className="text-sm font-bold">Paystack</span>
-                <span className="text-xxs text-zinc-400">Cards / Bank / USSD</span>
+                <span className="text-sm font-bold text-zinc-900 dark:text-white">Paystack</span>
+                <span className="text-xxs text-zinc-400">Cards, Bank Transfer, USSD</span>
               </div>
-            </label>
-
-            {/* Flutterwave */}
-            <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
-              paymentMethod === "FLUTTERWAVE"
-                ? "border-blue-500 bg-blue-50/20 text-blue-700 dark:border-blue-400 dark:bg-blue-950/10 dark:text-blue-400"
-                : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-950"
-            }`}>
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="FLUTTERWAVE"
-                checked={paymentMethod === "FLUTTERWAVE"}
-                onChange={() => setPaymentMethod("FLUTTERWAVE")}
-                className="sr-only"
-              />
-              <Landmark className="h-5 w-5" />
-              <div className="flex flex-col">
-                <span className="text-sm font-bold">Flutterwave</span>
-                <span className="text-xxs text-zinc-400">Local & Int'l Methods</span>
-              </div>
-            </label>
-
-            {/* Stripe */}
-            <label className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${
-              paymentMethod === "STRIPE"
-                ? "border-blue-500 bg-blue-50/20 text-blue-700 dark:border-blue-400 dark:bg-blue-950/10 dark:text-blue-400"
-                : "border-zinc-200 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-950"
-            }`}>
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="STRIPE"
-                checked={paymentMethod === "STRIPE"}
-                onChange={() => setPaymentMethod("STRIPE")}
-                className="sr-only"
-              />
-              <DollarSign className="h-5 w-5" />
-              <div className="flex flex-col">
-                <span className="text-sm font-bold">Stripe</span>
-                <span className="text-xxs text-zinc-400">USD & Card Payments</span>
-              </div>
-            </label>
+            </div>
           </div>
         </div>
 

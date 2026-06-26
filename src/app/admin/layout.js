@@ -7,7 +7,8 @@ import {
   BookOpen, 
   CalendarDays, 
   ArrowLeft,
-  User
+  User,
+  Image
 } from "lucide-react";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
@@ -27,6 +28,7 @@ export default async function AdminLayout({ children }) {
     { name: "Volunteers", href: "/admin/volunteers", icon: Users },
     { name: "Blog Posts", href: "/admin/blog", icon: BookOpen },
     { name: "Events", href: "/admin/events", icon: CalendarDays },
+    { name: "Gallery", href: "/admin/gallery", icon: Image },
   ];
 
   return (

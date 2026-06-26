@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/db";
+import CountUp from "@/components/CountUp";
 import { 
   Heart, 
   GraduationCap, 
@@ -86,23 +87,33 @@ export default async function Home() {
       <section className="relative z-20 -mt-10 mx-auto max-w-7xl px-6 sm:px-8 w-full">
         <div className="grid grid-cols-2 gap-4 rounded-3xl bg-white p-8 shadow-xl shadow-zinc-200/50 sm:grid-cols-5 dark:bg-zinc-900 dark:shadow-none border border-slate-200 dark:border-zinc-800">
           <div className="flex flex-col items-center justify-center p-4 text-center border-r border-slate-100 last:border-0 dark:border-zinc-800">
-            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">10k+</span>
+            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <CountUp end={10} suffix="k+" />
+            </span>
             <span className="mt-2 text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-zinc-400">Lives Impacted</span>
           </div>
           <div className="flex flex-col items-center justify-center p-4 text-center border-r border-slate-100 last:border-0 dark:border-zinc-800">
-            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">500+</span>
+            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <CountUp end={500} suffix="+" />
+            </span>
             <span className="mt-2 text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-zinc-400">Scholarships</span>
           </div>
           <div className="flex flex-col items-center justify-center p-4 text-center border-r border-slate-100 last:border-0 dark:border-zinc-800">
-            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">150+</span>
+            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <CountUp end={150} suffix="+" />
+            </span>
             <span className="mt-2 text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-zinc-400">Projects Done</span>
           </div>
           <div className="flex flex-col items-center justify-center p-4 text-center border-r border-slate-100 last:border-0 dark:border-zinc-800">
-            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">50+</span>
+            <span className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              <CountUp end={50} suffix="+" />
+            </span>
             <span className="mt-2 text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-zinc-400">Partners</span>
           </div>
           <div className="flex flex-col items-center justify-center p-4 text-center sm:col-span-1 col-span-2">
-            <span className="text-3xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">₦120M+</span>
+            <span className="text-3xl font-extrabold tracking-tight text-blue-600 dark:text-blue-400">
+              <CountUp end={120} prefix="₦" suffix="M+" />
+            </span>
             <span className="mt-2 text-xs font-semibold text-slate-500 uppercase tracking-wider dark:text-zinc-400">Funds Raised</span>
           </div>
         </div>
