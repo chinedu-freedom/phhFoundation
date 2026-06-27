@@ -133,7 +133,7 @@ export default function EventsManager({ initialEvents = [] }) {
               placeholder="Search events by title or venue..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+              className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
             />
           </div>
 
@@ -141,7 +141,7 @@ export default function EventsManager({ initialEvents = [] }) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           >
             <option value="ALL">All Statuses</option>
             <option value="UPCOMING">Upcoming</option>
@@ -152,7 +152,7 @@ export default function EventsManager({ initialEvents = [] }) {
 
         <button
           onClick={openCreateModal}
-          className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-teal-500/20 hover:bg-teal-700 transition-colors self-start sm:self-auto"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors self-start sm:self-auto"
         >
           <Plus className="h-4 w-4" /> Schedule Event
         </button>
@@ -180,7 +180,7 @@ export default function EventsManager({ initialEvents = [] }) {
                 {e.image ? (
                   <Image src={e.image} alt={e.title} fill className="object-cover" />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-teal-50/50 text-teal-600 dark:bg-teal-950/20 dark:text-teal-400">
+                  <div className="flex h-full w-full items-center justify-center bg-blue-50/50 text-blue-600 dark:bg-blue-950/20 dark:text-blue-400">
                     <Calendar className="h-12 w-12 stroke-[1.5]" />
                   </div>
                 )}
@@ -204,7 +204,7 @@ export default function EventsManager({ initialEvents = [] }) {
                   {/* Date, Venue, Registration details */}
                   <div className="flex flex-col gap-2 text-xxs font-semibold text-zinc-500 dark:text-zinc-400">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="h-3.5 w-3.5 text-teal-600" />
+                      <Calendar className="h-3.5 w-3.5 text-blue-600" />
                       <span>{formattedDate}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
@@ -283,7 +283,7 @@ export default function EventsManager({ initialEvents = [] }) {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="E.g., Medical Checkup & Drug Distribution"
-                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -297,7 +297,7 @@ export default function EventsManager({ initialEvents = [] }) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Describe the activities, beneficiaries, required logistics..."
-                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -311,7 +311,7 @@ export default function EventsManager({ initialEvents = [] }) {
                     required
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
                 <div>
@@ -324,7 +324,7 @@ export default function EventsManager({ initialEvents = [] }) {
                     value={venue}
                     onChange={(e) => setVenue(e.target.value)}
                     placeholder="E.g., Community Hall, Obio Akpor"
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function EventsManager({ initialEvents = [] }) {
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   >
                     <option value="UPCOMING">UPCOMING</option>
                     <option value="PAST">PAST</option>
@@ -351,7 +351,7 @@ export default function EventsManager({ initialEvents = [] }) {
                       type="checkbox"
                       checked={registrationRequired}
                       onChange={(e) => setRegistrationRequired(e.target.checked)}
-                      className="h-4 w-4 rounded border-zinc-300 text-teal-600 focus:ring-teal-500"
+                      className="h-4 w-4 rounded border-zinc-300 text-blue-600 focus:ring-blue-500"
                     />
                     <span>Registration Required</span>
                   </label>
@@ -371,7 +371,7 @@ export default function EventsManager({ initialEvents = [] }) {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                     placeholder="https://images.unsplash.com/..."
-                    className="block flex-1 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="block flex-1 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
               </div>
@@ -387,7 +387,7 @@ export default function EventsManager({ initialEvents = [] }) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="rounded-xl bg-teal-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-teal-700 disabled:opacity-50"
+                  className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-50"
                 >
                   {loading ? "Scheduling..." : "Save Event"}
                 </button>

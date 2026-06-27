@@ -60,7 +60,7 @@ export default function DonationsManager({ initialDonations = [] }) {
             placeholder="Search by donor, email, or reference..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           />
         </div>
 
@@ -70,7 +70,7 @@ export default function DonationsManager({ initialDonations = [] }) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           >
             <option value="ALL">All Statuses</option>
             <option value="PENDING">Pending</option>
@@ -138,7 +138,7 @@ export default function DonationsManager({ initialDonations = [] }) {
                       <button
                         onClick={() => handleConfirm(d.reference)}
                         disabled={loadingMap[d.reference]}
-                        className="inline-flex items-center gap-1 rounded-lg bg-teal-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-teal-700 disabled:opacity-50 transition-colors"
+                        className="inline-flex items-center gap-1 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
                       >
                         <Check className="h-3.5 w-3.5" /> Approve
                       </button>

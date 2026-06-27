@@ -49,7 +49,7 @@ export default async function AdminDashboard() {
       value: `₦${totalFundsRaised.toLocaleString()}`,
       description: "Successful donations",
       icon: DollarSign,
-      color: "text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/20",
+      color: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/20",
     },
     {
       name: "Total Donations",
@@ -126,7 +126,7 @@ export default async function AdminDashboard() {
             </h2>
             <Link
               href="/admin/donations"
-              className="inline-flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700 dark:text-teal-400"
+              className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
             >
               View all <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -196,7 +196,7 @@ export default async function AdminDashboard() {
             </h2>
             <Link
               href="/admin/volunteers"
-              className="inline-flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700 dark:text-teal-400"
+              className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
             >
               View all <ArrowRight className="h-3.5 w-3.5" />
             </Link>
@@ -208,7 +208,7 @@ export default async function AdminDashboard() {
                 key={v.id}
                 className="flex items-start gap-4 rounded-xl border border-zinc-100 p-4 dark:border-zinc-800 dark:bg-zinc-950/40"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-600 dark:bg-teal-950/20 dark:text-teal-400 font-bold">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/20 dark:text-blue-400 font-bold">
                   {v.name.charAt(0)}
                 </div>
                 <div className="min-w-0 flex-1">

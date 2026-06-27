@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
@@ -8,9 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
           {/* Logo & Description */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white">
-                <Heart className="h-4.5 w-4.5 fill-current" />
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="relative h-9 w-9 overflow-hidden rounded-lg shadow-sm border border-zinc-200 dark:border-zinc-800">
+                <Image
+                  src="/logo.png"
+                  alt="PHH Foundation Logo"
+                  fill
+                  className="object-cover"
+                  sizes="36px"
+                />
               </div>
               <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
                 PHH<span className="text-blue-600 dark:text-blue-400">Foundation</span>

@@ -3,7 +3,7 @@
 import { useActionState, useEffect } from "react";
 import { registerAction } from "@/app/actions/auth";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
@@ -22,8 +22,14 @@ export default function Register() {
       <div className="w-full max-w-md space-y-8 rounded-3xl bg-white p-8 shadow-xl shadow-zinc-200/50 dark:bg-zinc-900 dark:shadow-none">
         {/* Header */}
         <div className="flex flex-col items-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-600 text-white">
-            <Heart className="h-6 w-6 fill-current" />
+          <div className="relative h-12 w-12 overflow-hidden rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800">
+            <Image
+              src="/logo.png"
+              alt="PHH Foundation Logo"
+              fill
+              className="object-cover"
+              sizes="48px"
+            />
           </div>
           <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
             Create an account
@@ -55,7 +61,7 @@ export default function Register() {
                 type="text"
                 autoComplete="name"
                 required
-                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
+                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 placeholder="John Doe"
               />
             </div>
@@ -73,7 +79,7 @@ export default function Register() {
                 type="email"
                 autoComplete="email"
                 required
-                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
+                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 placeholder="you@example.com"
               />
             </div>
@@ -91,7 +97,7 @@ export default function Register() {
                 type="password"
                 autoComplete="new-password"
                 required
-                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
+                className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 placeholder="••••••••"
               />
             </div>
@@ -100,7 +106,7 @@ export default function Register() {
           <button
             type="submit"
             disabled={isPending}
-            className="flex w-full items-center justify-center rounded-xl bg-teal-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-500/25 hover:bg-teal-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isPending ? "Creating account..." : "Sign up"}
           </button>
@@ -111,7 +117,7 @@ export default function Register() {
           Already have an account?{" "}
           <Link
             href="/login"
-            className="font-bold text-teal-600 hover:text-teal-700 dark:text-teal-400"
+            className="font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
           >
             Sign in instead
           </Link>

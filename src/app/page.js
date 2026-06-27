@@ -43,7 +43,7 @@ export default async function Home() {
       {/* 1. Hero Section */}
       <section className="relative overflow-hidden py-24 sm:py-32" style={{ background: "linear-gradient(135deg, #1E3A8A 0%, #2563EB 40%, #38BDF8 100%)" }}>
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
+        <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&auto=format&fit=crop&q=80"
             alt="Children smiling"
@@ -52,11 +52,11 @@ export default async function Home() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-blue-900/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/70 to-transparent z-10" />
 
         <div className="relative z-20 mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-sky-200 ring-1 ring-inset ring-white/20">
+            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-sky-200 ring-1 ring-inset ring-white/20">
               <Heart className="h-4 w-4 fill-current text-sky-300" /> Together we can do more
             </span>
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">

@@ -62,7 +62,7 @@ export default function VolunteersManager({ initialVolunteers = [] }) {
             placeholder="Search by name, skills, location..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           />
         </div>
 
@@ -71,7 +71,7 @@ export default function VolunteersManager({ initialVolunteers = [] }) {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           >
             <option value="ALL">All Statuses</option>
             <option value="PENDING">Pending</option>
@@ -129,7 +129,7 @@ export default function VolunteersManager({ initialVolunteers = [] }) {
                     {v.motivation ? (
                       <button
                         onClick={() => setSelectedMotivation(v)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-teal-600 hover:text-teal-700 dark:text-teal-400"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
                       >
                         <FileText className="h-4 w-4" /> View
                       </button>
@@ -143,7 +143,7 @@ export default function VolunteersManager({ initialVolunteers = [] }) {
                         <button
                           onClick={() => handleUpdateStatus(v.id, "APPROVED")}
                           disabled={loadingMap[v.id]}
-                          className="inline-flex h-8 px-2.5 items-center gap-1 rounded-lg bg-teal-600 text-xs font-bold text-white hover:bg-teal-700 disabled:opacity-50 transition-colors"
+                          className="inline-flex h-8 px-2.5 items-center gap-1 rounded-lg bg-blue-600 text-xs font-bold text-white hover:bg-blue-700 disabled:opacity-50 transition-colors"
                         >
                           <Check className="h-3.5 w-3.5" /> Approve
                         </button>

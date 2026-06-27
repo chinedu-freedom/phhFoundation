@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getSession } from "@/lib/auth";
 import { Heart, Menu, User, LogOut } from "lucide-react";
 
@@ -9,9 +10,16 @@ export default async function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-zinc-200 bg-white/90 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/90">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/20 transition-transform group-hover:scale-105">
-            <Heart className="h-5 w-5 fill-current" />
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="relative h-10 w-10 overflow-hidden rounded-xl shadow-md shadow-blue-500/10 transition-transform group-hover:scale-105 border border-zinc-100 dark:border-zinc-800">
+            <Image
+              src="/logo.png"
+              alt="PHH Foundation Logo"
+              fill
+              className="object-cover"
+              sizes="40px"
+              priority
+            />
           </div>
           <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
             PHH<span className="text-blue-600 dark:text-blue-400">Foundation</span>

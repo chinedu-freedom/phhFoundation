@@ -70,7 +70,7 @@ export default function GalleryManager({ initialImages = [] }) {
         </h2>
         <button
           onClick={() => setShowModal(true)}
-          className="inline-flex items-center gap-2 rounded-xl bg-teal-650 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-teal-500/20 hover:bg-teal-700 transition-colors"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
         >
           <Plus className="h-4 w-4" /> Add Photo
         </button>
@@ -101,7 +101,7 @@ export default function GalleryManager({ initialImages = [] }) {
               </div>
 
               <div>
-                <span className="inline-block rounded bg-teal-600 px-2 py-0.5 text-xxs font-bold text-white uppercase tracking-wider mb-1">
+                <span className="inline-block rounded bg-blue-600 px-2 py-0.5 text-xxs font-bold text-white uppercase tracking-wider mb-1">
                   {img.album}
                 </span>
                 <p className="text-xs text-white line-clamp-2 leading-relaxed">
@@ -152,7 +152,7 @@ export default function GalleryManager({ initialImages = [] }) {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="https://example.com/image.jpg"
-                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -165,7 +165,7 @@ export default function GalleryManager({ initialImages = [] }) {
                   value={caption}
                   onChange={(e) => setCaption(e.target.value)}
                   placeholder="Describe this outreach moment"
-                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -176,7 +176,7 @@ export default function GalleryManager({ initialImages = [] }) {
                 <select
                   value={album}
                   onChange={(e) => setAlbum(e.target.value)}
-                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 >
                   {albums.map((alb) => (
                     <option key={alb} value={alb}>
@@ -189,7 +189,7 @@ export default function GalleryManager({ initialImages = [] }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-6 rounded-xl bg-teal-650 py-3.5 text-xs font-bold text-white shadow-md shadow-teal-500/20 hover:bg-teal-700 transition-colors disabled:opacity-50"
+                className="w-full mt-6 rounded-xl bg-blue-600 py-3.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors disabled:opacity-50"
               >
                 {loading ? "Saving..." : "Add to Gallery"}
               </button>

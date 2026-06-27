@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NextImage from "next/image";
 import { 
   LayoutDashboard, 
   HeartHandshake, 
@@ -37,8 +38,17 @@ export default async function AdminLayout({ children }) {
       <aside className="fixed inset-y-0 left-0 z-20 flex w-64 flex-col border-r border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
         {/* Logo */}
         <div className="flex h-16 items-center border-b border-zinc-200 px-6 dark:border-zinc-800">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-extrabold text-teal-600 dark:text-teal-400">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative h-7 w-7 overflow-hidden rounded-lg shadow-sm border border-zinc-200 dark:border-zinc-700">
+              <NextImage
+                src="/logo.png"
+                alt="PHH Logo"
+                fill
+                className="object-cover"
+                sizes="28px"
+              />
+            </div>
+            <span className="text-lg font-extrabold text-blue-600 dark:text-blue-400">
               PHH Admin
             </span>
           </Link>
@@ -54,7 +64,7 @@ export default async function AdminLayout({ children }) {
                 href={item.href}
                 className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-zinc-600 hover:bg-zinc-50 hover:text-zinc-950 dark:text-zinc-400 dark:hover:bg-zinc-950 dark:hover:text-white transition-all"
               >
-                <Icon className="h-5 w-5 text-zinc-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors" />
+                <Icon className="h-5 w-5 text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                 {item.name}
               </Link>
             );
@@ -81,7 +91,7 @@ export default async function AdminLayout({ children }) {
           </h2>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 rounded-full bg-zinc-100 px-3.5 py-1.5 dark:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-300">
-              <User className="h-4 w-4 text-teal-600" />
+              <User className="h-4 w-4 text-blue-600" />
               <span>{session.name} ({session.email})</span>
             </div>
             <a

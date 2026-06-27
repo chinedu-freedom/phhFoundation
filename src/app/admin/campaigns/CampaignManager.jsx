@@ -94,7 +94,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
       <div className="flex justify-end">
         <button
           onClick={openCreateModal}
-          className="inline-flex items-center gap-2 rounded-xl bg-teal-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-teal-500/20 hover:bg-teal-700 transition-colors"
+          className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
         >
           <Plus className="h-4 w-4" /> Create Campaign
         </button>
@@ -134,7 +134,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                   {/* Progress info */}
                   <div className="w-full bg-zinc-100 rounded-full h-1.5 dark:bg-zinc-800">
                     <div
-                      className="bg-teal-600 h-1.5 rounded-full transition-all"
+                      className="bg-blue-600 h-1.5 rounded-full transition-all"
                       style={{ width: `${percent}%` }}
                     />
                   </div>
@@ -211,7 +211,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="E.g., Widows Career Support Outreach"
-                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Detail the scope, target beneficiaries, timeline, and impact..."
-                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                 />
               </div>
 
@@ -241,7 +241,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                     value={targetAmount}
                     onChange={(e) => setTargetAmount(e.target.value)}
                     placeholder="500000"
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
                 <div>
@@ -251,7 +251,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   >
                     <option value="DRAFT">DRAFT</option>
                     <option value="ACTIVE">ACTIVE</option>
@@ -273,7 +273,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
                     placeholder="https://images.unsplash.com/..."
-                    className="block flex-1 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-teal-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="block flex-1 rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function CampaignManager({ initialCampaigns = [] }) {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="rounded-xl bg-teal-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-teal-700 disabled:opacity-50"
+                  className="rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-50"
                 >
                   {loading ? "Saving..." : "Save Campaign"}
                 </button>
