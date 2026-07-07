@@ -18,26 +18,39 @@ import {
 
 export default async function Home() {
   // Fetch active campaigns, blog posts, upcoming events, and testimonials from the database
-  const [campaigns, blogPosts, upcomingEvents, testimonials] = await Promise.all([
-    prisma.campaign.findMany({
-      where: { status: "ACTIVE" },
-      take: 3,
-    }),
-    prisma.blogPost.findMany({
-      where: { status: "PUBLISHED" },
-      take: 3,
-      orderBy: { createdAt: "desc" },
-    }),
-    prisma.event.findMany({
-      where: { status: "UPCOMING" },
-      take: 3,
-      orderBy: { date: "asc" },
-    }),
-    prisma.testimonial.findMany({
-      where: { status: true },
-      take: 2,
-    }),
-  ]);
+  let campaigns = [];
+  let blogPosts = [];
+  let upcomingEvents = [];
+  let testimonials = [];
+
+  try {
+    const [fetchedCampaigns, fetchedBlogPosts, fetchedUpcomingEvents, fetchedTestimonials] = await Promise.all([
+      prisma.campaign.findMany({
+        where: { status: "ACTIVE" },
+        take: 3,
+      }),
+      prisma.blogPost.findMany({
+        where: { status: "PUBLISHED" },
+        take: 3,
+        orderBy: { createdAt: "desc" },
+      }),
+      prisma.event.findMany({
+        where: { status: "UPCOMING" },
+        take: 3,
+        orderBy: { date: "asc" },
+      }),
+      prisma.testimonial.findMany({
+        where: { status: true },
+        take: 2,
+      }),
+    ]);
+    campaigns = fetchedCampaigns;
+    blogPosts = fetchedBlogPosts;
+    upcomingEvents = fetchedUpcomingEvents;
+    testimonials = fetchedTestimonials;
+  } catch (error) {
+    console.error("Database fetch failed in home page SSR:", error);
+  }
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">

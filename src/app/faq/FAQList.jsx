@@ -80,7 +80,7 @@ export default function FAQList({ categories = [] }) {
           return (
             <div
               key={item.globalIndex}
-              className={`group rounded-3xl border border-zinc-200 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 ${
+              className={`group rounded-3xl border border-zinc-200 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer ${
                 isOpen ? "ring-1 ring-blue-600 border-blue-600 shadow-lg shadow-zinc-100 dark:shadow-none" : "hover:border-zinc-300 dark:hover:border-zinc-700"
               }`}
             >
@@ -109,7 +109,7 @@ export default function FAQList({ categories = [] }) {
                   isOpen ? "max-h-[500px] border-t border-zinc-100 dark:border-zinc-800" : "max-h-0"
                 }`}
               >
-                <div className="p-6 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+                <div className="p-6 text-sm leading-7 text-zinc-600 dark:text-zinc-400 cursor-default select-text">
                   {item.answer}
                 </div>
               </div>

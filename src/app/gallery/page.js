@@ -1,4 +1,4 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import GalleryView from "@/components/GalleryView";
 import Image from "next/image";
 
@@ -8,17 +8,22 @@ export const metadata = {
 };
 
 export default async function GalleryPage() {
-  const images = await prisma.galleryImage.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  let serializedImages = [];
+  try {
+    const images = await prisma.galleryImage.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
-  // Serialize records
-  const serializedImages = images.map((img) => ({
-    ...img,
-    createdAt: img.createdAt.toISOString(),
-  }));
+    // Serialize records
+    serializedImages = images.map((img) => ({
+      ...img,
+      createdAt: img.createdAt.toISOString(),
+    }));
+  } catch (error) {
+    console.error("Database fetch failed in gallery page SSR:", error);
+  }
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">

@@ -6,9 +6,14 @@ import { ArrowLeft, User, Calendar, Tag, Mail } from "lucide-react";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("Database query failed in blog metadata generation:", error);
+  }
 
   if (!post) {
     return {
@@ -24,9 +29,14 @@ export async function generateMetadata({ params }) {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("Database query failed in blog post page SSR:", error);
+  }
 
   if (!post || post.status !== "PUBLISHED") {
     notFound();

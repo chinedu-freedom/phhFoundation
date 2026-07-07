@@ -1,4 +1,4 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import DonateForm from "./DonateForm";
 
 export const metadata = {
@@ -8,13 +8,18 @@ export const metadata = {
 
 export default async function DonatePage({ searchParams }) {
   // Fetch active campaigns for dropdown selection
-  const campaigns = await prisma.campaign.findMany({
-    where: { status: "ACTIVE" },
-    select: {
-      id: true,
-      title: true,
-    },
-  });
+  let campaigns = [];
+  try {
+    campaigns = await prisma.campaign.findMany({
+      where: { status: "ACTIVE" },
+      select: {
+        id: true,
+        title: true,
+      },
+    });
+  } catch (error) {
+    console.error("Database fetch failed in donate page SSR:", error);
+  }
 
   const resolvedParams = await searchParams;
   const initialCampaignId = resolvedParams?.campaignId || "";

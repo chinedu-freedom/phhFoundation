@@ -1,4 +1,4 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import EventsList from "@/components/EventsList";
 import Image from "next/image";
 
@@ -8,18 +8,23 @@ export const metadata = {
 };
 
 export default async function EventsPage() {
-  const events = await prisma.event.findMany({
-    orderBy: {
-      date: "desc",
-    },
-  });
+  let serializedEvents = [];
+  try {
+    const events = await prisma.event.findMany({
+      orderBy: {
+        date: "desc",
+      },
+    });
 
-  // Serialize dates for Client Component safety
-  const serializedEvents = events.map((e) => ({
-    ...e,
-    date: e.date.toISOString(),
-    createdAt: e.createdAt.toISOString(),
-  }));
+    // Serialize dates for Client Component safety
+    serializedEvents = events.map((e) => ({
+      ...e,
+      date: e.date.toISOString(),
+      createdAt: e.createdAt.toISOString(),
+    }));
+  } catch (error) {
+    console.error("Database fetch failed in events page SSR:", error);
+  }
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">

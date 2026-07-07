@@ -1,4 +1,4 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import BlogList from "@/components/BlogList";
 import Image from "next/image";
 
@@ -8,21 +8,26 @@ export const metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await prisma.blogPost.findMany({
-    where: {
-      status: "PUBLISHED",
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  let serializedPosts = [];
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: {
+        status: "PUBLISHED",
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
-  // Serialize dates for Client Component safety
-  const serializedPosts = posts.map((p) => ({
-    ...p,
-    createdAt: p.createdAt.toISOString(),
-    updatedAt: p.updatedAt.toISOString(),
-  }));
+    // Serialize dates for Client Component safety
+    serializedPosts = posts.map((p) => ({
+      ...p,
+      createdAt: p.createdAt.toISOString(),
+      updatedAt: p.updatedAt.toISOString(),
+    }));
+  } catch (error) {
+    console.error("Database fetch failed in blog page SSR:", error);
+  }
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
