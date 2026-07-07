@@ -11,10 +11,10 @@ export default async function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="relative h-10 w-10 overflow-hidden rounded-xl shadow-md shadow-blue-500/10 transition-transform group-hover:scale-105 border border-zinc-100 dark:border-zinc-800">
+          <div className="relative h-10 w-10 overflow-hidden rounded-[2px] shadow-md shadow-blue-500/10 transition-transform group-hover:scale-105 border border-zinc-100 dark:border-zinc-800">
             <Image
-              src="/logo.png"
-              alt="PHH Foundation Logo"
+              src="/logo.jpeg"
+              alt="HH Foundation Logo"
               fill
               className="object-cover"
               sizes="40px"
@@ -22,7 +22,7 @@ export default async function Header() {
             />
           </div>
           <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
-            PHH<span className="text-blue-600 dark:text-blue-400">Foundation</span>
+            HH<span className="text-blue-600 dark:text-blue-400">Foundation</span>
           </span>
         </Link>
 
@@ -70,14 +70,6 @@ export default async function Header() {
         <div className="flex items-center gap-4">
           {session ? (
             <div className="flex items-center gap-3">
-              {session.role === "ADMIN" && (
-                <Link
-                  href="/admin"
-                  className="rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold text-blue-700 transition-all hover:bg-blue-100 dark:border-blue-900/55 dark:bg-blue-950/20 dark:text-blue-400"
-                >
-                  Admin Panel
-                </Link>
-              )}
               <span className="hidden text-xs text-zinc-500 sm:inline-block dark:text-zinc-400">
                 Hi, {session.name.split(" ")[0]}
               </span>

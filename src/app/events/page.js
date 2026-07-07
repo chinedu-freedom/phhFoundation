@@ -1,9 +1,9 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import EventsList from "@/components/EventsList";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Events & Outreaches | PHH Foundation",
+  title: "Events & Outreaches | HH Foundation",
   description: "Stay updated with upcoming humanitarian outreach efforts, health missions, and community activities, or view our past successful events.",
 };
 
@@ -53,3 +53,4 @@ export default async function EventsPage() {
     </div>
   );
 }
+

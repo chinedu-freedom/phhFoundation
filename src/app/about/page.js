@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
 import { Heart, Target, Eye, Users, Mail, Shield, CheckCircle } from "lucide-react";
@@ -20,8 +20,8 @@ const Linkedin = ({ className }) => (
 );
 
 export const metadata = {
-  title: "About Us | PHH Foundation",
-  description: "Learn about the mission, vision, values, history, and dedicated team behind PHH Foundation's humanitarian, educational, and healthcare efforts.",
+  title: "About Us | HH Foundation",
+  description: "Learn about the mission, vision, values, history, and dedicated team behind HH Foundation's humanitarian, educational, and healthcare efforts.",
 };
 
 const DEFAULT_TEAM = [
@@ -29,7 +29,7 @@ const DEFAULT_TEAM = [
     id: "founder",
     name: "Dr. Emmanuel Harrison",
     role: "Founder & Executive Director",
-    bio: "Passionate about sustainable community development, medical outreaches, and youth empowerment. Leads the strategic vision of PHH Foundation.",
+    bio: "Passionate about sustainable community development, medical outreaches, and youth empowerment. Leads the strategic vision of HH Foundation.",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
     linkedin: "https://linkedin.com",
   },
@@ -163,7 +163,7 @@ export default async function AboutPage() {
                 How We Started & Why We Serve
               </h2>
               <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
-                PHH Foundation was born from a desire to address the deep gaps in educational access and basic medical care in underrepresented communities. In rural settings, many brilliant children drop out due to minor financial constraints, and preventable illnesses go untreated because of a lack of basic clinical facilities.
+                HH Foundation was born from a desire to address the deep gaps in educational access and basic medical care in underrepresented communities. In rural settings, many brilliant children drop out due to minor financial constraints, and preventable illnesses go untreated because of a lack of basic clinical facilities.
               </p>
               <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
                 What began as a small group of local volunteers pooling personal resources has grown into a structured humanitarian foundation. Today, we coordinate with domestic and international partners to carry out large-scale outreaches, sponsor hundreds of children in primary and tertiary schools, and support widows with tools to earn a livelihood.
@@ -244,7 +244,7 @@ export default async function AboutPage() {
                     </a>
                   )}
                   <a
-                    href={`mailto:info@phhfoundation.org`}
+                    href={`mailto:hephzibahhumanitarianf@gmail.com`}
                     className="text-zinc-400 hover:text-blue-600 transition-colors"
                     aria-label={`Email ${member.name}`}
                   >
@@ -259,3 +259,4 @@ export default async function AboutPage() {
     </div>
   );
 }
+

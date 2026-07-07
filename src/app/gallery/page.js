@@ -1,9 +1,9 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import GalleryView from "@/components/GalleryView";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Photo Gallery | PHH Foundation",
+  title: "Photo Gallery | HH Foundation",
   description: "Browse high-definition pictures capturing the real impact of our medical outstations, school scholarship campaigns, and women empowerment sessions.",
 };
 
@@ -52,3 +52,4 @@ export default async function GalleryPage() {
     </div>
   );
 }
+

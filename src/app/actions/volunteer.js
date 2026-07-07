@@ -1,4 +1,4 @@
-"use server";
+﻿"use server";
 
 import { prisma } from "@/lib/db";
 import { sendEmail } from "@/lib/zohoMailer";
@@ -22,13 +22,13 @@ export async function updateVolunteerStatusAction(id, status) {
     // Send status notification email to the volunteer
     const isApproved = status === "APPROVED";
     const subject = isApproved
-      ? "Volunteer Application Approved! - PHH Foundation"
-      : "Update on your Volunteer Application - PHH Foundation";
+      ? "Volunteer Application Approved! - HH Foundation"
+      : "Update on your Volunteer Application - HH Foundation";
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #f1f1f1; border-radius: 12px; background-color: #ffffff;">
         <div style="text-align: center; margin-bottom: 24px;">
-          <span style="font-size: 24px; font-weight: bold; color: #0d9488;">PHH Foundation</span>
+          <span style="font-size: 24px; font-weight: bold; color: #0d9488;">HH Foundation</span>
         </div>
         <h2 style="color: #1f2937; margin-bottom: 12px;">Hello ${application.name},</h2>
         <p style="font-size: 16px; line-height: 1.6; color: #4b5563;">
@@ -57,7 +57,7 @@ export async function updateVolunteerStatusAction(id, status) {
 
         <p style="font-size: 16px; line-height: 1.6; color: #4b5563; margin-top: 24px;">
           Warmest regards,<br />
-          <strong>The PHH Foundation Team</strong>
+          <strong>The HH Foundation Team</strong>
         </p>
       </div>
     `;
@@ -116,18 +116,18 @@ export async function createVolunteerApplicationAction(formData) {
     const thankYouHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #f1f1f1; border-radius: 12px; background-color: #ffffff;">
         <div style="text-align: center; margin-bottom: 24px;">
-          <span style="font-size: 24px; font-weight: bold; color: #0d9488;">PHH Foundation</span>
+          <span style="font-size: 24px; font-weight: bold; color: #0d9488;">HH Foundation</span>
         </div>
         <h2>Dear ${name},</h2>
-        <p>Thank you for submitting your application to volunteer with the PHH Foundation.</p>
+        <p>Thank you for submitting your application to volunteer with the HH Foundation.</p>
         <p>Our team will review your application details. You will receive an email update once your status has been updated by the administrator.</p>
-        <p>Best regards,<br/>PHH Foundation</p>
+        <p>Best regards,<br/>HH Foundation</p>
       </div>
     `;
 
     await sendEmail({
       to: email,
-      subject: "Volunteer Application Received - PHH Foundation",
+      subject: "Volunteer Application Received - HH Foundation",
       html: thankYouHtml,
     });
 
@@ -137,3 +137,4 @@ export async function createVolunteerApplicationAction(formData) {
     return { error: "Could not submit application. Please try again." };
   }
 }
+

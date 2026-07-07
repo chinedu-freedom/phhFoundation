@@ -57,7 +57,7 @@ export function getDonationThankYouHTML({ donorName, amount, campaignTitle, refe
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #f1f1f1; border-radius: 12px; background-color: #ffffff;">
       <div style="text-align: center; margin-bottom: 24px;">
-        <span style="font-size: 24px; font-weight: bold; color: #0d9488;">PHH Foundation</span>
+        <span style="font-size: 24px; font-weight: bold; color: #0d9488;">HH Foundation</span>
       </div>
       <h2 style="color: #1f2937; margin-bottom: 12px;">Dear ${donorName},</h2>
       <p style="font-size: 16px; line-height: 1.6; color: #4b5563;">
@@ -85,7 +85,7 @@ export function getDonationThankYouHTML({ donorName, amount, campaignTitle, refe
       </p>
       <p style="font-size: 16px; line-height: 1.6; color: #4b5563; margin-top: 24px;">
         Warmest regards,<br />
-        <strong>The PHH Foundation Team</strong>
+        <strong>The HH Foundation Team</strong>
       </p>
     </div>
   `;

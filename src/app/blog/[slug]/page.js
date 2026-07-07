@@ -12,12 +12,12 @@ export async function generateMetadata({ params }) {
 
   if (!post) {
     return {
-      title: "Post Not Found | PHH Foundation",
+      title: "Post Not Found | HH Foundation",
     };
   }
 
   return {
-    title: `${post.title} | PHH Foundation Blog`,
+    title: `${post.title} | HH Foundation Blog`,
     description: post.content.substring(0, 150),
   };
 }

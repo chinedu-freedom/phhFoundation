@@ -1,4 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
+﻿const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 
 const prisma = new PrismaClient();
@@ -7,7 +7,7 @@ async function main() {
   console.log("Seeding started...");
 
   // 1. Create Admin User
-  const adminEmail = "admin@phhfoundation.org";
+  const adminEmail = "admin@hhfoundation.org";
   const existingAdmin = await prisma.user.findUnique({
     where: { email: adminEmail },
   });
@@ -17,12 +17,12 @@ async function main() {
     await prisma.user.create({
       data: {
         email: adminEmail,
-        name: "PHH Foundation Admin",
+        name: "HH Foundation Admin",
         password: hashedPassword,
         role: "ADMIN",
       },
     });
-    console.log("Created admin user: admin@phhfoundation.org / admin123");
+    console.log("Created admin user: admin@hhfoundation.org / admin123");
   } else {
     console.log("Admin user already exists");
   }
@@ -92,7 +92,7 @@ async function main() {
       title: "Youth Tech Bootcamp",
       description: "A free 2-week intensive programming and web design workshop for teenagers from underserved neighborhoods.",
       date: new Date("2026-08-10T09:00:00Z"),
-      venue: "PHH Innovation Center, Port Harcourt",
+      venue: "HH Innovation Center, Port Harcourt",
       image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=60",
       registrationRequired: true,
       attendeesCount: 45,
@@ -122,11 +122,11 @@ async function main() {
     {
       title: "Transforming Lives Through Digital Education",
       slug: "transforming-lives-digital-education",
-      content: "Education is the most powerful weapon which you can use to change the world. In today's digital era, computer literacy is no longer optional. At PHH Foundation, we believe every child deserves access to tech education. Our recent bootcamp empowered 50 students with coding skills, opening new doors of opportunities. We are building a modern computer laboratory to make this learning continuous. Supporting this campaign can change a child's future forever.",
+      content: "Education is the most powerful weapon which you can use to change the world. In today's digital era, computer literacy is no longer optional. At HH Foundation, we believe every child deserves access to tech education. Our recent bootcamp empowered 50 students with coding skills, opening new doors of opportunities. We are building a modern computer laboratory to make this learning continuous. Supporting this campaign can change a child's future forever.",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60",
       category: "Education",
       authorName: "Sarah Johnson",
-      authorEmail: "sarah.j@phhfoundation.org",
+      authorEmail: "sarah.j@hhfoundation.org",
       status: "PUBLISHED",
     },
     {
@@ -136,7 +136,7 @@ async function main() {
       image: "https://images.unsplash.com/photo-1584515901367-f1c27b744aae?w=800&auto=format&fit=crop&q=60",
       category: "Healthcare",
       authorName: "Dr. David Alao",
-      authorEmail: "david.a@phhfoundation.org",
+      authorEmail: "david.a@hhfoundation.org",
       status: "PUBLISHED",
     },
   ];
@@ -152,13 +152,13 @@ async function main() {
     {
       name: "Chinyere Okeke",
       role: "Scholarship Beneficiary",
-      quote: "Thanks to the PHH Foundation scholarship, I am currently studying Computer Science at the university. My dream of becoming a software engineer is now a reality. My widowed mother didn't have to worry about tuition.",
+      quote: "Thanks to the HH Foundation scholarship, I am currently studying Computer Science at the university. My dream of becoming a software engineer is now a reality. My widowed mother didn't have to worry about tuition.",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60",
     },
     {
       name: "Mark Harrison",
       role: "Global Partner Sponsor",
-      quote: "Partnering with PHH Foundation has been an absolute honor. Their transparency, regular updates, and direct community impact set them apart. We look forward to sponsoring more healthcare drives next year.",
+      quote: "Partnering with HH Foundation has been an absolute honor. Their transparency, regular updates, and direct community impact set them apart. We look forward to sponsoring more healthcare drives next year.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60",
     },
   ];
@@ -180,3 +180,4 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+

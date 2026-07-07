@@ -1,10 +1,10 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import ContactForm from "./ContactForm";
 import { MapPin, Phone, Mail, Clock, ShieldAlert } from "lucide-react";
 
 export const metadata = {
-  title: "Contact Us | PHH Foundation",
-  description: "Get in touch with the PHH Foundation team. Find our office address, phone numbers, email details, and submission form.",
+  title: "Contact Us | HH Foundation",
+  description: "Get in touch with the HH Foundation team. Find our office address, phone numbers, email details, and submission form.",
 };
 
 export default function ContactPage() {
@@ -52,7 +52,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-poppins">Headquarters</h4>
                       <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 leading-5">
-                        PHH Innovation Center, Port Harcourt, Rivers State, Nigeria
+                        HH Innovation Center, Port Harcourt, Rivers State, Nigeria
                       </p>
                     </div>
                   </li>
@@ -76,7 +76,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-poppins">Email Address</h4>
                       <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 font-semibold">
-                        info@phhfoundation.org
+                        hephzibahhumanitarianf@gmail.com
                       </p>
                     </div>
                   </li>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                 {/* Embedded Iframe Mock or Simulated Map graphic */}
                 <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center bg-blue-950 text-white">
                   <MapPin className="h-8 w-8 text-blue-400 animate-bounce mb-3" />
-                  <h4 className="font-bold text-sm font-poppins">PHH Innovation Center Location</h4>
+                  <h4 className="font-bold text-sm font-poppins">HH Innovation Center Location</h4>
                   <p className="text-xs text-blue-200 mt-2">
                     Port Harcourt, Rivers State, Nigeria
                   </p>
@@ -126,3 +126,4 @@ export default function ContactPage() {
     </div>
   );
 }
+

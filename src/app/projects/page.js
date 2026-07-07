@@ -1,10 +1,10 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
 import { DollarSign, ShieldCheck, TrendingUp, Calendar } from "lucide-react";
 
 export const metadata = {
-  title: "Projects & Campaigns | PHH Foundation",
+  title: "Projects & Campaigns | HH Foundation",
   description: "View active and completed humanitarian projects and campaigns. Track donation progress and see how your support changes lives.",
 };
 
@@ -174,3 +174,4 @@ export default async function ProjectsPage() {
     </div>
   );
 }
+

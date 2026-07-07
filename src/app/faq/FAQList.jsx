@@ -36,9 +36,9 @@ export default function FAQList({ categories = [] }) {
   return (
     <div className="space-y-10">
       {/* Search and Category Filter Bar */}
-      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-b border-zinc-100 pb-8 dark:border-zinc-800">
+      <div className="flex flex-col items-center justify-center gap-6 border-b border-zinc-100 pb-8 dark:border-zinc-800">
         {/* Live Search */}
-        <div className="relative flex-1 max-w-md">
+        <div className="relative w-full max-w-md">
           <Search className="absolute left-3.5 top-3.5 h-4 w-4 text-zinc-400" />
           <input
             type="text"
@@ -53,7 +53,7 @@ export default function FAQList({ categories = [] }) {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           {["All", ...categories.map((c) => c.category)].map((cat) => (
             <button
               key={cat}
@@ -61,7 +61,7 @@ export default function FAQList({ categories = [] }) {
                 setSelectedCategory(cat);
                 setExpandedIndex(null); // Reset accordion
               }}
-              className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all ${
+              className={`rounded-xl px-4 py-2.5 text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
                   : "bg-zinc-50 text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
@@ -86,7 +86,7 @@ export default function FAQList({ categories = [] }) {
             >
               <button
                 onClick={() => handleToggle(item.globalIndex)}
-                className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+                className="flex w-full items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
               >
                 <div className="flex items-center gap-3">
                   <HelpCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0" />
@@ -134,7 +134,7 @@ export default function FAQList({ categories = [] }) {
         </p>
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="mailto:info@phhfoundation.org"
+            href="mailto:hephzibahhumanitarianf@gmail.com"
             className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
           >
             <Mail className="h-4 w-4" /> Email support
@@ -150,3 +150,4 @@ export default function FAQList({ categories = [] }) {
     </div>
   );
 }
+

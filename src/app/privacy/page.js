@@ -1,9 +1,9 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Shield, Lock, Eye, RefreshCw } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | PHH Foundation",
-  description: "Learn how the PHH Foundation collects, uses, and secures your personal and transactional information in compliance with GDPR and NDPR guidelines.",
+  title: "Privacy Policy | HH Foundation",
+  description: "Learn how the HH Foundation collects, uses, and secures your personal and transactional information in compliance with GDPR and NDPR guidelines.",
 };
 
 export default function PrivacyPage() {
@@ -81,8 +81,8 @@ export default function PrivacyPage() {
             </h2>
             <p>
               Under global data protection standards, you have the right to request access to, edit, or request complete deletion of any personal information we hold. For data erasure queries, please email us directly at{" "}
-              <a href="mailto:privacy@phhfoundation.org" className="text-blue-600 hover:underline dark:text-blue-400 font-bold">
-                privacy@phhfoundation.org
+              <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 hover:underline dark:text-blue-400 font-bold">
+                hephzibahhumanitarianf@gmail.com
               </a>.
             </p>
           </section>
@@ -92,3 +92,4 @@ export default function PrivacyPage() {
     </div>
   );
 }
+

@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
 const SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || "phhfoundation-default-fallback-secret-key-12345"
+  process.env.JWT_SECRET || "hhfoundation-default-fallback-secret-key-12345"
 );
 
 export async function encrypt(payload) {

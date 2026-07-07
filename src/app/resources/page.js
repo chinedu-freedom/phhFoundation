@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Search, FileText, Download, ShieldCheck, ArrowDownToLine, Info } from "lucide-react";
@@ -27,7 +27,7 @@ const RESOURCES = [
   },
   {
     id: "constitution",
-    title: "PHH Foundation Constitution & Charter",
+    title: "HH Foundation Constitution & Charter",
     description: "Our legal governance framework, code of ethics, board rules, and transparency pledges.",
     category: "Governance",
     fileSize: "950 KB",
@@ -114,7 +114,7 @@ export default function ResourcesPage() {
             <div className="space-y-1">
               <h4 className="text-sm font-bold text-zinc-900 dark:text-white">Our Commitment to Accountability</h4>
               <p className="text-xs text-zinc-655 dark:text-zinc-400 leading-relaxed">
-                As a registered humanitarian trust, PHH Foundation operates under strict stewardship mandates. All annual financial audits are compiled by accredited third-party chartered accountants and posted here for public download.
+                As a registered humanitarian trust, HH Foundation operates under strict stewardship mandates. All annual financial audits are compiled by accredited third-party chartered accountants and posted here for public download.
               </p>
             </div>
           </div>
@@ -207,3 +207,4 @@ export default function ResourcesPage() {
     </div>
   );
 }
+

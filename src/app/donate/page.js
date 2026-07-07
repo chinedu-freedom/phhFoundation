@@ -1,8 +1,8 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import DonateForm from "./DonateForm";
 
 export const metadata = {
-  title: "Make a Donation | PHH Foundation",
+  title: "Make a Donation | HH Foundation",
   description: "Support our campaigns. Donate via Paystack, Flutterwave, Stripe, or Bank Transfer.",
 };
 
@@ -37,3 +37,4 @@ export default async function DonatePage({ searchParams }) {
     </div>
   );
 }
+

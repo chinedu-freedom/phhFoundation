@@ -1,12 +1,12 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/components/CountUp";
 import { Award, CheckCircle, Quote, FileDown, PieChart, TrendingUp, Heart } from "lucide-react";
 
 export const metadata = {
-  title: "Our Impact & Transparency | PHH Foundation",
-  description: "Read about the verifiable, life-changing impact metrics, financial audits, transparency ratings, and beneficiary testimonials from PHH Foundation.",
+  title: "Our Impact & Transparency | HH Foundation",
+  description: "Read about the verifiable, life-changing impact metrics, financial audits, transparency ratings, and beneficiary testimonials from HH Foundation.",
 };
 
 const STATS = [
@@ -21,14 +21,14 @@ const DEFAULT_TESTIMONIALS = [
     id: "t1",
     name: "Chinyere Okeke",
     role: "Scholarship Beneficiary",
-    quote: "Thanks to the PHH Foundation scholarship, I am currently studying Computer Science at the university. My dream of becoming a software engineer is now a reality. My widowed mother didn't have to worry about tuition.",
+    quote: "Thanks to the HH Foundation scholarship, I am currently studying Computer Science at the university. My dream of becoming a software engineer is now a reality. My widowed mother didn't have to worry about tuition.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80",
   },
   {
     id: "t2",
     name: "Mark Harrison",
     role: "Global Partner Sponsor",
-    quote: "Partnering with PHH Foundation has been an absolute honor. Their transparency, regular updates, and direct community impact set them apart. We look forward to sponsoring more healthcare drives next year.",
+    quote: "Partnering with HH Foundation has been an absolute honor. Their transparency, regular updates, and direct community impact set them apart. We look forward to sponsoring more healthcare drives next year.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
   },
 ];
@@ -148,7 +148,7 @@ export default async function ImpactPage() {
                 Our Commitment to Transparency
               </h2>
               <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
-                At the PHH Foundation, we know that every donor places immense trust in our hands. That is why we maintain zero-tolerance policies on administrative waste. By prioritizing volunteer operations and negotiating direct bulk logistics with partner clinics, we ensure <strong>85% of all incoming donations</strong> go directly to scholarships, medical checkups, and relief materials.
+                At the HH Foundation, we know that every donor places immense trust in our hands. That is why we maintain zero-tolerance policies on administrative waste. By prioritizing volunteer operations and negotiating direct bulk logistics with partner clinics, we ensure <strong>85% of all incoming donations</strong> go directly to scholarships, medical checkups, and relief materials.
               </p>
               <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
                 We submit our finances to annual third-party audits, ensuring our balance sheets are verified and available to the general public.
@@ -220,3 +220,4 @@ export default async function ImpactPage() {
     </div>
   );
 }
+

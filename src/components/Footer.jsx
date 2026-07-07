@@ -10,24 +10,24 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="relative h-9 w-9 overflow-hidden rounded-lg shadow-sm border border-zinc-200 dark:border-zinc-800">
+              <div className="relative h-10 w-10 overflow-hidden rounded-lg shadow-sm border border-zinc-200 dark:border-zinc-800">
                 <Image
-                  src="/logo.png"
-                  alt="PHH Foundation Logo"
+                  src="/logo.jpeg"
+                  alt="HH Foundation Logo"
                   fill
                   className="object-cover"
-                  sizes="36px"
+                  sizes="40px"
                 />
               </div>
               <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
-                PHH<span className="text-blue-600 dark:text-blue-400">Foundation</span>
+                HH<span className="text-blue-600 dark:text-blue-400">Foundation</span>
               </span>
             </Link>
             <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
               Dedicated to transforming lives through impactful humanitarian aid, quality educational access, medical outreaches, and skill empowerment programs.
             </p>
             <div className="flex items-center gap-4 text-xs font-semibold text-zinc-400">
-              <span>© {new Date().getFullYear()} PHH Foundation. All rights reserved.</span>
+              <span>© {new Date().getFullYear()} HH Foundation. All rights reserved.</span>
             </div>
           </div>
 
@@ -98,7 +98,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  PHH Innovation Center, Port Harcourt, Rivers State, Nigeria
+                  HH Innovation Center, Port Harcourt, Rivers State, Nigeria
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -110,7 +110,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  info@phhfoundation.org
+                  hephzibahhumanitarianf@gmail.com
                 </span>
               </li>
             </ul>

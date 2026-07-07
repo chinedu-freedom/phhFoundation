@@ -1,10 +1,10 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Stethoscope, Briefcase, Apple, ShieldAlert, Heart, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Our Programs | PHH Foundation",
-  description: "Explore the core humanitarian, educational, medical, and skill development programs of the PHH Foundation.",
+  title: "Our Programs | HH Foundation",
+  description: "Explore the core humanitarian, educational, medical, and skill development programs of the HH Foundation.",
 };
 
 const PROGRAMS = [
@@ -176,3 +176,4 @@ export default function ProgramsPage() {
     </div>
   );
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useActionState, useEffect, Suspense } from "react";
 import { loginAction } from "@/app/actions/auth";
@@ -85,8 +85,8 @@ export default function Login() {
         <div className="flex flex-col items-center">
           <div className="relative h-12 w-12 overflow-hidden rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800">
             <Image
-              src="/logo.png"
-              alt="PHH Foundation Logo"
+              src="/logo.jpeg"
+              alt="HH Foundation Logo"
               fill
               className="object-cover"
               sizes="48px"
@@ -119,3 +119,4 @@ export default function Login() {
     </div>
   );
 }
+

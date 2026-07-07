@@ -1,9 +1,9 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { FileCheck, Landmark, RefreshCw } from "lucide-react";
 
 export const metadata = {
-  title: "Terms of Service | PHH Foundation",
-  description: "Read the governing terms and conditions regarding donations, platform usage, and volunteer agreements with the PHH Foundation.",
+  title: "Terms of Service | HH Foundation",
+  description: "Read the governing terms and conditions regarding donations, platform usage, and volunteer agreements with the HH Foundation.",
 };
 
 export default function TermsPage() {
@@ -43,7 +43,7 @@ export default function TermsPage() {
               Donations & Refund Policy
             </h2>
             <p>
-              All donations made through our secure payment gateway simulation are contributions towards the humanitarian and educational operations of the PHH Foundation. Because these funds are immediately allocated to active community projects, medical outreach supplies, or student tuitions, **all donations are non-refundable**.
+              All donations made through our secure payment gateway simulation are contributions towards the humanitarian and educational operations of the HH Foundation. Because these funds are immediately allocated to active community projects, medical outreach supplies, or student tuitions, **all donations are non-refundable**.
             </p>
           </section>
 
@@ -63,7 +63,7 @@ export default function TermsPage() {
               Limitation of Liability
             </h2>
             <p>
-              PHH Foundation will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website, including transaction interruptions or unauthorized account activities.
+              HH Foundation will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website, including transaction interruptions or unauthorized account activities.
             </p>
           </section>
 
@@ -82,3 +82,4 @@ export default function TermsPage() {
     </div>
   );
 }
+

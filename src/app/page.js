@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/db";
 import CountUp from "@/components/CountUp";
+import EventsCarousel from "@/components/EventsCarousel";
 import { 
   Heart, 
   GraduationCap, 
@@ -63,7 +64,7 @@ export default async function Home() {
               Together We Can <span className="text-sky-300">Transform Lives</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-blue-100 max-w-xl">
-              Join the PHH Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
+              Join the HH Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -128,7 +129,7 @@ export default async function Home() {
               Providing Hope, Support and Empowerment to the Vulnerable
             </h2>
             <p className="mt-6 text-base leading-7 text-slate-600 dark:text-zinc-400">
-              PHH Foundation is a non-governmental organization committed to helping families, widows, orphans, and students from impoverished backgrounds. We develop actionable programs in education, medical services, and career development to bring long-term sustainable growth to local communities.
+              HH Foundation is a non-governmental organization committed to helping families, widows, orphans, and students from impoverished backgrounds. We develop actionable programs in education, medical services, and career development to bring long-term sustainable growth to local communities.
             </p>
             <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div className="flex gap-4">
@@ -347,74 +348,64 @@ export default async function Home() {
         </section>
       )}
 
-      {/* 7. Events & News */}
-      <section className="mx-auto max-w-7xl px-6 py-24 sm:px-8 sm:py-32">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
-          {/* Upcoming Events (Left) */}
-          <div className="lg:col-span-5">
-            <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Join Us</span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-              Upcoming Events
-            </h2>
-            <div className="mt-8 space-y-6">
-              {upcomingEvents.map((e) => (
-                <div key={e.id} className="flex gap-6 p-4 rounded-2xl bg-white border border-slate-100 hover:border-slate-200 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:border-zinc-700 transition-all shadow-sm">
-                  <div className="flex flex-col items-center justify-center shrink-0 w-16 h-20 rounded-xl bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400 font-bold">
-                    <span className="text-xl">
-                      {new Date(e.date).getDate()}
-                    </span>
-                    <span className="text-xs uppercase tracking-wider">
-                      {new Date(e.date).toLocaleDateString("en", { month: "short" })}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white line-clamp-1">{e.title}</h3>
-                    <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5 text-blue-600" /> {e.venue}
-                    </p>
-                    <p className="mt-2 text-xs text-slate-500 dark:text-slate-400 line-clamp-1">{e.description}</p>
-                  </div>
-                </div>
-              ))}
-              {upcomingEvents.length === 0 && (
-                <p className="text-sm text-slate-500 dark:text-slate-400">No upcoming events scheduled at the moment.</p>
-              )}
-            </div>
-          </div>
+      {/* 7. Upcoming Events */}
+      <section className="mx-auto max-w-[78rem] px-6 py-24 sm:px-8 sm:py-32">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Join Us</span>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+            Upcoming Events
+          </h2>
+          <p className="mt-4 text-base text-slate-500 dark:text-slate-400">
+            Be part of our mission. Join us in our upcoming community drives, outreaches, and charity events.
+          </p>
+        </div>
+        <EventsCarousel events={upcomingEvents} />
+      </section>
 
-          {/* Latest News (Right) */}
-          <div className="lg:col-span-7">
-            <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">From the Blog</span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-              Latest Articles
-            </h2>
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {blogPosts.map((p) => (
-                <div key={p.id} className="flex flex-col rounded-2xl bg-white border border-slate-200 overflow-hidden dark:bg-zinc-900 dark:border-zinc-800">
-                  <div className="relative aspect-video">
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
-                        {p.category}
-                      </span>
-                      <h3 className="mt-2 font-bold text-slate-900 dark:text-white line-clamp-2">
-                        {p.title}
-                      </h3>
-                    </div>
-                    <Link href={`/blog`} className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700">
-                      Read post <ChevronRight className="h-3.5 w-3.5" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+      {/* 7.5. Latest News / Blog */}
+      <section className="bg-slate-100/50 dark:bg-zinc-950/40 border-t border-b border-slate-200/60 dark:border-zinc-800/60 py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-xl">
+              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">From the Blog</span>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl dark:text-white">
+                Latest Articles
+              </h2>
             </div>
+            <Link 
+              href="/blog" 
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-white dark:hover:bg-zinc-900 px-5 py-3 text-sm font-bold text-slate-800 dark:text-white transition-all shadow-sm active:scale-[0.98]"
+            >
+              View All Articles <ChevronRight className="h-4 w-4" />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.map((p) => (
+              <div key={p.id} className="flex flex-col rounded-3xl bg-white border border-slate-100 overflow-hidden dark:bg-zinc-900 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all group">
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
+                      {p.category}
+                    </span>
+                    <h3 className="mt-3 font-bold text-lg text-slate-900 dark:text-white line-clamp-2 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {p.title}
+                    </h3>
+                  </div>
+                  <Link href={`/blog/${p.slug}`} className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700">
+                    Read post <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

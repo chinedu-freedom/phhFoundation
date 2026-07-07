@@ -1,8 +1,8 @@
-import { Landmark, Cookie, RefreshCw } from "lucide-react";
+﻿import { Landmark, Cookie, RefreshCw } from "lucide-react";
 
 export const metadata = {
-  title: "Cookie Policy | PHH Foundation",
-  description: "Read about how the PHH Foundation platform utilizes cookies, session trackers, and analytics tools to support donations and newsletter updates.",
+  title: "Cookie Policy | HH Foundation",
+  description: "Read about how the HH Foundation platform utilizes cookies, session trackers, and analytics tools to support donations and newsletter updates.",
 };
 
 export default function CookiesPage() {
@@ -42,7 +42,7 @@ export default function CookiesPage() {
               How We Use Cookies
             </h2>
             <p>
-              On the PHH Foundation website, we utilize cookies for the following operational needs:
+              On the HH Foundation website, we utilize cookies for the following operational needs:
             </p>
             <ul className="list-disc pl-5 space-y-1.5 font-semibold text-zinc-650 dark:text-zinc-400">
               <li><strong>Session Cookies:</strong> Keeping you logged into your secure Admin Dashboard.</li>
@@ -67,3 +67,4 @@ export default function CookiesPage() {
     </div>
   );
 }
+

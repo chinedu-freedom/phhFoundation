@@ -1,4 +1,4 @@
-"use server";
+﻿"use server";
 
 import { prisma } from "@/lib/db";
 import { sendEmail, getDonationThankYouHTML } from "@/lib/zohoMailer";
@@ -23,7 +23,7 @@ export async function createDonationAction(prevState, formData) {
 
   try {
     const session = await getSession();
-    const reference = `PHH-DON-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const reference = `HH-DON-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     const donation = await prisma.donation.create({
       data: {
@@ -89,7 +89,7 @@ export async function confirmDonationAction(reference) {
       const emailHtml = getDonationThankYouHTML({
         donorName: donation.isAnonymous ? "Valued Supporter" : donation.donorName,
         amount: donation.amount,
-        campaignTitle: donation.campaign?.title || "PHH Foundation General Fund",
+        campaignTitle: donation.campaign?.title || "HH Foundation General Fund",
         reference: donation.reference,
       });
 
@@ -105,7 +105,7 @@ export async function confirmDonationAction(reference) {
       data: {
         action: "DONATION_RECEIVED",
         details: `Donation of ₦${donation.amount} received from ${donation.isAnonymous ? "Anonymous" : donation.donorName} for ${donation.campaign?.title || "General Fund"}. Ref: ${donation.reference}`,
-        userEmail: donation.donorEmail || "anonymous@phhfoundation.org",
+        userEmail: donation.donorEmail || "anonymous@hhfoundation.org",
       },
     });
 
@@ -115,3 +115,4 @@ export async function confirmDonationAction(reference) {
     return { error: "Error finalizing donation status." };
   }
 }
+

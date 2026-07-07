@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useActionState, useEffect, useState } from "react";
 import { createVolunteerApplicationAction } from "@/app/actions/volunteer";
@@ -25,7 +25,7 @@ export default function GetInvolvedPage() {
           Application Received!
         </h1>
         <p className="mt-4 text-base text-zinc-500 dark:text-zinc-400">
-          Thank you for applying to be a volunteer at PHH Foundation. We have sent a confirmation email to the address provided. Our admin team will review your application soon.
+          Thank you for applying to be a volunteer at HH Foundation. We have sent a confirmation email to the address provided. Our admin team will review your application soon.
         </p>
         <div className="mt-10 flex justify-center gap-4">
           <Link
@@ -84,8 +84,8 @@ export default function GetInvolvedPage() {
             <h4 className="font-bold text-zinc-900 dark:text-white">Need immediate support?</h4>
             <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
               If you have any questions about volunteer roles or locations, write to us at{" "}
-              <a href="mailto:info@phhfoundation.org" className="text-blue-600 dark:text-blue-400 font-semibold">
-                info@phhfoundation.org
+              <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 dark:text-blue-400 font-semibold">
+                hephzibahhumanitarianf@gmail.com
               </a>.
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function GetInvolvedPage() {
               name="motivation"
               rows="4"
               className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
-              placeholder="Tell us briefly why you wish to volunteer with the PHH Foundation..."
+              placeholder="Tell us briefly why you wish to volunteer with the HH Foundation..."
             />
           </div>
 
@@ -213,3 +213,4 @@ export default function GetInvolvedPage() {
     </div>
   );
 }
+

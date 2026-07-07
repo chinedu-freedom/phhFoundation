@@ -1,10 +1,10 @@
-import { prisma } from "@/lib/db";
+﻿import { prisma } from "@/lib/db";
 import BlogList from "@/components/BlogList";
 import Image from "next/image";
 
 export const metadata = {
-  title: "News & Blog Updates | PHH Foundation",
-  description: "Stay informed with the latest updates, field reports, success stories, and newsletters from the PHH Foundation.",
+  title: "News & Blog Updates | HH Foundation",
+  description: "Stay informed with the latest updates, field reports, success stories, and newsletters from the HH Foundation.",
 };
 
 export default async function BlogPage() {
@@ -56,3 +56,4 @@ export default async function BlogPage() {
     </div>
   );
 }
+

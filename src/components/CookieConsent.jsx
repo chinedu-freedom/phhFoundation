@@ -9,7 +9,7 @@ export default function CookieConsent() {
 
   useEffect(() => {
     // Check if consent already exists in local storage
-    const consent = localStorage.getItem("phh_cookie_consent");
+    const consent = localStorage.getItem("hh_cookie_consent");
     if (!consent) {
       // Small delay before showing banner for premium feel
       const timer = setTimeout(() => {
@@ -20,12 +20,12 @@ export default function CookieConsent() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem("phh_cookie_consent", "accepted");
+    localStorage.setItem("hh_cookie_consent", "accepted");
     setShowBanner(false);
   };
 
   const handleReject = () => {
-    localStorage.setItem("phh_cookie_consent", "rejected");
+    localStorage.setItem("hh_cookie_consent", "rejected");
     setShowBanner(false);
   };
 

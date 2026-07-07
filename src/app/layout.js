@@ -19,7 +19,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "PHH Foundation | Transforming Lives, Building Hope",
+  title: "HH Foundation | Transforming Lives, Building Hope",
   description: "Dedicated to humanitarian aid, educational sponsorships, healthcare outreach, and skill empowerment.",
 };
 

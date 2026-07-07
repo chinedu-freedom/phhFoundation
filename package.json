@@ -1,15 +1,16 @@
 {
-  "name": "phhfoundation",
+  "name": "hhfoundation",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
+    "@sanity/client": "^7.23.0",
     "axios": "^1.18.1",
     "bcryptjs": "^3.0.3",
     "jose": "^6.2.3",
