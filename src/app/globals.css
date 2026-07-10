@@ -46,10 +46,22 @@
   --color-border-color: var(--border-color);
   
   --animate-marquee: marquee 30s linear infinite;
+  --animate-fadeIn: fadeIn 0.25s ease-out forwards;
   
   @keyframes marquee {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

@@ -23,6 +23,7 @@ export default async function DonatePage({ searchParams }) {
 
   const resolvedParams = await searchParams;
   const initialCampaignId = resolvedParams?.campaignId || "";
+  const initialAmount = resolvedParams?.amount || "";
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
@@ -38,7 +39,7 @@ export default async function DonatePage({ searchParams }) {
         </p>
       </div>
 
-      <DonateForm campaigns={campaigns} initialCampaignId={initialCampaignId} />
+      <DonateForm campaigns={campaigns} initialCampaignId={initialCampaignId} initialAmount={initialAmount} />
     </div>
   );
 }

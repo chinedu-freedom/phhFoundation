@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, MapPin, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ArrowRight } from "lucide-react";
 
 export default function EventsCarousel({ events }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -12,10 +12,6 @@ export default function EventsCarousel({ events }) {
 
   const nextSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % events.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + events.length) % events.length);
   };
 
   const goToSlide = (index) => {
@@ -136,25 +132,7 @@ export default function EventsCarousel({ events }) {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
-      {events.length > 1 && (
-        <>
-          <button 
-            onClick={prevSlide}
-            className="absolute -left-5 z-30 top-1/2 cursor-pointer -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 text-slate-800 dark:text-white shadow-md hover:bg-slate-50 dark:hover:bg-zinc-700 transition-all border border-slate-100 dark:border-zinc-700 hover:scale-105 active:scale-95"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="absolute -right-5 z-30 top-1/2 cursor-pointer -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 text-slate-800 dark:text-white shadow-md hover:bg-slate-50 dark:hover:bg-zinc-700 transition-all border border-slate-100 dark:border-zinc-700 hover:scale-105 active:scale-95"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-        </>
-      )}
+
 
       {/* Indicator Dots */}
       {events.length > 1 && (

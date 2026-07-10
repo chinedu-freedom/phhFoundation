@@ -1,7 +1,9 @@
-﻿import { prisma } from "@/lib/db";
+import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Target, Eye, Users, Mail, Shield, CheckCircle } from "lucide-react";
+import { Heart, Users, Mail, CheckCircle, Award, Video, FileText, ExternalLink, Sparkles, MapPin } from "lucide-react";
+
+import PageHeader from "@/components/PageHeader";
 
 const Linkedin = ({ className }) => (
   <svg
@@ -27,10 +29,10 @@ export const metadata = {
 const DEFAULT_TEAM = [
   {
     id: "founder",
-    name: "Dr. Emmanuel Harrison",
+    name: "Princess Hephzibah",
     role: "Founder & Executive Director",
-    bio: "Passionate about sustainable community development, medical outreaches, and youth empowerment. Leads the strategic vision of HH Foundation.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
+    bio: "Championing humanitarian responses since 2012. Dedicated to quality education, healthcare outreaches, and youth empowerment across Nigeria.",
+    image: "/image.jpeg",
     linkedin: "https://linkedin.com",
   },
   {
@@ -74,62 +76,59 @@ export default async function AboutPage() {
     teamMembers = DEFAULT_TEAM;
   }
 
+  // List of award image paths from public folder
+  const awardImages = [
+    { src: "/hall of fame.jpeg", title: "Hall of Fame" },
+    { src: "/reward.jpeg", title: "Community Service Honor" },
+    { src: "/reward1.jpeg", title: "Excellence Award" },
+    { src: "/reward2.jpeg", title: "Outreach Recognition" },
+    { src: "/reward5.jpeg", title: "Youth Empowerment Award" },
+    { src: "/reward10.jpeg", title: "Leadership Honor" }
+  ];
+
+  // Drive Evidence Folders
+  const driveLinks = [
+    { label: "Garki Chiefdom Council Recognition", url: "https://drive.google.com/drive/folders/1Q3ubeeFIKPHIL_9HuTbDbjauTNsJ1SgS" },
+    { label: "Ahmadu Bello University Awards", url: "https://drive.google.com/drive/folders/1nCxkuqWjLy-0bmXx58QrQBG-iYc-Kl_k" },
+    { label: "Management Professionals Honors", url: "https://drive.google.com/drive/folders/1bCod0sFyHWIRVQTRZyRNAU6SlCefw5WK" },
+    { label: "Foundation Outreach Archives", url: "https://drive.google.com/drive/folders/19J-zRuv08OjwCb0IESekIYM8cNZ9Ug9i" }
+  ];
+
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
       {/* 1. Header Banner */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-20 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
-          <Image
-            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&auto=format&fit=crop&q=80"
-            alt="Classroom education background"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-200">Who We Are</span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl font-poppins">
-            Transforming Lives, Building Hope
-          </h1>
-          <p className="mt-6 mx-auto max-w-2xl text-lg text-blue-100">
-            Dedicated to empowering marginalized communities through access to education, qualitative healthcare services, emergency relief, and skill acquisition.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        subtitle="Who We Are"
+        title="Transforming Lives, Building Hope"
+        description="Dedicated to empowering marginalized communities through access to education, qualitative healthcare services, emergency relief, and skill acquisition."
+        bgImage="/group.jpeg"
+        alt="Classroom education background"
+      />
 
       {/* 2. Mission & Vision */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {/* Mission */}
-            <div className="flex flex-col gap-6 rounded-3xl bg-white p-8 border border-zinc-100 shadow-lg shadow-zinc-200/50 dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none transition-transform hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
-                <Target className="h-6 w-6" />
-              </div>
+            <div className="flex flex-col gap-4 rounded-3xl bg-white p-8 border border-slate-100/70 shadow-lg shadow-zinc-200/20 dark:bg-zinc-900 dark:border-zinc-800/85 dark:shadow-none transition-transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white font-poppins">Our Mission</h3>
-              <p className="text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+              <p className="text-xs leading-6 text-zinc-650 dark:text-zinc-400">
                 To identify, support, and lift individuals and families out of extreme vulnerability by facilitating educational sponsorships, qualitative healthcare outreach, skill empowerment, and resource support.
               </p>
             </div>
 
             {/* Vision */}
-            <div className="flex flex-col gap-6 rounded-3xl bg-white p-8 border border-zinc-100 shadow-lg shadow-zinc-200/50 dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none transition-transform hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
-                <Eye className="h-6 w-6" />
-              </div>
+            <div className="flex flex-col gap-4 rounded-3xl bg-white p-8 border border-slate-100/70 shadow-lg shadow-zinc-200/20 dark:bg-zinc-900 dark:border-zinc-800/85 dark:shadow-none transition-transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white font-poppins">Our Vision</h3>
-              <p className="text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+              <p className="text-xs leading-6 text-zinc-650 dark:text-zinc-400">
                 A society where every child gets a quality education, every citizen has access to basic medical care, and vulnerable groups are equipped with local tools to achieve self-sustenance and dignity.
               </p>
             </div>
 
             {/* Values */}
-            <div className="flex flex-col gap-6 rounded-3xl bg-white p-8 border border-zinc-100 shadow-lg shadow-zinc-200/50 dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none transition-transform hover:-translate-y-1">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400">
-                <Shield className="h-6 w-6" />
-              </div>
+            <div className="flex flex-col gap-4 rounded-3xl bg-white p-8 border border-slate-100/70 shadow-lg shadow-zinc-200/20 dark:bg-zinc-900 dark:border-zinc-800/85 dark:shadow-none transition-transform hover:-translate-y-1 duration-300">
               <h3 className="text-xl font-bold text-zinc-900 dark:text-white font-poppins">Our Core Values</h3>
-              <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              <ul className="space-y-3 text-xs text-zinc-650 dark:text-zinc-400">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-blue-600 shrink-0" />
                   <span><strong>Transparency:</strong> Open financial records.</span>
@@ -152,53 +151,183 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Our Journey / Story */}
+      {/* 3. Our Journey & Founder's Inspiration */}
       <section className="py-20 bg-white dark:bg-zinc-950/30 border-t border-b border-zinc-100 dark:border-zinc-900">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
             {/* Story Text */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Story</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Journey</span>
               <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
-                How We Started & Why We Serve
+                Championing Humanitarian Responses Since 2012
               </h2>
-              <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
-                HH Foundation was born from a desire to address the deep gaps in educational access and basic medical care in underrepresented communities. In rural settings, many brilliant children drop out due to minor financial constraints, and preventable illnesses go untreated because of a lack of basic clinical facilities.
-              </p>
-              <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
-                What began as a small group of local volunteers pooling personal resources has grown into a structured humanitarian foundation. Today, we coordinate with domestic and international partners to carry out large-scale outreaches, sponsor hundreds of children in primary and tertiary schools, and support widows with tools to earn a livelihood.
-              </p>
-              <div className="flex gap-4 pt-4">
-                <Link
-                  href="/donate"
-                  className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 transition-all"
-                >
-                  Join Us Today
-                </Link>
-                <Link
-                  href="/projects"
-                  className="rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
-                >
-                  View Our Projects
-                </Link>
+              
+              <div className="space-y-4 text-sm leading-7 text-zinc-650 dark:text-zinc-400">
+                <p>
+                  Since 2012, I have been at the forefront of championing humanitarian responses through my outreach initiative, <strong>Princess Hephzibah Outreach Program</strong>.
+                </p>
+                <p>
+                  Within the past decade, over 5000 women and girls, local churches, and communities have benefitted from my projects. This has been achieved through the kind donations of well-meaning individuals, and securing partnerships with corporate organizations such as Victor and Associates Ltd, Anngood Ventures, Living Christ Mission Inc., and the National Youth Service Corps Scheme (NYSC), Nigeria amongst others.
+                </p>
+                <p>
+                  Gratefully, through the initiative, life and living conditions have been improved by breaking the cycle of poverty. We support families with non-refundable micro funds for businesses, award full scholarship schemes for students at all levels of education hit by economic crisis (from secondary to tertiary levels), and empower women and girls with entrepreneurship skills to lead fulfilling lives.
+                </p>
+                <h4 className="text-base font-bold text-zinc-900 dark:text-white font-poppins mt-6 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 text-blue-600" /> What Inspired Our Work?
+                </h4>
+                <p>
+                  Before gaining admission into the University, I had the privilege of venturing into business. It was the most financially liberating experience of my life. I didn’t think furthering my education was necessary because I was relatively comfortable. It was until I had a conversation with a friend that I had the conviction to go back to school.
+                </p>
+                <p>
+                  My experience as a political science student at the University of Nigeria Nsukka empowered my mind. I realized that there is a limit to where business can take you; however, being educated opens your mind to possibilities and makes you better at what you do. This inspired my decision to start the foundation. It is my dream for every child to have their skills nurtured whilst accessing quality education. Vocational skills are great, but when backed up with quality education, they become profound.
+                </p>
               </div>
             </div>
 
-            {/* Story Image */}
-            <div className="lg:col-span-5 relative h-96 rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&auto=format&fit=crop&q=80"
-                alt="Humanitarian outreach in community"
-                fill
-                className="object-cover"
-              />
+            {/* Side Media & Video Player */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
+                <video 
+                  src="/giving.mp4" 
+                  controls 
+                  preload="metadata"
+                  className="w-full h-auto object-cover max-h-[350px]"
+                />
+              </div>
+              <div className="rounded-3xl bg-blue-50/50 p-6 border border-blue-100 dark:bg-blue-950/10 dark:border-blue-900/30">
+                <span className="text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest block mb-2">Verification & Transparency</span>
+                <p className="text-xs text-blue-950 dark:text-blue-300 leading-normal">
+                  Our activities are fully documented and audited. To view our full media catalog of outreaches and financial expenditures, you can download our new foundation photo album below.
+                </p>
+                <a 
+                  href="/ALBUM NEW.pdf" 
+                  target="_blank" 
+                  download 
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-xs font-bold text-white shadow hover:bg-blue-700 transition-colors"
+                >
+                  <FileText className="h-4 w-4" /> Download Photo Album (PDF)
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Leadership & Team */}
+      {/* 4. Our Impact & SDG Gaps */}
       <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
+            {/* Impact Video */}
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
+              <video 
+                src="/giving1.mp4" 
+                controls 
+                preload="metadata"
+                className="w-full h-auto object-cover max-h-[350px]"
+              />
+              <div className="p-4 bg-white dark:bg-zinc-900 border-t border-zinc-100 dark:border-zinc-800">
+                <p className="text-xxs font-bold text-zinc-500 uppercase tracking-wider">Outreach Footage</p>
+                <p className="text-xs font-semibold text-zinc-900 dark:text-white mt-0.5">Distribution of relief materials and cash gifts during community outreaches.</p>
+              </div>
+            </div>
+
+            {/* Impact Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Impact</span>
+              <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
+                Bridging Gaps in Quality Education (SDG 4)
+              </h2>
+              
+              <div className="space-y-4 text-sm leading-7 text-zinc-650 dark:text-zinc-400">
+                <p>
+                  The urgency in actualizing the Sustainable Development Goals by 2030 has made collective action imperative. Princess Hephzibah Humanitarian Foundation was established to contribute its quota towards bridging the gaps that exist in Education through active humanitarian response, robust scholarship schemes, and provision of learning materials.
+                </p>
+                <p>
+                  Since inception in 2021, the organization has impacted the lives of <strong>2,500 students</strong> across all educational levels.
+                </p>
+                <ul className="space-y-3.5 mt-4">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span><strong>COVID-19 Support:</strong> Partnered with organizations to provide relief materials, food, and cash gifts to over 800 people in Southeast Nigeria.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span><strong>CSS Waru Project (2023):</strong> As a serving corps member, donated blocks of toilets and learning materials, including 50 double-seater desks and seats, for students at Community Secondary School, Waru (Abuja, Nigeria), alongside fully renovating classrooms.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Honors & Recognition */}
+      <section className="py-20 bg-slate-100/40 dark:bg-zinc-950/40 border-t border-zinc-150 dark:border-zinc-900">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Honors & Titles</span>
+            <h2 className="mt-2 text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
+              Recognized for Dedicated Service
+            </h2>
+            <p className="mt-4 text-xs text-zinc-550 dark:text-zinc-400 max-w-xl mx-auto">
+              In recognition of our commitment to advancing Education and community development, the Princess Hephzibah Humanitarian Foundation has received prestigious titles and awards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
+            {/* Awards Narrative and Drive Links */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="rounded-3xl bg-white p-8 border border-slate-100 dark:bg-zinc-900 dark:border-zinc-850 shadow-sm">
+                <h4 className="text-lg font-bold text-zinc-900 dark:text-white font-poppins mb-4">Verifiable Honors & Prestigious Titles</h4>
+                <p className="text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed mb-6">
+                  Princess Hephzibah has been honored by <strong>The Garki Chiefdom Council AMAC</strong> (conferring a prestigious title to a non-indigene for the first time), <strong>Ahmadu Bello University Postgraduate Representative Council</strong>, and the <strong>International Organization of Management Professionals</strong>, among others.
+                </p>
+                <div className="space-y-3">
+                  <span className="text-xxs font-bold text-zinc-400 uppercase tracking-widest block mb-1">Official Evidence Folders:</span>
+                  {driveLinks.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-3.5 rounded-xl border border-zinc-150 bg-zinc-50/50 hover:bg-white hover:border-blue-500 hover:text-blue-600 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 transition-all text-xs font-semibold text-zinc-700 dark:text-zinc-300"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Award className="h-4 w-4 text-blue-600 shrink-0" />
+                        {link.label}
+                      </span>
+                      <ExternalLink className="h-3.5 w-3.5 opacity-60" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Awards Image Showcase Grid */}
+            <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {awardImages.map((award, index) => (
+                <div 
+                  key={index}
+                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-zinc-200/60 dark:border-zinc-800 shadow-sm bg-zinc-100"
+                >
+                  <Image 
+                    src={award.src}
+                    alt={award.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                    <span className="text-xxs font-bold text-white tracking-wide">{award.title}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Leadership & Team */}
+      <section className="py-20 bg-white dark:bg-zinc-950/20 border-t border-zinc-100 dark:border-zinc-900">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="text-center max-w-xl mx-auto mb-16">
             <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Leadership</span>
@@ -244,7 +373,7 @@ export default async function AboutPage() {
                     </a>
                   )}
                   <a
-                    href={`mailto:hephzibahhumanitarianf@gmail.com`}
+                    href={`mailto:info@hephzibahhumanitarianf.org`}
                     className="text-zinc-400 hover:text-blue-600 transition-colors"
                     aria-label={`Email ${member.name}`}
                   >
@@ -259,4 +388,5 @@ export default async function AboutPage() {
     </div>
   );
 }
+
 

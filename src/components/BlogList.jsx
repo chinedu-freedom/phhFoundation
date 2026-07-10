@@ -30,7 +30,7 @@ export default function BlogList({ posts = [] }) {
     <div className="space-y-12">
       {/* Featured Post Card */}
       {featuredPost && searchQuery === "" && selectedCategory === "All" && (
-        <div className="relative rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl shadow-zinc-200/40 dark:shadow-none group">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-100 dark:border-zinc-800/80 bg-white dark:bg-zinc-900 shadow-[0_15px_50px_rgba(0,0,0,0.035)] group">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 lg:p-8">
             {/* Image */}
             <div className="lg:col-span-7 relative aspect-video lg:aspect-auto h-64 lg:h-96 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-950">
@@ -120,7 +120,7 @@ export default function BlogList({ posts = [] }) {
             placeholder="Search news & blog..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block w-full rounded-xl border border-zinc-200/50 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           />
         </div>
       </div>
@@ -130,7 +130,7 @@ export default function BlogList({ posts = [] }) {
         {(searchQuery !== "" || selectedCategory !== "All" ? filteredPosts : standardPosts).map((post) => (
           <article
             key={post.id}
-            className="flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group"
+            className="flex flex-col bg-white dark:bg-zinc-900 border border-slate-100/70 dark:border-zinc-800/80 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.025)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 transition-all duration-300 group"
           >
             {/* Image */}
             <div className="relative aspect-video bg-zinc-100 dark:bg-zinc-950">
@@ -159,16 +159,16 @@ export default function BlogList({ posts = [] }) {
               <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
                 <div className="flex items-center gap-4 text-xxs font-semibold text-zinc-400">
                   <span className="flex items-center gap-1">
-                    <User className="h-3 w-3 text-blue-650" /> {post.authorName}
+                    <User className="h-3 w-3 text-blue-600" /> {post.authorName}
                   </span>
                   <span className="flex items-center gap-1">
-                    <Clock className="h-3 w-3 text-blue-650" />
+                    <Clock className="h-3 w-3 text-blue-600" />
                     {new Date(post.createdAt).toLocaleDateString()}
                   </span>
                 </div>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-xs font-bold text-blue-650 hover:text-blue-750 dark:text-blue-400"
+                  className="text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
                 >
                   Read
                 </Link>

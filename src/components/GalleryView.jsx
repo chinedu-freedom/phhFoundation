@@ -8,10 +8,11 @@ export default function GalleryView({ images = [] }) {
   const [selectedAlbum, setSelectedAlbum] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  const albums = ["All", ...Array.from(new Set(images.map((img) => img.album)))];
+  const albums = ["All", ...Array.from(new Set(images.map((img) => img.album || "General")))];
 
   const filteredImages = images.filter((img) => {
-    return selectedAlbum === "All" || img.album === selectedAlbum;
+    const albumName = img.album || "General";
+    return selectedAlbum === "All" || albumName === selectedAlbum;
   });
 
   const openLightbox = (index) => {
@@ -39,7 +40,7 @@ export default function GalleryView({ images = [] }) {
   return (
     <div className="space-y-12">
       {/* Category Selection Filter Pills */}
-      <div className="flex flex-wrap justify-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+      <div className="flex flex-wrap justify-center gap-2 border-b border-slate-100/70 dark:border-zinc-800/80 pb-8">
         {albums.map((alb) => (
           <button
             key={alb}
@@ -47,7 +48,7 @@ export default function GalleryView({ images = [] }) {
             className={`rounded-xl px-5 py-2.5 text-xs font-bold transition-all ${
               selectedAlbum === alb
                 ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                : "bg-zinc-150 text-zinc-650 hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
+                : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800"
             }`}
           >
             {alb}
@@ -61,7 +62,7 @@ export default function GalleryView({ images = [] }) {
           <div
             key={img.id}
             onClick={() => openLightbox(index)}
-            className="group relative aspect-square rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-950 shadow-sm cursor-pointer hover:shadow-md transition-all duration-300"
+            className="group relative aspect-square rounded-3xl overflow-hidden border border-slate-100/70 dark:border-zinc-800/80 bg-zinc-100 dark:bg-zinc-950 shadow-[0_8px_30px_rgb(0,0,0,0.02)] cursor-pointer hover:shadow-[0_20px_40px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 transition-all duration-300"
           >
             <Image
               src={img.url}

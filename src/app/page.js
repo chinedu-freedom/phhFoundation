@@ -3,16 +3,12 @@ import Image from "next/image";
 import { prisma } from "@/lib/db";
 import CountUp from "@/components/CountUp";
 import EventsCarousel from "@/components/EventsCarousel";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import HeroDonateWidget from "@/components/HeroDonateWidget";
 import { 
   Heart, 
-  GraduationCap, 
-  Stethoscope, 
-  Utensils, 
-  Briefcase, 
   Calendar, 
   ChevronRight, 
-  Award,
-  Target,
   ArrowUpRight
 } from "lucide-react";
 
@@ -27,7 +23,7 @@ export default async function Home() {
     const [fetchedCampaigns, fetchedBlogPosts, fetchedUpcomingEvents, fetchedTestimonials] = await Promise.all([
       prisma.campaign.findMany({
         where: { status: "ACTIVE" },
-        take: 3,
+        orderBy: { createdAt: "desc" },
       }),
       prisma.blogPost.findMany({
         where: { status: "PUBLISHED" },
@@ -41,7 +37,7 @@ export default async function Home() {
       }),
       prisma.testimonial.findMany({
         where: { status: true },
-        take: 2,
+        take: 6,
       }),
     ]);
     campaigns = fetchedCampaigns;
@@ -55,8 +51,8 @@ export default async function Home() {
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden py-24 sm:py-32" style={{ background: "linear-gradient(135deg, #1E3A8A 0%, #2563EB 40%, #38BDF8 100%)" }}>
-        {/* Background Image with Overlay */}
+      <section className="relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center py-20 lg:py-0 bg-slate-100">
+        {/* Background Image - Clean and Clear */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&auto=format&fit=crop&q=80"
@@ -65,18 +61,16 @@ export default async function Home() {
             className="object-cover"
             priority
           />
+          {/* Light, natural dark overlay to keep text contrast without washing out the photo */}
+          <div className="absolute inset-0 bg-black/35 z-10" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/70 to-transparent z-10" />
 
-        <div className="relative z-20 mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-sky-200 ring-1 ring-inset ring-white/20">
-              <Heart className="h-4 w-4 fill-current text-sky-300" /> Together we can do more
-            </span>
-            <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+        <div className="relative z-20 mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 items-center w-full">
+          <div className="lg:col-span-7 flex flex-col justify-center py-8 lg:py-0">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl font-poppins drop-shadow-md">
               Together We Can <span className="text-sky-300">Transform Lives</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-blue-100 max-w-xl">
+            <p className="mt-6 text-lg leading-8 text-zinc-100 max-w-xl drop-shadow-sm">
               Join the HH Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -93,6 +87,11 @@ export default async function Home() {
                 Become a Volunteer
               </Link>
             </div>
+          </div>
+          
+          {/* Quick Donation Selector column */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end pb-8 lg:pb-0">
+            <HeroDonateWidget campaigns={campaigns} />
           </div>
         </div>
       </section>
@@ -144,30 +143,20 @@ export default async function Home() {
             <p className="mt-6 text-base leading-7 text-slate-600 dark:text-zinc-400">
               HH Foundation is a non-governmental organization committed to helping families, widows, orphans, and students from impoverished backgrounds. We develop actionable programs in education, medical services, and career development to bring long-term sustainable growth to local communities.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                  <Target className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Our Mission</h3>
-                  <p className="mt-2 text-sm text-slate-500 dark:text-zinc-400">To inspire hope, foster education, and alleviate poverty through impactful aid and skill acquisitions.</p>
-                </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">Our Mission</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-zinc-400">To inspire hope, foster education, and alleviate poverty through impactful aid and skill acquisitions.</p>
               </div>
-              <div className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                  <Award className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Our Vision</h3>
-                  <p className="mt-2 text-sm text-slate-500 dark:text-zinc-400">A society where every individual has access to quality education, healthcare, and economic stability.</p>
-                </div>
+              <div>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-white">Our Vision</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-zinc-400">A society where every individual has access to quality education, healthcare, and economic stability.</p>
               </div>
             </div>
           </div>
           <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-xl shadow-zinc-200/50 dark:shadow-none">
             <Image
-              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop&q=80"
+              src="/group2.jpeg"
               alt="Community group gathering"
               fill
               className="object-cover"
@@ -192,10 +181,7 @@ export default async function Home() {
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {/* Program 1 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-lg font-bold text-slate-900 dark:text-white">Education & Scholarships</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Education & Scholarships</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Sponsoring underrepresented children through primary, secondary, and tertiary educational paths.
               </p>
@@ -206,10 +192,7 @@ export default async function Home() {
 
             {/* Program 2 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                <Stethoscope className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-lg font-bold text-slate-900 dark:text-white">Medical Outreach</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Medical Outreach</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Delivering free healthcare screenings, treatments, and distribution of medicines directly to villages.
               </p>
@@ -220,10 +203,7 @@ export default async function Home() {
 
             {/* Program 3 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                <Briefcase className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-lg font-bold text-slate-900 dark:text-white">Women Empowerment</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Women Empowerment</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Providing business training, skills workshops, and startup micro-capital to widows and single mothers.
               </p>
@@ -234,10 +214,7 @@ export default async function Home() {
 
             {/* Program 4 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-950/30 dark:text-blue-400">
-                <Utensils className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-lg font-bold text-slate-900 dark:text-white">Food Support</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Food Support</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Distributing food bundles to families experiencing malnutrition and severe financial distress.
               </p>
@@ -258,13 +235,13 @@ export default async function Home() {
               Active Urgent Campaigns
             </h2>
           </div>
-          <Link href="/donate" className="mt-4 md:mt-0 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-zinc-100 transition-all shadow-sm">
+          <Link href="/projects" className="mt-4 md:mt-0 inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800 dark:bg-white dark:text-black dark:hover:bg-zinc-100 transition-all shadow-sm">
             View All Campaigns <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {campaigns.map((c) => {
+          {campaigns.slice(0, 3).map((c) => {
             const percentage = Math.min(Math.round((c.raisedAmount / c.targetAmount) * 100), 100);
             return (
               <div key={c.id} className="flex flex-col rounded-3xl border border-slate-200 overflow-hidden bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900 transition-all hover:shadow-md hover:scale-[1.01]">
@@ -275,9 +252,6 @@ export default async function Home() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-4 left-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-                    Campaign
-                  </div>
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white line-clamp-1">
@@ -332,30 +306,8 @@ export default async function Home() {
               </h2>
             </div>
 
-            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-              {testimonials.map((t) => (
-                <div key={t.id} className="flex flex-col justify-between rounded-3xl bg-white/5 p-8 backdrop-blur border border-white/10">
-                  <p className="text-base italic leading-7 text-blue-50">
-                    "{t.quote}"
-                  </p>
-                  <div className="mt-8 flex items-center gap-4">
-                    {t.image && (
-                      <div className="relative h-12 w-12 rounded-full overflow-hidden border border-blue-500">
-                        <Image
-                          src={t.image}
-                          alt={t.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <div>
-                      <h4 className="font-bold">{t.name}</h4>
-                      <p className="text-xs text-blue-300 font-semibold">{t.role}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-16">
+              <TestimonialsCarousel testimonials={testimonials} />
             </div>
           </div>
         </section>

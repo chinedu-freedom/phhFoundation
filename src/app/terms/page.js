@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { FileCheck, Landmark, RefreshCw } from "lucide-react";
 
 export const metadata = {
@@ -13,7 +13,7 @@ export default function TermsPage() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-105 text-blue-650 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
             <FileCheck className="h-6 w-6" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white font-poppins">

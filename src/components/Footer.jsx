@@ -77,8 +77,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
-                  Reports & Resources
+                <Link href="/partner" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Partner With Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/transparency" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Financial Transparency
                 </Link>
               </li>
               <li>
@@ -98,19 +103,19 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  HH Innovation Center, Port Harcourt, Rivers State, Nigeria
+                  10 Prof. Daddy Hezekiah Avenue Inland-town Onitsha
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  +234 815 805 1119
+                  08075889097
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  hephzibahhumanitarianf@gmail.com
+                  info@hephzibahhumanitarianf.org
                 </span>
               </li>
             </ul>

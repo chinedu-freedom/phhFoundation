@@ -106,7 +106,7 @@ export default function EventsList({ initialEvents = [] }) {
           return (
             <div
               key={event.id}
-              className="flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group"
+              className="flex flex-col bg-white dark:bg-zinc-900 border border-slate-100/70 dark:border-zinc-800/80 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.025)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 transition-all duration-300 group"
             >
               {/* Header Image */}
               <div className="relative h-48 w-full bg-zinc-100 dark:bg-zinc-950">
@@ -219,7 +219,7 @@ export default function EventsList({ initialEvents = [] }) {
       {/* RSVP Modal Overlay */}
       {rsvpEvent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="w-full max-w-md rounded-3xl bg-white p-8 border border-zinc-100 shadow-2xl dark:bg-zinc-900 dark:border-zinc-800">
+          <div className="w-full max-w-md rounded-3xl bg-white p-8 border border-slate-100/70 shadow-[0_30px_60px_rgba(0,0,0,0.1)] dark:bg-zinc-900 dark:border-zinc-800/80">
             <div className="flex justify-between items-start mb-6">
               <div>
                 <span className="text-xxs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
@@ -274,7 +274,7 @@ export default function EventsList({ initialEvents = [] }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Enter your full name"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-1.5 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
 
@@ -288,7 +288,7 @@ export default function EventsList({ initialEvents = [] }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                    className="mt-1.5 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
                   />
                 </div>
 

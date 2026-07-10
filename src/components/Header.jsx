@@ -59,6 +59,12 @@ export default async function Header() {
             Get Involved
           </Link>
           <Link
+            href="/partner"
+            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
+          >
+            Partner
+          </Link>
+          <Link
             href="/faq"
             className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
           >

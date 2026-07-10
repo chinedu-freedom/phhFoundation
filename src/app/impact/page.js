@@ -1,7 +1,9 @@
-﻿import { prisma } from "@/lib/db";
-import Image from "next/image";
+import { prisma } from "@/lib/db";
 import Link from "next/link";
+import Image from "next/image";
 import CountUp from "@/components/CountUp";
+import PageHeader from "@/components/PageHeader";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { Award, CheckCircle, Quote, FileDown, PieChart, TrendingUp, Heart } from "lucide-react";
 
 export const metadata = {
@@ -31,6 +33,34 @@ const DEFAULT_TESTIMONIALS = [
     quote: "Partnering with HH Foundation has been an absolute honor. Their transparency, regular updates, and direct community impact set them apart. We look forward to sponsoring more healthcare drives next year.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80",
   },
+  {
+    id: "t3",
+    name: "Alhaji Musa Ibrahim",
+    role: "Community Leader, Kano Outreach",
+    quote: "The medical outreach was a lifesaver for our village. Over three hundred elders and children received free eye examinations, prescription glasses, and malaria treatments. We pray for their continued strength.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "t4",
+    name: "Sister Florence Nduka",
+    role: "Women Empowerment Graduate",
+    quote: "As a widow, raising four children alone was a daily battle. Through the skills bootcamp and start-up grant, I opened my own tailoring shop. Today, I feed my family and pay their school fees myself.",
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "t5",
+    name: "Dr. Amara Williams",
+    role: "Volunteer Medical Officer",
+    quote: "Serving on the frontline with HH Foundation in remote riverine areas has shown me the power of collective action. We treated conditions that would have gone ignored for years due to poverty.",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80",
+  },
+  {
+    id: "t6",
+    name: "Tunde Folawiyo",
+    role: "Disaster Relief Coordinator",
+    quote: "When the floods hit our community, HH Foundation was the first on the ground with food packs, clean drinking water, and blankets. Their rapid response saved countless lives from hunger and disease.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop&q=80",
+  },
 ];
 
 export default async function ImpactPage() {
@@ -52,25 +82,13 @@ export default async function ImpactPage() {
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
       {/* 1. Header Banner */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-20 text-white overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
-          <Image
-            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&auto=format&fit=crop&q=80"
-            alt="Children playing background"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-200">Our Impact</span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl font-poppins">
-            Delivering Measurable Change
-          </h1>
-          <p className="mt-6 mx-auto max-w-2xl text-lg text-blue-100">
-            We believe in complete transparency and accountability. Explore our verified performance stats, financial allocations, and real beneficiary stories.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        subtitle="Our Impact"
+        title="Delivering Measurable Change"
+        description="We believe in complete transparency and accountability. Explore our verified performance stats, financial allocations, and real beneficiary stories."
+        bgImage="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1600&auto=format&fit=crop&q=80"
+        alt="Children playing background"
+      />
 
       {/* 2. Statistics Grid */}
       <section className="py-20">
@@ -79,7 +97,7 @@ export default async function ImpactPage() {
             {STATS.map((stat, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl border border-zinc-150 bg-white p-8 text-center dark:bg-zinc-900 dark:border-zinc-800 hover:border-blue-600 transition-all shadow-lg shadow-zinc-200/30 dark:shadow-none hover:-translate-y-1"
+                className="rounded-3xl border border-slate-100/70 bg-white p-8 text-center dark:bg-zinc-900 dark:border-zinc-800/80 transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(59,130,246,0.04)] hover:-translate-y-1"
               >
                 <span className="block text-4xl font-extrabold text-blue-600 dark:text-blue-400 font-poppins">
                   <CountUp end={stat.end} suffix={stat.suffix} />
@@ -93,12 +111,12 @@ export default async function ImpactPage() {
       </section>
 
       {/* 3. Financial Transparency Breakdown */}
-      <section className="py-20 bg-white dark:bg-zinc-950/30 border-t border-b border-zinc-150 dark:border-zinc-900">
+      <section className="py-20 bg-white dark:bg-zinc-950/30 border-t border-b border-slate-100/80 dark:border-zinc-900">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
             {/* Visual Chart */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="rounded-3xl bg-slate-50 p-8 border border-zinc-150 dark:bg-zinc-900 dark:border-zinc-850">
+              <div className="rounded-3xl bg-slate-50/50 p-8 border border-slate-100/80 dark:bg-zinc-900 dark:border-zinc-800/65 shadow-[0_4px_20px_rgba(0,0,0,0.01)]">
                 <h3 className="text-lg font-bold text-zinc-900 dark:text-white font-poppins flex items-center gap-2">
                   <PieChart className="h-5 w-5 text-blue-600" /> Fund Allocations
                 </h3>
@@ -166,6 +184,12 @@ export default async function ImpactPage() {
                 >
                   <FileDown className="h-4 w-4" /> 2025 Impact Prospectus
                 </a>
+                <Link
+                  href="/transparency"
+                  className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50/50 px-5 py-3 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-all dark:border-blue-900/30 dark:bg-blue-950/20 dark:text-blue-450"
+                >
+                  Interactive Allocation Simulator <TrendingUp className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -185,11 +209,11 @@ export default async function ImpactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((test) => (
               <div
                 key={test.id}
-                className="relative rounded-3xl border border-zinc-150 bg-white p-8 dark:bg-zinc-900 dark:border-zinc-800 shadow-lg shadow-zinc-200/30 dark:shadow-none flex flex-col justify-between"
+                className="relative rounded-3xl border border-slate-100/80 bg-white p-8 dark:bg-zinc-900 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.035)] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <Quote className="h-8 w-8 text-blue-600/20 dark:text-blue-400/10 mb-4" />

@@ -1,4 +1,4 @@
-﻿import { Landmark, Cookie, RefreshCw } from "lucide-react";
+import { Landmark, Cookie, RefreshCw } from "lucide-react";
 
 export const metadata = {
   title: "Cookie Policy | HH Foundation",
@@ -12,7 +12,7 @@ export default function CookiesPage() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-105 text-blue-650 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
             <Cookie className="h-6 w-6" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white font-poppins">

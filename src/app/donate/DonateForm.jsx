@@ -4,11 +4,22 @@ import { useState } from "react";
 import { createDonationAction, confirmDonationAction } from "@/app/actions/donation";
 import { Heart, Landmark, CreditCard, DollarSign, Wallet, ShieldCheck, CheckCircle } from "lucide-react";
 
-export default function DonateForm({ campaigns = [], initialCampaignId = "" }) {
+export default function DonateForm({ campaigns = [], initialCampaignId = "", initialAmount = "" }) {
+  const presets = [5000, 10000, 20000, 50000];
+
+  const parsedInitialAmount = parseFloat(initialAmount) || 0;
+  const isPreset = presets.includes(parsedInitialAmount);
+
   const [campaignId, setCampaignId] = useState(initialCampaignId);
-  const [amountType, setAmountType] = useState("preset"); // 'preset' or 'custom'
-  const [presetAmount, setPresetAmount] = useState(10000);
-  const [customAmount, setCustomAmount] = useState("");
+  const [amountType, setAmountType] = useState(
+    parsedInitialAmount > 0 ? (isPreset ? "preset" : "custom") : "preset"
+  );
+  const [presetAmount, setPresetAmount] = useState(
+    parsedInitialAmount > 0 && isPreset ? parsedInitialAmount : 10000
+  );
+  const [customAmount, setCustomAmount] = useState(
+    parsedInitialAmount > 0 && !isPreset ? parsedInitialAmount.toString() : ""
+  );
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("");
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -21,8 +32,6 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "" }) {
   // Payment Simulation Modal state
   const [simulationRef, setSimulationRef] = useState(null);
   const [simulationAmount, setSimulationAmount] = useState(0);
-
-  const presets = [5000, 10000, 20000, 50000];
 
   const getFinalAmount = () => {
     return amountType === "preset" ? presetAmount : parseFloat(customAmount) || 0;

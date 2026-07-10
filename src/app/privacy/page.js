@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Shield, Lock, Eye, RefreshCw } from "lucide-react";
 
 export const metadata = {
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-650 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400 mb-4">
             <Shield className="h-6 w-6" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white font-poppins">
@@ -81,8 +81,8 @@ export default function PrivacyPage() {
             </h2>
             <p>
               Under global data protection standards, you have the right to request access to, edit, or request complete deletion of any personal information we hold. For data erasure queries, please email us directly at{" "}
-              <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 hover:underline dark:text-blue-400 font-bold">
-                hephzibahhumanitarianf@gmail.com
+              <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 hover:underline dark:text-blue-400 font-bold">
+                info@hephzibahhumanitarianf.org
               </a>.
             </p>
           </section>

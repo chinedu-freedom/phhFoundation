@@ -16,7 +16,7 @@ export default function ContactForm() {
 
   if (success) {
     return (
-      <div className="rounded-3xl bg-white p-8 border border-zinc-150 shadow-xl shadow-zinc-200/50 dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none text-center py-12">
+      <div className="rounded-3xl bg-white p-8 border border-slate-100/70 shadow-[0_15px_50px_rgba(0,0,0,0.025)] dark:bg-zinc-900 dark:border-zinc-800 text-center py-12">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400">
           <CheckCircle className="h-6 w-6" />
         </div>
@@ -26,7 +26,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setSuccess(false)}
-          className="mt-6 rounded-xl border border-zinc-200 bg-white px-5 py-2.5 text-xs font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+          className="mt-6 rounded-xl border border-zinc-200/50 bg-white px-5 py-2.5 text-xs font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
         >
           Send Another Message
         </button>
@@ -37,7 +37,7 @@ export default function ContactForm() {
   return (
     <form
       action={formAction}
-      className="space-y-6 rounded-3xl bg-white p-8 border border-zinc-150 shadow-xl shadow-zinc-200/50 dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none"
+      className="space-y-6 rounded-3xl bg-white p-8 border border-slate-100/70 shadow-[0_15px_50px_rgba(0,0,0,0.025)] dark:bg-zinc-900 dark:border-zinc-800"
     >
       {state?.error && (
         <div className="rounded-xl bg-red-50 p-4 text-xs font-semibold text-red-700 dark:bg-red-950/20 dark:text-red-400 flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function ContactForm() {
             type="text"
             required
             placeholder="John Doe"
-            className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
           />
         </div>
         <div>
@@ -70,7 +70,7 @@ export default function ContactForm() {
             type="email"
             required
             placeholder="john@example.com"
-            className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
           />
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function ContactForm() {
           type="text"
           required
           placeholder="E.g., Scholarship Inquiry, Partnerships"
-          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
         />
       </div>
 
@@ -99,7 +99,7 @@ export default function ContactForm() {
           rows="5"
           required
           placeholder="Type your message details here..."
-          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
         />
       </div>
 

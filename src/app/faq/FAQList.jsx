@@ -48,7 +48,7 @@ export default function FAQList({ categories = [] }) {
               setSearchQuery(e.target.value);
               setExpandedIndex(null); // Reset toggle on search
             }}
-            className="block w-full rounded-xl border border-zinc-200 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block w-full rounded-xl border border-zinc-200/50 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
           />
         </div>
 
@@ -80,8 +80,8 @@ export default function FAQList({ categories = [] }) {
           return (
             <div
               key={item.globalIndex}
-              className={`group rounded-3xl border border-zinc-200 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer ${
-                isOpen ? "ring-1 ring-blue-600 border-blue-600 shadow-lg shadow-zinc-100 dark:shadow-none" : "hover:border-zinc-300 dark:hover:border-zinc-700"
+              className={`group rounded-3xl border border-slate-100/70 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer ${
+                isOpen ? "ring-1 ring-blue-600 border-blue-600 shadow-[0_8px_30px_rgb(0,0,0,0.02)]" : "hover:border-zinc-200 dark:hover:border-zinc-700"
               }`}
             >
               <button
@@ -127,23 +127,23 @@ export default function FAQList({ categories = [] }) {
       </div>
 
       {/* Support CTA Callout */}
-      <div className="rounded-3xl bg-zinc-50 p-8 border border-zinc-150 text-center dark:bg-zinc-950/40 dark:border-zinc-800">
+      <div className="rounded-3xl bg-zinc-50/50 p-8 border border-slate-100/80 shadow-[0_8px_30px_rgb(0,0,0,0.015)] text-center dark:bg-zinc-950/40 dark:border-zinc-850">
         <h3 className="text-base font-bold text-zinc-900 dark:text-white">Still have questions?</h3>
         <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
           If you didn’t find your answers here, feel free to send us an email or call our support lines.
         </p>
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="mailto:hephzibahhumanitarianf@gmail.com"
+            href="mailto:support@hephzibahhumanitarianf.org"
             className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
           >
             <Mail className="h-4 w-4" /> Email support
           </a>
           <a
-            href="tel:+2348000000000"
+            href="tel:+2348075889097"
             className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
-            <MessageSquare className="h-4 w-4" /> Call: +234 800 000 0000
+            <MessageSquare className="h-4 w-4" /> Call: +234 807 588 9097
           </a>
         </div>
       </div>
