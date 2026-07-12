@@ -1,4 +1,4 @@
-﻿"use server";
+"use server";
 
 import { prisma } from "@/lib/db";
 import { sendEmail } from "@/lib/zohoMailer";
@@ -85,7 +85,7 @@ export async function updateVolunteerStatusAction(id, status) {
   }
 }
 
-export async function createVolunteerApplicationAction(formData) {
+export async function createVolunteerApplicationAction(prevState, formData) {
   const name = formData.get("name")?.toString().trim();
   const email = formData.get("email")?.toString().trim();
   const phone = formData.get("phone")?.toString().trim();

@@ -1,4 +1,4 @@
-﻿import FAQList from "./FAQList";
+import FAQList from "./FAQList";
 
 export const metadata = {
   title: "Frequently Asked Questions | HH Foundation",
@@ -16,7 +16,7 @@ export default function FAQPage() {
         },
         {
           question: "Where are you located and which regions do you serve?",
-          answer: "Our main administrative headquarters is located in Nigeria. We primary serve underserved rural and semi-urban communities across West Africa, focusing on communities with limited access to clean water, clinics, and quality schools."
+          answer: "Our main administrative headquarters is located in Nigeria. We primarily serve underserved rural and semi-urban communities across West Africa, focusing on communities with limited access to clean water, clinics, and quality schools."
         },
         {
           question: "Is the foundation registered?",
@@ -72,6 +72,10 @@ export default function FAQPage() {
         {
           question: "How does the foundation ensure financial transparency?",
           answer: "We publish annual financial audits and project reports outlining total donations received and detailed project spend. We also maintain a database transaction ledger, ensuring every single naira is fully accounted for."
+        },
+        {
+          question: "Where can I read your governing constitution and safeguarding policies?",
+          answer: "Our official Constitution & Charter, along with our Child Protection and Data Privacy policies, are fully accessible to view on our Resources & Policies page."
         }
       ]
     }

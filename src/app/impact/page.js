@@ -171,8 +171,8 @@ export default async function ImpactPage() {
               <p className="text-base leading-8 text-zinc-600 dark:text-zinc-400">
                 We submit our finances to annual third-party audits, ensuring our balance sheets are verified and available to the general public.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a
+              <div className="pt-2">
+                {/* <a
                   href="#"
                   className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/25 transition-all"
                 >
@@ -183,7 +183,7 @@ export default async function ImpactPage() {
                   className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
                 >
                   <FileDown className="h-4 w-4" /> 2025 Impact Prospectus
-                </a>
+                </a> */}
                 <Link
                   href="/transparency"
                   className="inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50/50 px-5 py-3 text-xs font-bold text-blue-700 hover:bg-blue-100 transition-all dark:border-blue-900/30 dark:bg-blue-950/20 dark:text-blue-450"

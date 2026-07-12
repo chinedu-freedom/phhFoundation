@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, FileText, Download, ShieldCheck, ArrowDownToLine, Info } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 
@@ -33,7 +34,7 @@ const RESOURCES = [
     fileSize: "950 KB",
     format: "PDF",
     publishDate: "Oct 08, 2023",
-    downloadUrl: "#",
+    downloadUrl: "/constitution",
   },
   {
     id: "child-safeguarding",
@@ -170,16 +171,25 @@ export default function ResourcesPage() {
                   </div>
                 </div>
 
-                <a
-                  href={res.downloadUrl}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    alert(`Simulating download of: ${res.title}`);
-                  }}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
-                >
-                  <ArrowDownToLine className="h-4 w-4" /> Download File
-                </a>
+                {res.downloadUrl.startsWith("/") ? (
+                  <Link
+                    href={res.downloadUrl}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
+                  >
+                    View Document
+                  </Link>
+                ) : (
+                  <a
+                    href={res.downloadUrl}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      alert(`Simulating download of: ${res.title}`);
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
+                  >
+                    <ArrowDownToLine className="h-4 w-4" /> Download File
+                  </a>
+                )}
               </div>
             ))}
 

@@ -8,37 +8,6 @@ export const metadata = {
 };
 
 export default function TransparencyPage() {
-  const reports = [
-    {
-      year: "2025",
-      title: "Annual Audited Financial Report",
-      type: "PDF Document",
-      size: "2.4 MB",
-      desc: "Full balance sheets, cashflow reports, and independent auditor remarks."
-    },
-    {
-      year: "2024",
-      title: "Annual Audited Financial Report",
-      type: "PDF Document",
-      size: "2.1 MB",
-      desc: "Historical statement of program expenses and direct relief disbursements."
-    },
-    {
-      year: "2025",
-      title: "PHH Impact & Program Prospectus",
-      type: "PDF Document",
-      size: "4.8 MB",
-      desc: "Visual recap of completed medical drives, school scholarships, and outreach testimonials."
-    },
-    {
-      year: "2023",
-      title: "Annual Audited Financial Report",
-      type: "PDF Document",
-      size: "1.9 MB",
-      desc: "Balance sheet review of our initial founding scholarship operations."
-    }
-  ];
-
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
       {/* 1. Header Banner */}
@@ -130,52 +99,116 @@ export default function TransparencyPage() {
         </div>
       </section>
 
-      {/* 4. Audits & Reports Download Center */}
+      {/* 4. Audits & Reports Portal */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Download Center</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Reporting Portal</span>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-white font-poppins">
-                Financial Audit Statements
+                Financial Audits & Statements
               </h2>
             </div>
             <p className="mt-4 md:mt-0 max-w-md text-xs text-zinc-500 dark:text-zinc-400">
-              Review and download complete tax forms, audit filings, and prospective operational budgets to check compliance.
+              Our commitment to compliance, transparent stewardship, and verified resource allocation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {reports.map((report, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col justify-between p-6 rounded-2xl bg-white border border-slate-100/70 dark:bg-zinc-900 dark:border-zinc-800/80 hover:shadow-[0_20px_40px_rgba(59,130,246,0.04)] hover:-translate-y-0.5 transition-all duration-300 group"
-              >
-                <div>
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-xxs font-extrabold px-2.5 py-1 bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-400 rounded-lg">
-                      {report.year}
-                    </span>
-                    <span className="text-xxs text-zinc-400 font-bold">{report.size}</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-zinc-900 dark:text-white font-poppins group-hover:text-blue-600 transition-colors">
-                    {report.title}
-                  </h3>
-                  <p className="mt-2 text-xxs text-zinc-500 dark:text-zinc-400 leading-normal">
-                    {report.desc}
-                  </p>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+            {/* Status Notice Card */}
+            <div className="lg:col-span-7 flex flex-col justify-between p-8 rounded-3xl bg-white border border-slate-100/70 dark:bg-zinc-900 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.015)]">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xxs font-extrabold bg-amber-50 text-amber-800 border border-amber-200/50 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-900/30">
+                    <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
+                    Audit In Progress
+                  </span>
+                  <span className="text-xxs font-bold text-zinc-400">Fiscal Year 2026</span>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-850">
-                  <a
-                    href="#"
-                    className="flex items-center justify-center gap-1.5 rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-2.5 text-xxs font-bold text-zinc-700 hover:bg-zinc-100 hover:border-blue-500 dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-zinc-450 dark:hover:bg-zinc-900 transition-all"
-                  >
-                    <FileDown className="h-3.5 w-3.5" /> Download Report
-                  </a>
+                <h3 className="mt-6 text-xl font-bold text-zinc-900 dark:text-white font-poppins">
+                  Inaugural Annual Financial Statement
+                </h3>
+                <p className="mt-4 text-xs leading-6 text-zinc-650 dark:text-zinc-400">
+                  As our foundation initiates its formalized reporting cycle this year, our first comprehensive annual audited financial report is currently under preparation. We are working closely with external certified public accountants to verify all field expenses, administrative overheads, and campaign disbursements.
+                </p>
+                <div className="mt-6 p-4 rounded-2xl bg-slate-50 border border-slate-100/80 dark:bg-zinc-950/40 dark:border-zinc-850 flex gap-3 items-start">
+                  <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-xs font-bold text-zinc-900 dark:text-white">Why no historical reports?</span>
+                    <p className="mt-1 text-xxs text-zinc-500 dark:text-zinc-400 leading-normal">
+                      Prior to this fiscal year, the foundation operated under direct private backing with zero public fundraising. With our expansion into public campaigns, we are establishing our independent third-party audit pipeline to guarantee maximum accountability.
+                    </p>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <div className="mt-8 pt-6 border-t border-zinc-100 dark:border-zinc-850 flex flex-wrap gap-4 items-center justify-between">
+                <span className="text-xxs text-zinc-500 dark:text-zinc-550 font-medium">
+                  Expected Publication: Late Q4 2026
+                </span>
+                <span className="inline-flex items-center gap-1 text-xxs text-blue-600 dark:text-blue-400 font-bold">
+                  Reports will be downloadable here <ArrowUpRight className="h-3 w-3" />
+                </span>
+              </div>
+            </div>
+
+            {/* Audit Pipeline Timeline */}
+            <div className="lg:col-span-5 p-8 rounded-3xl bg-slate-50/50 border border-slate-100/70 dark:bg-zinc-900/30 dark:border-zinc-850">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-6">
+                Audit Timeline & Progress
+              </h4>
+              <div className="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-zinc-200 dark:before:bg-zinc-800">
+                
+                {/* Step 1 */}
+                <div className="relative pl-8 flex gap-4">
+                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" /> */}
+                  <div>
+                    <span className="block text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Step 1</span>
+                    <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Ledger Integration</span>
+                    <p className="text-xxs text-zinc-500 dark:text-zinc-400 mt-1 leading-normal">
+                      Completed reconciliation of all local bank records and donation channels.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="relative pl-8 flex gap-4">
+                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" /> */}
+                  <div>
+                    <span className="block text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Step 2</span>
+                    <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Auditor Appointment</span>
+                    <p className="text-xxs text-zinc-500 dark:text-zinc-400 mt-1 leading-normal">
+                      Contracted certified independent auditors to perform full financial reviews.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative pl-8 flex gap-4">
+                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-amber-500 border-4 border-white dark:border-zinc-900 shadow-sm animate-pulse" /> */}
+                  <div>
+                    <span className="block text-xxs font-bold text-amber-500 uppercase tracking-wider">Step 3 (Active)</span>
+                    <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Asset & Outreach Verification</span>
+                    <p className="text-xxs text-zinc-500 dark:text-zinc-400 mt-1 leading-normal">
+                      Independent physical audit of field outreach projects and beneficiary payouts.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="relative pl-8 flex gap-4 opacity-50">
+                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-zinc-300 dark:bg-zinc-700 border-4 border-white dark:border-zinc-900" /> */}
+                  <div>
+                    <span className="block text-xxs font-bold text-zinc-400 uppercase tracking-wider">Step 4</span>
+                    <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Public Publication</span>
+                    <p className="text-xxs text-zinc-500 dark:text-zinc-400 mt-1 leading-normal">
+                      Finalized financial statements will be made public and downloadable here.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </section>

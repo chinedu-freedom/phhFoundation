@@ -57,6 +57,11 @@ export default function Footer() {
                   Media Gallery
                 </Link>
               </li>
+              <li>
+                <Link href="/resources" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Resources & Policies
+                </Link>
+              </li>
             </ul>
           </div>
 

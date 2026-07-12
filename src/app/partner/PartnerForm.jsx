@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useState } from "react";
 import { submitPartnerForm } from "@/app/actions/partner";
 import { CheckCircle, AlertTriangle, Send, Building, User, Mail, Phone, MessageSquare, HelpCircle } from "lucide-react";
+import CustomSelect from "@/components/CustomSelect";
 
 export default function PartnerForm() {
   const [state, formAction, isPending] = useActionState(submitPartnerForm, null);
@@ -16,6 +17,13 @@ export default function PartnerForm() {
   const [phone, setPhone] = useState("");
   const [partnerType, setPartnerType] = useState("GIVE");
   const [message, setMessage] = useState("");
+
+  const partnerOptions = [
+    { value: "GIVE", label: "GIVE (Classroom Sponsorships, Scholarships, Material Donations)" },
+    { value: "ENGAGE", label: "ENGAGE (Employee Volunteering, Corporate Match Campaigns)" },
+    { value: "AMPLIFY", label: "AMPLIFY (Advocacy, Branding, Product Co-collaborations)" },
+    { value: "SCALE", label: "SCALE (Multi-year Intervention Projects, Program Scaling)" },
+  ];
 
   useEffect(() => {
     if (state?.success) {
@@ -104,7 +112,7 @@ export default function PartnerForm() {
                 value={orgName}
                 onChange={(e) => setOrgName(e.target.value)}
                 placeholder="e.g. Acme Corp Foundation"
-                className={`block w-full rounded-xl border ${
+                className={`block w-full rounded-lg border ${
                   errors.orgName ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
                 } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
               />
@@ -126,7 +134,7 @@ export default function PartnerForm() {
                 value={contactName}
                 onChange={(e) => setContactName(e.target.value)}
                 placeholder="e.g. Jane Doe"
-                className={`block w-full rounded-xl border ${
+                className={`block w-full rounded-lg border ${
                   errors.contactName ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
                 } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
               />
@@ -150,7 +158,7 @@ export default function PartnerForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="e.g. partner@acme.org"
-                className={`block w-full rounded-xl border ${
+                className={`block w-full rounded-lg border ${
                   errors.email ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
                 } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
               />
@@ -172,7 +180,7 @@ export default function PartnerForm() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="e.g. +234 803 123 4567"
-                className={`block w-full rounded-xl border ${
+                className={`block w-full rounded-lg border ${
                   errors.phone ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
                 } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
               />
@@ -186,25 +194,15 @@ export default function PartnerForm() {
           <label htmlFor="partnerType" className="block text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
             Partnership Pathway / Pathway Type
           </label>
-          <div className="relative mt-2">
-            <HelpCircle className="absolute left-3 top-3.5 h-4 w-4 text-zinc-400" />
-            <select
-              id="partnerType"
-              name="partnerType"
+          <div className="mt-2">
+            <input type="hidden" name="partnerType" value={partnerType} />
+            <CustomSelect
               value={partnerType}
-              onChange={(e) => setPartnerType(e.target.value)}
-              className="block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white appearance-none"
-            >
-              <option value="GIVE">GIVE (Classroom Sponsorships, Scholarships, Material Donations)</option>
-              <option value="ENGAGE">ENGAGE (Employee Volunteering, Corporate Match Campaigns)</option>
-              <option value="AMPLIFY">AMPLIFY (Advocacy, Branding, Product Co-collaborations)</option>
-              <option value="SCALE">SCALE (Multi-year Intervention Projects, Program Scaling)</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-400">
-              <svg className="fill-current h-4 w-4" viewBox="0 0 20 20">
-                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-              </svg>
-            </div>
+              onChange={setPartnerType}
+              options={partnerOptions}
+              className="w-full"
+              icon={<HelpCircle className="h-4 w-4" />}
+            />
           </div>
         </div>
 

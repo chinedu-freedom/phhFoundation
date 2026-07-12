@@ -2,8 +2,9 @@
 
 import { useActionState, useEffect, useState, useRef } from "react";
 import { createVolunteerApplicationAction } from "@/app/actions/volunteer";
-import { Heart, Users, HandHeart, CheckCircle, ArrowRight, ArrowLeft, ShieldAlert } from "lucide-react";
+import { Heart, Users, HandHeart, CheckCircle, ArrowRight, ArrowLeft, Loader2, ShieldAlert } from "lucide-react";
 import Link from "next/link";
+import CustomSelect from "@/components/CustomSelect";
 
 export default function GetInvolvedPage() {
   const [state, formAction, isPending] = useActionState(createVolunteerApplicationAction, null);
@@ -58,6 +59,13 @@ export default function GetInvolvedPage() {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
 
+  const handleFormSubmit = (e) => {
+    if (currentStep < 3) {
+      e.preventDefault();
+      handleNextStep();
+    }
+  };
+
   // Determine final skills string
   const getSkillsValue = () => {
     if (selectedCategory === "OTHER") {
@@ -76,7 +84,7 @@ export default function GetInvolvedPage() {
           Application Received!
         </h1>
         <p className="mt-4 text-base text-zinc-500 dark:text-zinc-400">
-          Thank you for applying to be a volunteer at HH Foundation. We have sent a confirmation email to the address provided. Our admin team will review your application soon.
+          Thank you for applying to be a volunteer at HH Foundation. We have sent a confirmation email to the address provided. Our team will review your application soon.
         </p>
         <div className="mt-10 flex justify-center gap-4">
           <Link
@@ -95,6 +103,13 @@ export default function GetInvolvedPage() {
       </div>
     );
   }
+
+  const availabilityOptions = [
+    { value: "Flexible / On Call", label: "Flexible / On Call" },
+    { value: "Weekends Only", label: "Weekends Only" },
+    { value: "Weekdays Only", label: "Weekdays Only" },
+    { value: "Full-Time Availability", label: "Full-Time Availability" },
+  ];
 
   const skillOptions = [
     {
@@ -146,7 +161,7 @@ export default function GetInvolvedPage() {
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         {/* Info Column (Left) */}
         <div className="lg:col-span-4 space-y-8">
-          <div className="rounded-3xl bg-blue-50/50 p-8 border border-blue-100 dark:bg-blue-950/10 dark:border-blue-900/30">
+          <div className="rounded-xl bg-blue-50/50 p-8 border border-blue-100 dark:bg-blue-950/10 dark:border-blue-900/30">
             <h3 className="text-lg font-bold text-blue-900 dark:text-blue-400">Why Volunteer With Us?</h3>
             <ul className="mt-6 space-y-5 text-sm text-blue-950 dark:text-blue-300">
               <li className="flex gap-3">
@@ -164,7 +179,7 @@ export default function GetInvolvedPage() {
             </ul>
           </div>
 
-          <div className="p-6 border border-zinc-200 rounded-3xl dark:border-zinc-800">
+          <div className="p-6 border border-zinc-200 rounded-xl dark:border-zinc-800">
             <h4 className="font-bold text-zinc-900 dark:text-white">Need immediate support?</h4>
             <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
               If you have any questions about volunteer roles or locations, write to us at{" "}
@@ -198,7 +213,7 @@ export default function GetInvolvedPage() {
             </div>
           </div>
 
-          <form action={formAction} ref={formRef} className="space-y-6 rounded-3xl bg-white p-8 border border-zinc-200/80 shadow-2xl shadow-zinc-250/10 dark:bg-zinc-900 dark:border-zinc-800/80 dark:shadow-none">
+          <form action={formAction} ref={formRef} onSubmit={handleFormSubmit} className="space-y-6 rounded-xl bg-white p-8 border border-zinc-200/80 shadow-2xl shadow-zinc-250/10 dark:bg-zinc-900 dark:border-zinc-800/80 dark:shadow-none">
             {/* Server side error display */}
             {state?.error && (
               <div className="flex items-center gap-2 rounded-xl bg-red-50 p-4 text-sm font-semibold text-red-700 dark:bg-red-950/20 dark:text-red-400">
@@ -235,7 +250,7 @@ export default function GetInvolvedPage() {
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                      className="mt-2 block w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                       placeholder="John Doe"
                     />
                     {errors.name && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.name}</span>}
@@ -250,7 +265,7 @@ export default function GetInvolvedPage() {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                      className="mt-2 block w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                       placeholder="john@example.com"
                     />
                     {errors.email && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.email}</span>}
@@ -268,7 +283,7 @@ export default function GetInvolvedPage() {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                      className="mt-2 block w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                       placeholder="+234 800 000 0000"
                     />
                     {errors.phone && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.phone}</span>}
@@ -283,7 +298,7 @@ export default function GetInvolvedPage() {
                       required
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                      className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                      className="mt-2 block w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
                       placeholder="Enugu, Enugu State"
                     />
                     {errors.location && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.location}</span>}
@@ -306,7 +321,7 @@ export default function GetInvolvedPage() {
                       key={opt.id}
                       type="button"
                       onClick={() => setSelectedCategory(opt.id)}
-                      className={`flex w-full items-start gap-4 rounded-2xl p-4 text-left border transition-all ${
+                      className={`flex cursor-pointer w-full items-start gap-4 rounded-2xl p-4 text-left border transition-all ${
                         selectedCategory === opt.id
                           ? "bg-blue-50/50 border-blue-500 dark:bg-blue-950/20"
                           : "bg-white border-zinc-200 hover:bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-800 dark:hover:bg-zinc-850"
@@ -355,17 +370,12 @@ export default function GetInvolvedPage() {
                   <label htmlFor="availability-visible" className="block text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
                     Your Availability
                   </label>
-                  <select
-                    id="availability-visible"
+                  <CustomSelect
                     value={availability}
-                    onChange={(e) => setAvailability(e.target.value)}
-                    className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-3.5 py-3.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
-                  >
-                    <option value="Flexible / On Call">Flexible / On Call</option>
-                    <option value="Weekends Only">Weekends Only</option>
-                    <option value="Weekdays Only">Weekdays Only</option>
-                    <option value="Full-Time Availability">Full-Time Availability</option>
-                  </select>
+                    onChange={setAvailability}
+                    options={availabilityOptions}
+                    className="w-full mt-2"
+                  />
                 </div>
 
                 <div>
@@ -400,19 +410,28 @@ export default function GetInvolvedPage() {
 
               {currentStep < 3 ? (
                 <button
+                  key="btn-next"
                   type="button"
                   onClick={handleNextStep}
-                  className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/10 transition-colors ml-auto"
+                  className="flex items-center gap-2 cursor-pointer rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/10 transition-colors ml-auto"
                 >
                   Continue <ArrowRight className="h-4 w-4" />
                 </button>
               ) : (
                 <button
+                  key="btn-submit"
                   type="submit"
                   disabled={isPending}
                   className="flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-xs font-bold text-white hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all disabled:opacity-50 ml-auto"
                 >
-                  {isPending ? "Submitting Application..." : "Submit Volunteer Application"}
+                  {isPending ? (
+                    <>
+                      Submitting Application
+                      <Loader2 className="h-4 w-4 animate-spin" /> 
+                    </>
+                  ) : (
+                    "Submit Volunteer Application"
+                  )}
                 </button>
               )}
             </div>

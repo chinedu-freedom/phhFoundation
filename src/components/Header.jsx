@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getSession } from "@/lib/auth";
-import { Heart, Menu, User, LogOut } from "lucide-react";
+import { User, LogOut } from "lucide-react";
+import NavLinks from "./NavLinks";
+import MobileMenu from "./MobileMenu";
 
 export default async function Header() {
   const session = await getSession();
@@ -27,50 +29,7 @@ export default async function Header() {
         </Link>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            href="/about"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/programs"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Programs
-          </Link>
-          <Link
-            href="/projects"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/impact"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Our Impact
-          </Link>
-          <Link
-            href="/get-involved"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Get Involved
-          </Link>
-          <Link
-            href="/partner"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            Partner
-          </Link>
-          <Link
-            href="/faq"
-            className="text-sm font-medium text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-300 dark:hover:text-blue-400"
-          >
-            FAQs
-          </Link>
-        </nav>
+        <NavLinks />
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
@@ -103,10 +62,8 @@ export default async function Header() {
             Donate Now
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 md:hidden dark:border-zinc-800 dark:text-zinc-300">
-            <Menu className="h-5 w-5" />
-          </button>
+          {/* Mobile Menu Button & Drawer */}
+          <MobileMenu />
         </div>
       </div>
     </header>

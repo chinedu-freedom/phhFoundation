@@ -78,20 +78,20 @@ export default async function AboutPage() {
 
   // List of award image paths from public folder
   const awardImages = [
-    { src: "/hall of fame.jpeg", title: "Hall of Fame" },
-    { src: "/reward.jpeg", title: "Community Service Honor" },
-    { src: "/reward1.jpeg", title: "Excellence Award" },
-    { src: "/reward2.jpeg", title: "Outreach Recognition" },
-    { src: "/reward5.jpeg", title: "Youth Empowerment Award" },
-    { src: "/reward10.jpeg", title: "Leadership Honor" }
+    { src: "/reward.jpeg", title: "Ministry of Labour Award" },
+    { src: "/reward1.jpeg", title: "Honorary Recognition" },
+    { src: "/reward2.jpeg", title: "Garki Chiefdom Title" },
+    { src: "/reward3.jpeg", title: "Garki Chiefdom Merit Award" },
+    { src: "/reward7.jpeg", title: "ABU Leadership Award" },
+    { src: "/reward10.jpeg", title: "IOMP Professional Membership" }
   ];
 
   // Drive Evidence Folders
   const driveLinks = [
-    { label: "Garki Chiefdom Council Recognition", url: "https://drive.google.com/drive/folders/1Q3ubeeFIKPHIL_9HuTbDbjauTNsJ1SgS" },
+    { label: "Garki Chiefdom Council Recognition", url: "https://drive.google.com/drive/folders/1bCod0sFyHWIRVQTRZyRNAU6SlCefw5WK" },
     { label: "Ahmadu Bello University Awards", url: "https://drive.google.com/drive/folders/1nCxkuqWjLy-0bmXx58QrQBG-iYc-Kl_k" },
-    { label: "Management Professionals Honors", url: "https://drive.google.com/drive/folders/1bCod0sFyHWIRVQTRZyRNAU6SlCefw5WK" },
-    { label: "Foundation Outreach Archives", url: "https://drive.google.com/drive/folders/19J-zRuv08OjwCb0IESekIYM8cNZ9Ug9i" }
+    { label: "Management Professionals Honors", url: "https://drive.google.com/drive/folders/19J-zRuv08OjwCb0IESekIYM8cNZ9Ug9i" },
+    { label: "Foundation Outreach Archives", url: "https://drive.google.com/drive/folders/1Q3ubeeFIKPHIL_9HuTbDbjauTNsJ1SgS" }
   ];
 
   return (
@@ -154,23 +154,22 @@ export default async function AboutPage() {
       {/* 3. Our Journey & Founder's Inspiration */}
       <section className="py-20 bg-white dark:bg-zinc-950/30 border-t border-b border-zinc-100 dark:border-zinc-900">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-10 items-center">
             {/* Story Text */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-5 space-y-6">
               <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Journey</span>
               <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
                 Championing Humanitarian Responses Since 2012
               </h2>
-              
               <div className="space-y-4 text-sm leading-7 text-zinc-650 dark:text-zinc-400">
                 <p>
-                  Since 2012, I have been at the forefront of championing humanitarian responses through my outreach initiative, <strong>Princess Hephzibah Outreach Program</strong>.
+                  Since 2012, I have been at the forefront of championing sustainable humanitarian responses through my outreach initiative, <strong>Princess Hephzibah Outreach Program</strong>. By addressing immediate socio-economic challenges, we strive to build self-reliant communities, ensure that vulnerable groups receive the essential support they need to survive, and create a lasting legacy of structural empowerment.
                 </p>
                 <p>
-                  Within the past decade, over 5000 women and girls, local churches, and communities have benefitted from my projects. This has been achieved through the kind donations of well-meaning individuals, and securing partnerships with corporate organizations such as Victor and Associates Ltd, Anngood Ventures, Living Christ Mission Inc., and the National Youth Service Corps Scheme (NYSC), Nigeria amongst others.
+                  Within the past decade, over 5000 women and girls, local churches, and marginalized communities have benefitted directly from our structured intervention projects. This milestone was made possible by the unwavering support and kind donations of public-spirited individuals, alongside strategic partnerships with corporate organizations including Victor and Associates Ltd, Anngood Ventures, Living Christ Mission Inc., and the National Youth Service Corps (NYSC) Scheme, Nigeria. These collaborations have allowed us to scale our efforts across multiple regions, ensuring aid reaches those who need it most.
                 </p>
                 <p>
-                  Gratefully, through the initiative, life and living conditions have been improved by breaking the cycle of poverty. We support families with non-refundable micro funds for businesses, award full scholarship schemes for students at all levels of education hit by economic crisis (from secondary to tertiary levels), and empower women and girls with entrepreneurship skills to lead fulfilling lives.
+                  Gratefully, through these initiatives, life and living conditions have been dramatically improved by breaking generational cycles of poverty and resource scarcity. We support struggling families with non-refundable micro-business grants, award comprehensive academic scholarships for students hit hard by economic crises (spanning secondary through tertiary education), and run vocational training programs that equip women and girls with scalable entrepreneurship skills to build resilient, self-sustained futures.
                 </p>
                 <h4 className="text-base font-bold text-zinc-900 dark:text-white font-poppins mt-6 flex items-center gap-2">
                   <Sparkles className="h-5 w-5 text-blue-600" /> What Inspired Our Work?
@@ -186,7 +185,7 @@ export default async function AboutPage() {
 
             {/* Side Media & Video Player */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
+              <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
                 <video 
                   src="/giving.mp4" 
                   controls 
@@ -194,19 +193,23 @@ export default async function AboutPage() {
                   className="w-full h-auto object-cover max-h-[350px]"
                 />
               </div>
-              <div className="rounded-3xl bg-blue-50/50 p-6 border border-blue-100 dark:bg-blue-950/10 dark:border-blue-900/30">
-                <span className="text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest block mb-2">Verification & Transparency</span>
-                <p className="text-xs text-blue-950 dark:text-blue-300 leading-normal">
-                  Our activities are fully documented and audited. To view our full media catalog of outreaches and financial expenditures, you can download our new foundation photo album below.
-                </p>
-                <a 
-                  href="/ALBUM NEW.pdf" 
-                  target="_blank" 
-                  download 
-                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-xs font-bold text-white shadow hover:bg-blue-700 transition-colors"
-                >
-                  <FileText className="h-4 w-4" /> Download Photo Album (PDF)
-                </a>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-xl overflow-hidden shadow-lg border border-slate-100/50 dark:border-zinc-800 bg-zinc-100 aspect-[3/4]">
+                  <Image
+                    src="/reward12.jpeg"
+                    alt="Founder empowering a local business owner with a grinding machine"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative rounded-xl overflow-hidden shadow-lg border border-slate-100/50 dark:border-zinc-800 bg-zinc-100 aspect-[3/4]">
+                  <Image
+                    src="/reward13.jpeg"
+                    alt="Founder distributing household packages to community women"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -216,9 +219,9 @@ export default async function AboutPage() {
       {/* 4. Our Impact & SDG Gaps */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-10 items-center justify-center">
             {/* Impact Video */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
+            <div className="lg:col-span-5 relative rounded-xl overflow-hidden shadow-2xl border border-slate-100/50 dark:border-zinc-800 bg-zinc-100">
               <video 
                 src="/giving1.mp4" 
                 controls 
@@ -232,7 +235,7 @@ export default async function AboutPage() {
             </div>
 
             {/* Impact Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-5 space-y-6">
               <span className="text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Impact</span>
               <h2 className="text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
                 Bridging Gaps in Quality Education (SDG 4)

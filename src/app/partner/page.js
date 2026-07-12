@@ -237,7 +237,7 @@ export default function PartnerPage() {
                   {partnerLogos.map((pl, idx) => (
                     <span 
                       key={idx}
-                      className="px-3.5 py-2 rounded-xl bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-300 border border-slate-100/60 dark:border-zinc-800/80 shadow-[0_4px_12px_rgb(0,0,0,0.01)] hover:bg-slate-50/50 transition-colors"
+                      className="px-3.5 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 text-xs font-semibold text-zinc-800 dark:text-zinc-300 border border-slate-100/60 dark:border-zinc-800/80 shadow-[0_4px_12px_rgb(0,0,0,0.01)] hover:bg-slate-50/50 transition-colors"
                       title={pl.role}
                     >
                       {pl.name}

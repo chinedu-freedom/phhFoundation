@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ChevronDown, HelpCircle, Mail, MessageSquare } from "lucide-react";
+import { Search, ChevronDown, HelpCircle, Mail, Phone } from "lucide-react";
 
 export default function FAQList({ categories = [] }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -80,7 +80,7 @@ export default function FAQList({ categories = [] }) {
           return (
             <div
               key={item.globalIndex}
-              className={`group rounded-3xl border border-slate-100/70 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer ${
+              className={`group rounded-2xl border border-slate-100/70 bg-white transition-all overflow-hidden dark:border-zinc-800 dark:bg-zinc-900 cursor-pointer ${
                 isOpen ? "ring-1 ring-blue-600 border-blue-600 shadow-[0_8px_30px_rgb(0,0,0,0.02)]" : "hover:border-zinc-200 dark:hover:border-zinc-700"
               }`}
             >
@@ -134,7 +134,7 @@ export default function FAQList({ categories = [] }) {
         </p>
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="mailto:support@hephzibahhumanitarianf.org"
+            href="mailto:info@hephzibahhumanitarianf.org"
             className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
           >
             <Mail className="h-4 w-4" /> Email support
@@ -143,7 +143,7 @@ export default function FAQList({ categories = [] }) {
             href="tel:+2348075889097"
             className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
           >
-            <MessageSquare className="h-4 w-4" /> Call: +234 807 588 9097
+            <Phone className="h-4 w-4" /> Call: +234 807 588 9097
           </a>
         </div>
       </div>
