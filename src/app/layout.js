@@ -19,8 +19,49 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "HH Foundation | Transforming Lives, Building Hope",
-  description: "Dedicated to humanitarian aid, educational sponsorships, healthcare outreach, and skill empowerment.",
+  metadataBase: new URL("https://phhfoundation.org"),
+  title: {
+    default: "HEPHZIBAH Humanitarian Foundation | HHF",
+    template: "%s | HEPHZIBAH Humanitarian Foundation"
+  },
+  description: "HEPHZIBAH Humanitarian Foundation (HHF) is a non-governmental organization dedicated to improving lives through humanitarian assistance, educational scholarships, healthcare outreach, skills development, and community empowerment.",
+  keywords: [
+    "Humanitarian aid Nigeria", 
+    "Education scholarships", 
+    "Healthcare outreach Africa", 
+    "Poverty alleviation", 
+    "HH Foundation",
+    "HEPHZIBAH Humanitarian Foundation",
+    "NGO Nigeria",
+    "Charity donations Nigeria"
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "HEPHZIBAH Humanitarian Foundation (HHF)",
+    description: "Transforming lives and building hope through educational scholarships, healthcare outreach, and community empowerment.",
+    url: "https://phhfoundation.org",
+    siteName: "HEPHZIBAH Humanitarian Foundation",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HEPHZIBAH Humanitarian Foundation (HHF)",
+    description: "Transforming lives and building hope through educational scholarships, healthcare outreach, and community empowerment.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
