@@ -161,7 +161,7 @@ export default function TransparencyPage() {
                 
                 {/* Step 1 */}
                 <div className="relative pl-8 flex gap-4">
-                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" /> */}
+                  <div className="absolute left-3 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" />
                   <div>
                     <span className="block text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Step 1</span>
                     <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Ledger Integration</span>
@@ -173,7 +173,7 @@ export default function TransparencyPage() {
 
                 {/* Step 2 */}
                 <div className="relative pl-8 flex gap-4">
-                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" /> */}
+                  <div className="absolute left-3 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-blue-600 border-4 border-white dark:border-zinc-900 shadow-sm" />
                   <div>
                     <span className="block text-xxs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Step 2</span>
                     <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Auditor Appointment</span>
@@ -185,7 +185,7 @@ export default function TransparencyPage() {
 
                 {/* Step 3 */}
                 <div className="relative pl-8 flex gap-4">
-                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-amber-500 border-4 border-white dark:border-zinc-900 shadow-sm animate-pulse" /> */}
+                  <div className="absolute left-3 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-amber-500 border-4 border-white dark:border-zinc-900 shadow-sm animate-pulse" />
                   <div>
                     <span className="block text-xxs font-bold text-amber-500 uppercase tracking-wider">Step 3 (Active)</span>
                     <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Asset & Outreach Verification</span>
@@ -197,7 +197,7 @@ export default function TransparencyPage() {
 
                 {/* Step 4 */}
                 <div className="relative pl-8 flex gap-4 opacity-50">
-                  {/* <div className="absolute left-1.5 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-zinc-300 dark:bg-zinc-700 border-4 border-white dark:border-zinc-900" /> */}
+                  <div className="absolute left-3 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-zinc-300 dark:bg-zinc-700 border-4 border-white dark:border-zinc-900" />
                   <div>
                     <span className="block text-xxs font-bold text-zinc-400 uppercase tracking-wider">Step 4</span>
                     <span className="block text-xs font-bold text-zinc-900 dark:text-white mt-0.5">Public Publication</span>

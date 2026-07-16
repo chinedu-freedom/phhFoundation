@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
@@ -10,9 +10,9 @@ export default function EventsCarousel({ events }) {
   const [isHovered, setIsHovered] = useState(false);
   const slideInterval = useRef(null);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % events.length);
-  };
+  }, [events.length]);
 
   const goToSlide = (index) => {
     setActiveIndex(index);
@@ -27,7 +27,7 @@ export default function EventsCarousel({ events }) {
         clearInterval(slideInterval.current);
       }
     };
-  }, [isHovered, events.length]);
+  }, [isHovered, events.length, nextSlide]);
 
   if (!events || events.length === 0) {
     return (

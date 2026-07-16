@@ -42,7 +42,7 @@ export default function TestimonialsCarousel({ testimonials }) {
 
   useEffect(() => {
     if (!isHovered && testimonials.length > visibleCards) {
-      slideInterval.current = setInterval(nextSlide, 6000);
+      slideInterval.current = setInterval(nextSlide, 4000);
     }
     return () => {
       if (slideInterval.current) {

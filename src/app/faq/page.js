@@ -74,8 +74,8 @@ export default function FAQPage() {
           answer: "We publish annual financial audits and project reports outlining total donations received and detailed project spend. We also maintain a database transaction ledger, ensuring every single naira is fully accounted for."
         },
         {
-          question: "Where can I read your governing constitution and safeguarding policies?",
-          answer: "Our official Constitution & Charter, along with our Child Protection and Data Privacy policies, are fully accessible to view on our Resources & Policies page."
+          question: "Where can I read your safeguarding policies and application guidelines?",
+          answer: "Our Child Protection & Safeguarding Policy, Scholarship Application Guide, and Data Privacy policies are fully accessible to view on our Resources & Policies page."
         }
       ]
     }

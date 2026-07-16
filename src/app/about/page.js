@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Users, Mail, CheckCircle, Award, Video, FileText, ExternalLink, Sparkles, MapPin } from "lucide-react";
+import { Heart, Users, Mail, CheckCircle, Award, Video, FileText, ExternalLink, Sparkles, MapPin, Phone } from "lucide-react";
 
 import PageHeader from "@/components/PageHeader";
 
@@ -21,6 +21,20 @@ const Linkedin = ({ className }) => (
   </svg>
 );
 
+const Facebook = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
 export const metadata = {
   title: "About Us | HH Foundation",
   description: "Learn about the mission, vision, values, history, and dedicated team behind HH Foundation's humanitarian, educational, and healthcare efforts.",
@@ -29,35 +43,48 @@ export const metadata = {
 const DEFAULT_TEAM = [
   {
     id: "founder",
-    name: "Princess Hephzibah",
-    role: "Founder & Executive Director",
+    name: "AMB. CHINAZAEKPERE FAVOUR UMELO",
+    role: "Founder/ Executive Officer",
     bio: "Championing humanitarian responses since 2012. Dedicated to quality education, healthcare outreaches, and youth empowerment across Nigeria.",
-    image: "/image.jpeg",
-    linkedin: "https://linkedin.com",
+    image: "/team1.jpeg",
+    facebook: "https://www.facebook.com/share/1SZmFhWGte/",
+    email: "princessnazihez@yahoo.com",
+    whatsapp: "+2349066008854",
+    objectPosition: "object-top",
   },
   {
-    id: "programs",
-    name: "Sarah Jenkins",
-    role: "Director of Programs",
+    id: "secretary",
+    name: "AMB Christian Ikoroha",
+    role: "Secretary HHF",
     bio: "Over 10 years of experience in NGO operations and field coordination. Specializes in educational sponsorships and rural relief.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-    linkedin: "https://linkedin.com",
-  },
-  {
-    id: "medical",
-    name: "Dr. David Alao",
-    role: "Medical Outreach Coordinator",
-    bio: "Dedicated medical practitioner leading our rural healthcare teams to deliver free medical consults, prescription drugs, and basic surgeries.",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&auto=format&fit=crop&q=80",
-    linkedin: "https://linkedin.com",
+    image: "/team2.jpeg",
+    facebook: "https://www.facebook.com/search/top/?q=Chris%20Ikoroha",
+    email: "chrisblessing2013@gmail.com",
+    whatsapp: "+2348065628864",
+    objectPosition: "object-top",
   },
   {
     id: "operations",
-    name: "Michael Okon",
-    role: "Head of Operations & Logistics",
+    name: "Festus Chukwudiebere Egbo",
+    role: "Director of Operations",
+    // role: "Director of Operations/ Chief Organizing Officer",
+    bio: "Dedicated medical practitioner leading our rural healthcare teams to deliver free medical consults, prescription drugs, and basic surgeries.",
+    image: "/team3.jpeg",
+    facebook: "https://www.facebook.com/share/1C4pvbm6SB/?mibextid=wwXIfr",
+    email: "festusegbo082@gmail.com",
+    whatsapp: "+2347051307246",
+    objectPosition: "object-top",
+  },
+  {
+    id: "legal",
+    name: "SERAH ONUOHA, ESQ.",
+    role: "Legal Advisor",
     bio: "Manages volunteer coordination, distribution networks, and event logistics to ensure transparent, fast aid delivery in the field.",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
-    linkedin: "https://linkedin.com",
+    image: "/team4.jpeg",
+    facebook: "https://www.facebook.com/serah.onuoha?mibextid=ZbWKwL",
+    email: "serahonuoha14@gmail.com",
+    whatsapp: "+2348034473836",
+    objectPosition: "object-top",
   },
 ];
 
@@ -348,15 +375,15 @@ export default async function AboutPage() {
                 key={member.id}
                 className="group rounded-3xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900 hover:border-blue-600 transition-all hover:shadow-xl hover:shadow-zinc-200/40 dark:hover:shadow-none"
               >
-                <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-6">
+                <div className="relative h-72 w-full rounded-2xl overflow-hidden mb-6">
                   <Image
                     src={member.image || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=80"}
                     alt={member.name}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`object-cover ${member.objectPosition || "object-center"} transition-transform duration-300 group-hover:scale-105`}
                   />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white text-lg font-poppins">{member.name}</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white text-md font-poppins uppercase">{member.name}</h3>
                 <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider block mt-1">
                   {member.role}
                 </span>
@@ -364,6 +391,37 @@ export default async function AboutPage() {
                   {member.bio}
                 </p>
                 <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-850 flex items-center gap-3">
+                  {member.facebook && (
+                    <a
+                      href={member.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-400 hover:text-blue-600 transition-colors"
+                      aria-label={`${member.name} Facebook Profile`}
+                    >
+                      <Facebook className="h-4 w-4" />
+                    </a>
+                  )}
+                  {member.email && (
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="text-zinc-400 hover:text-blue-600 transition-colors"
+                      aria-label={`Email ${member.name}`}
+                    >
+                      <Mail className="h-4 w-4" />
+                    </a>
+                  )}
+                  {member.whatsapp && (
+                    <a
+                      href={`https://wa.me/${member.whatsapp.replace(/[^0-9]/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-400 hover:text-blue-600 transition-colors"
+                      aria-label={`WhatsApp ${member.name}`}
+                    >
+                      <Phone className="h-4 w-4" />
+                    </a>
+                  )}
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
@@ -375,13 +433,6 @@ export default async function AboutPage() {
                       <Linkedin className="h-4 w-4" />
                     </a>
                   )}
-                  <a
-                    href={`mailto:info@hephzibahhumanitarianf.org`}
-                    className="text-zinc-400 hover:text-blue-600 transition-colors"
-                    aria-label={`Email ${member.name}`}
-                  >
-                    <Mail className="h-4 w-4" />
-                  </a>
                 </div>
               </div>
             ))}

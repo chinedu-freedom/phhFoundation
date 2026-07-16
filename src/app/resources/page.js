@@ -2,40 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, FileText, Download, ShieldCheck, ArrowDownToLine, Info } from "lucide-react";
+import { Search, FileText, ArrowDownToLine, Info } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 
 const RESOURCES = [
-  {
-    id: "audit-2025",
-    title: "2025 Annual Financial Audit Report",
-    description: "Detailed breakdown of the foundation's total revenues, donations received, and outreach distributions for the 2025 fiscal year.",
-    category: "Financial Audits",
-    fileSize: "2.4 MB",
-    format: "PDF",
-    publishDate: "Jan 15, 2026",
-    downloadUrl: "#",
-  },
-  {
-    id: "audit-2024",
-    title: "2024 Financial Audit & Impact Report",
-    description: "Audited financial accounts coupled with impact stories, medical outreach numbers, and school scholarship records.",
-    category: "Financial Audits",
-    fileSize: "1.8 MB",
-    format: "PDF",
-    publishDate: "Jan 12, 2025",
-    downloadUrl: "#",
-  },
-  {
-    id: "constitution",
-    title: "HH Foundation Constitution & Charter",
-    description: "Our legal governance framework, code of ethics, board rules, and transparency pledges.",
-    category: "Governance",
-    fileSize: "950 KB",
-    format: "PDF",
-    publishDate: "Oct 08, 2023",
-    downloadUrl: "/constitution",
-  },
   {
     id: "child-safeguarding",
     title: "Child Protection & Safeguarding Policy",
@@ -43,8 +13,8 @@ const RESOURCES = [
     category: "Policies",
     fileSize: "680 KB",
     format: "PDF",
-    publishDate: "Mar 22, 2024",
-    downloadUrl: "#",
+    publishDate: "Mar 22, 2026",
+    downloadUrl: "/safeguarding",
   },
   {
     id: "scholarship-guide",
@@ -53,8 +23,8 @@ const RESOURCES = [
     category: "Guidelines",
     fileSize: "1.2 MB",
     format: "PDF",
-    publishDate: "Nov 02, 2025",
-    downloadUrl: "#",
+    publishDate: "Jan 10, 2026",
+    downloadUrl: "/scholarships-guide",
   },
   {
     id: "privacy-policy-doc",
@@ -63,8 +33,8 @@ const RESOURCES = [
     category: "Policies",
     fileSize: "520 KB",
     format: "PDF",
-    publishDate: "Jun 14, 2024",
-    downloadUrl: "#",
+    publishDate: "Jun 14, 2026",
+    downloadUrl: "/privacy",
   },
 ];
 
@@ -72,7 +42,7 @@ export default function ResourcesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Financial Audits", "Governance", "Policies", "Guidelines"];
+  const categories = ["All", "Financial Audits", "Policies", "Guidelines"];
 
   const filteredResources = RESOURCES.filter((res) => {
     const matchesCategory = selectedCategory === "All" || res.category === selectedCategory;
@@ -88,7 +58,7 @@ export default function ResourcesPage() {
       <PageHeader
         subtitle="Transparency"
         title="Resources & Reports"
-        description="Access and download our audited financial reports, organizational charters, safeguarding policies, and program guides."
+        description="Access and read our safeguarding policies, application guidelines, and future financial reports."
         bgImage="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1600&auto=format&fit=crop&q=80"
         alt="Library background"
       />
@@ -102,8 +72,8 @@ export default function ResourcesPage() {
             <Info className="h-6 w-6 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <h4 className="text-sm font-bold text-zinc-900 dark:text-white">Our Commitment to Accountability</h4>
-              <p className="text-xs text-zinc-655 dark:text-zinc-400 leading-relaxed">
-                As a registered humanitarian trust, HH Foundation operates under strict stewardship mandates. All annual financial audits are compiled by accredited third-party chartered accountants and posted here for public download.
+              <p className="text-xs text-zinc-650 dark:text-zinc-400 leading-relaxed">
+                As a registered humanitarian trust, HH Foundation operates under strict stewardship mandates. All annual financial audits are compiled by accredited third-party chartered accountants and posted here for public access.
               </p>
             </div>
           </div>
@@ -140,63 +110,75 @@ export default function ResourcesPage() {
 
           {/* Resources List */}
           <div className="space-y-4">
-            {filteredResources.map((res) => (
-              <div
-                key={res.id}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 rounded-3xl bg-white p-6 border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-4 min-w-0">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-105 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
-                    <FileText className="h-6 w-6" />
-                  </div>
-                  <div className="space-y-1">
-                    <span className="inline-block text-xxs font-bold uppercase tracking-wider text-zinc-400">
-                      {res.category}
-                    </span>
-                    <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {res.title}
-                    </h3>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                      {res.description}
-                    </p>
-                    
-                    {/* File Meta */}
-                    <div className="flex items-center gap-4 pt-1.5 text-xxs text-zinc-400 font-semibold uppercase tracking-wider">
-                      <span>Format: {res.format}</span>
-                      <span>•</span>
-                      <span>Size: {res.fileSize}</span>
-                      <span>•</span>
-                      <span>Published: {res.publishDate}</span>
+            {selectedCategory === "Financial Audits" ? (
+              <div className="rounded-3xl border border-dashed border-zinc-200 p-12 text-center dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
+                <Info className="mx-auto h-8 w-8 text-blue-500 mb-4" />
+                <h4 className="text-sm font-bold text-zinc-900 dark:text-white">No Audits Available Yet</h4>
+                <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
+                  HH Foundation was established in 2026. In accordance with our commitment to transparency, our first annual audited financial report for the 2026 fiscal year will be compiled by accredited third-party auditors and published here in early 2027.
+                </p>
+              </div>
+            ) : (
+              <>
+                {filteredResources.map((res) => (
+                  <div
+                    key={res.id}
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 rounded-3xl bg-white p-6 border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 group"
+                  >
+                    <div className="flex items-start gap-4 min-w-0">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400">
+                        <FileText className="h-6 w-6" />
+                      </div>
+                      <div className="space-y-1">
+                        <span className="inline-block text-xxs font-bold uppercase tracking-wider text-zinc-400">
+                          {res.category}
+                        </span>
+                        <h3 className="text-base font-bold text-zinc-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {res.title}
+                        </h3>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                          {res.description}
+                        </p>
+                        
+                        {/* File Meta */}
+                        <div className="flex items-center gap-4 pt-1.5 text-xxs text-zinc-400 font-semibold uppercase tracking-wider">
+                          <span>Format: {res.format}</span>
+                          <span>•</span>
+                          <span>Size: {res.fileSize}</span>
+                          <span>•</span>
+                          <span>Published: {res.publishDate}</span>
+                        </div>
+                      </div>
                     </div>
+
+                    {res.downloadUrl.startsWith("/") ? (
+                      <Link
+                        href={res.downloadUrl}
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
+                      >
+                        View Document
+                      </Link>
+                    ) : (
+                      <a
+                        href={res.downloadUrl}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert(`Simulating download of: ${res.title}`);
+                        }}
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
+                      >
+                        <ArrowDownToLine className="h-4 w-4" /> Download File
+                      </a>
+                    )}
                   </div>
-                </div>
+                ))}
 
-                {res.downloadUrl.startsWith("/") ? (
-                  <Link
-                    href={res.downloadUrl}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
-                  >
-                    View Document
-                  </Link>
-                ) : (
-                  <a
-                    href={res.downloadUrl}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert(`Simulating download of: ${res.title}`);
-                    }}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
-                  >
-                    <ArrowDownToLine className="h-4 w-4" /> Download File
-                  </a>
+                {filteredResources.length === 0 && (
+                  <div className="py-16 text-center text-zinc-400">
+                    No reports or documents match your search parameters.
+                  </div>
                 )}
-              </div>
-            ))}
-
-            {filteredResources.length === 0 && (
-              <div className="py-16 text-center text-zinc-400">
-                No reports or documents match your search parameters.
-              </div>
+              </>
             )}
           </div>
 
@@ -205,4 +187,3 @@ export default function ResourcesPage() {
     </div>
   );
 }
-
