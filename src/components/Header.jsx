@@ -38,21 +38,32 @@ export default async function Header() {
               <span className="hidden text-xs text-zinc-500 sm:inline-block dark:text-zinc-400">
                 Hi, {session.name.split(" ")[0]}
               </span>
-              <Link
-                href="/logout"
-                title="Log Out"
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600 dark:border-zinc-800 dark:hover:border-red-950 dark:hover:bg-red-950/30 dark:hover:text-red-400 transition-all"
-              >
-                <LogOut className="h-4 w-4" />
-              </Link>
+              <div className="relative group">
+                <Link
+                  href="/logout"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600 dark:border-zinc-800 dark:hover:border-red-950 dark:hover:bg-red-950/30 dark:hover:text-red-400 transition-all"
+                >
+                  <LogOut className="h-4 w-4" />
+                </Link>
+                <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 transition-all duration-150 bg-zinc-900 dark:bg-zinc-850 text-white dark:text-zinc-100 text-[11px] font-medium px-2.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap border border-zinc-800 dark:border-zinc-700 z-50">
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-zinc-900 dark:bg-zinc-850 border-t border-l border-zinc-800 dark:border-zinc-700" />
+                  Logout
+                </div>
+              </div>
             </div>
           ) : (
-            <Link
-              href="/login"
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 dark:border-zinc-800 dark:hover:border-blue-950 dark:hover:bg-blue-950/30 dark:hover:text-blue-400 transition-all"
-            >
-              <User className="h-4 w-4" />
-            </Link>
+            <div className="relative group">
+              <Link
+                href="/login"
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 dark:border-zinc-800 dark:hover:border-blue-950 dark:hover:bg-blue-950/30 dark:hover:text-blue-400 transition-all"
+              >
+                <User className="h-4 w-4" />
+              </Link>
+              <div className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 transition-all duration-150 bg-zinc-900 dark:bg-zinc-850 text-white dark:text-zinc-100 text-[11px] font-medium px-2.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap border border-zinc-800 dark:border-zinc-700 z-50">
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-zinc-900 dark:bg-zinc-850 border-t border-l border-zinc-800 dark:border-zinc-700" />
+                Sign in
+              </div>
+            </div>
           )}
 
           <Link
