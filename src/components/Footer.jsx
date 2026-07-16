@@ -5,7 +5,7 @@ import { Heart, Mail, Phone, MapPin } from "lucide-react";
 const SOCIAL_LINKS = [
   {
     name: "Facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/share/195jxKejnC/",
     hoverBg: "hover:bg-[#1877F2]",
     icon: (
       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -15,7 +15,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Twitter",
-    href: "https://twitter.com",
+    href: "https://x.com/hhfoundation_26",
     hoverBg: "hover:bg-[#1DA1F2]",
     icon: (
       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -25,7 +25,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/hhfoundation_26?igsh=MXZkOHk5eGhhaWtobQ==",
     hoverBg: "hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7]",
     icon: (
       <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" aria-hidden="true">
@@ -35,6 +35,7 @@ const SOCIAL_LINKS = [
       </svg>
     )
   },
+  /*
   {
     name: "LinkedIn",
     href: "https://linkedin.com",
@@ -55,9 +56,10 @@ const SOCIAL_LINKS = [
       </svg>
     )
   },
+  */
   {
     name: "TikTok",
-    href: "https://tiktok.com",
+    href: "https://www.tiktok.com/@hhfoundation_26?_r=1&_t=ZS-9854Iyq70GW",
     hoverBg: "hover:bg-black dark:hover:bg-zinc-800",
     icon: (
       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
