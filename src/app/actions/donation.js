@@ -49,7 +49,7 @@ export async function createDonationAction(prevState, formData) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: isAnonymous ? "anonymous@hhfoundation.org" : donorEmail,
+            email: isAnonymous ? "anonymous@hephzibahhumanitarianf.org" : donorEmail,
             amount: Math.round(amount * 100), // Paystack expects amount in kobo
             reference,
             callback_url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/donate?payment=paystack&reference=${reference}`,
@@ -172,7 +172,7 @@ export async function confirmDonationAction(reference) {
       data: {
         action: "DONATION_RECEIVED",
         details: `Donation of ₦${donation.amount} received from ${donation.isAnonymous ? "Anonymous" : donation.donorName} for ${donation.campaign?.title || "General Fund"}. Ref: ${donation.reference}`,
-        userEmail: donation.donorEmail || "anonymous@hhfoundation.org",
+        userEmail: donation.donorEmail || "anonymous@hephzibahhumanitarianf.org",
       },
     });
 
