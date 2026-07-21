@@ -223,9 +223,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-blue-600 dark:text-blue-400" />
-                <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                  info@hephzibahhumanitarianf.org
-                </span>
+                <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-sm text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  hephzibahhumanitarianf@gmail.com
+                </a>
               </li>
             </ul>
           </div>

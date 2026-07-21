@@ -141,7 +141,7 @@ export default function ScholarshipGuideClient() {
                 </p>
                 <div className="pt-2">
                   <a
-                    href="mailto:info@hephzibahhumanitarianf.org?subject=Scholarship%20Inquiry%202026"
+                    href="mailto:hephzibahhumanitarianf@gmail.com?subject=Scholarship%20Inquiry%202026"
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3 shadow-md shadow-blue-500/10 transition-colors"
                   >
                     <Send className="h-3.5 w-3.5" /> Email Coordinator

@@ -48,7 +48,7 @@ export default function SafeguardingClient() {
       id: "reporting",
       title: "Mandatory Incident Reporting",
       icon: AlertCircle,
-      content: "Any volunteer or staff member who witnesses, suspects, or receives an allegation of child safety violations is legally and ethically bound to report it immediately. Reports should be made to our child safety officer via info@hephzibahhumanitarianf.org or by calling +234 807 588 9097."
+      content: "Any volunteer or staff member who witnesses, suspects, or receives an allegation of child safety violations is legally and ethically bound to report it immediately. Reports should be made to our child safety officer via hephzibahhumanitarianf@gmail.com or by calling +234 807 588 9097."
     },
     {
       id: "review",
@@ -145,8 +145,8 @@ export default function SafeguardingClient() {
                 <div className="pt-2 space-y-2.5 text-xs">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-bold text-zinc-600 dark:text-zinc-300">Email:</span>
-                    <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 dark:text-blue-400 hover:underline">
-                      info@hephzibahhumanitarianf.org
+                    <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+                      hephzibahhumanitarianf@gmail.com
                     </a>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">

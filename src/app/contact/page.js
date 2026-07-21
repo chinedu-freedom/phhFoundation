@@ -63,9 +63,9 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-zinc-900 dark:text-white font-poppins">Email Address</h4>
-                      <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 font-semibold">
-                        info@hephzibahhumanitarianf.org
-                      </p>
+                      <a href="mailto:hephzibahhumanitarianf@gmail.com" className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors block">
+                        hephzibahhumanitarianf@gmail.com
+                      </a>
                     </div>
                   </li>
 

@@ -418,8 +418,8 @@ export default function GetInvolvedPage() {
                 <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">Have Questions?</h4>
                 <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
                   If you have inquiries regarding volunteer roles or corporate partnerships, email our team directly at{" "}
-                  <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">
-                    info@hephzibahhumanitarianf.org
+                  <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">
+                    hephzibahhumanitarianf@gmail.com
                   </a>.
                 </p>
               </div>

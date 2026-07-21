@@ -197,7 +197,7 @@ const SECTIONS = [
     content: (
       <div className="space-y-2 mt-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 text-xs sm:text-sm">
         <p><strong>Hephzibah Humanitarian Foundation</strong></p>
-        <p><strong>Email:</strong> <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 dark:text-blue-400 hover:underline">info@hephzibahhumanitarianf.org</a></p>
+        <p><strong>Email:</strong> <a href="mailto:hephzibahhumanitarianf@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">hephzibahhumanitarianf@gmail.com</a></p>
         <p><strong>Telephone:</strong> 08075889097</p>
         <p><strong>Registered Office:</strong> 10 Prof. Daddy Hezekiah Avenue, Inland-town Onitsha, Anambra State, Nigeria</p>
         <p><strong>Website:</strong> <a href="https://hephzibahhumanitarianf.org" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">hephzibahhumanitarianf.org</a></p>

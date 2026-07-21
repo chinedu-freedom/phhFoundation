@@ -134,7 +134,7 @@ export default function FAQList({ categories = [] }) {
         </p>
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="mailto:info@hephzibahhumanitarianf.org"
+            href="mailto:hephzibahhumanitarianf@gmail.com"
             className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
           >
             <Mail className="h-4 w-4" /> Email support

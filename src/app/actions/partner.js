@@ -26,7 +26,7 @@ export async function submitPartnerForm(prevState, formData) {
     });
 
     // Send notification email to Admin (ZOHO_FROM_EMAIL)
-    const adminEmail = process.env.ZOHO_FROM_EMAIL || "info@hephzibahhumanitarianf.org";
+    const adminEmail = process.env.ZOHO_FROM_EMAIL || "hephzibahhumanitarianf@gmail.com";
     const adminHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 12px; background-color: #ffffff;">
         <h2 style="color: #1d4ed8; border-bottom: 2px solid #3b82f6; padding-bottom: 8px; margin-top: 0;">New Partnership Inquiry</h2>

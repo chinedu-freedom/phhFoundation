@@ -10,7 +10,7 @@ export async function upsertBlogAction(prevState, formData) {
   const image = formData.get("image")?.toString().trim() || "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600";
   const category = formData.get("category")?.toString().trim() || "Community";
   const authorName = formData.get("authorName")?.toString().trim() || "HH Foundation";
-  const authorEmail = formData.get("authorEmail")?.toString().trim() || "info@hephzibahhumanitarianf.org";
+  const authorEmail = formData.get("authorEmail")?.toString().trim() || "hephzibahhumanitarianf@gmail.com";
   const status = formData.get("status")?.toString() || "DRAFT";
 
   if (!title || !content) {
