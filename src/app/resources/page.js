@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Search, FileText, ArrowDownToLine, Info } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
+import { toast } from "sonner";
 
 const RESOURCES = [
   {
@@ -163,7 +164,7 @@ export default function ResourcesPage() {
                         href={res.downloadUrl}
                         onClick={(e) => {
                           e.preventDefault();
-                          alert(`Simulating download of: ${res.title}`);
+                          toast.info(`Simulating download of: ${res.title}`);
                         }}
                         className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-5 py-3.5 shadow-md shadow-blue-500/10 shrink-0 self-start sm:self-auto transition-colors"
                       >

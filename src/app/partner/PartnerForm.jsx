@@ -1,13 +1,14 @@
 "use client";
 
-import { useActionState, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { submitPartnerForm } from "@/app/actions/partner";
-import { CheckCircle, AlertTriangle, Send, Building, User, Mail, Phone, MessageSquare, HelpCircle } from "lucide-react";
+import { CheckCircle, AlertTriangle, Loader2, Building, User, Mail, Phone, MessageSquare, HelpCircle } from "lucide-react";
 import CustomSelect from "@/components/CustomSelect";
+import { toast } from "sonner";
 
 export default function PartnerForm() {
-  const [state, formAction, isPending] = useActionState(submitPartnerForm, null);
   const [success, setSuccess] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [errors, setErrors] = useState({});
 
   // Field states for validation
@@ -25,22 +26,8 @@ export default function PartnerForm() {
     { value: "SCALE", label: "SCALE (Multi-year Intervention Projects, Program Scaling)" },
   ];
 
-  useEffect(() => {
-    if (state?.success) {
-      setSuccess(true);
-      // Reset form
-      setOrgName("");
-      setContactName("");
-      setEmail("");
-      setPhone("");
-      setPartnerType("GIVE");
-      setMessage("");
-    } else if (state?.error) {
-      setErrors({ form: state.error });
-    }
-  }, [state]);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const newErrors = {};
     if (!orgName.trim()) newErrors.orgName = "Organization name is required";
     if (!contactName.trim()) newErrors.contactName = "Contact person name is required";
@@ -49,11 +36,41 @@ export default function PartnerForm() {
     if (!message.trim()) newErrors.message = "Message or proposal details are required";
 
     if (Object.keys(newErrors).length > 0) {
-      e.preventDefault();
       setErrors(newErrors);
       return;
     }
     setErrors({});
+    setIsPending(true);
+
+    const formData = new FormData();
+    formData.append("orgName", orgName);
+    formData.append("contactName", contactName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("partnerType", partnerType);
+    formData.append("message", message);
+
+    try {
+      const res = await submitPartnerForm(null, formData);
+      if (res?.success) {
+        toast.success("Partnership proposal submitted successfully!");
+        setSuccess(true);
+        // Reset form
+        setOrgName("");
+        setContactName("");
+        setEmail("");
+        setPhone("");
+        setPartnerType("GIVE");
+        setMessage("");
+      } else if (res?.error) {
+        setErrors({ form: res.error });
+        toast.error(res.error);
+      }
+    } catch (err) {
+      toast.error("Failed to submit partnership proposal. Please try again.");
+    } finally {
+      setIsPending(false);
+    }
   };
 
   if (success) {
@@ -70,7 +87,7 @@ export default function PartnerForm() {
         </p>
         <button
           onClick={() => setSuccess(false)}
-          className="mt-6 rounded-xl bg-blue-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all"
+          className="mt-6 rounded-lg cursor-pointer bg-blue-600 px-5 py-2.5 text-xs font-bold text-white hover:bg-blue-700 shadow-md shadow-blue-500/20 transition-all"
         >
           Send Another Request
         </button>
@@ -89,7 +106,7 @@ export default function PartnerForm() {
         Fill out the form below, and our team will design a customized impact proposal for your organization.
       </p>
 
-      <form action={formAction} onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         {errors.form && (
           <div className="rounded-xl bg-red-50 p-4 text-xs font-bold text-red-650 flex items-center gap-2 dark:bg-red-950/20 dark:text-red-400">
             <AlertTriangle className="h-4 w-4 shrink-0" />
@@ -231,14 +248,15 @@ export default function PartnerForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-4 shadow-lg shadow-blue-500/20 transition-all disabled:opacity-50"
+          className="w-full flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-4 shadow-lg shadow-blue-500/20 transition-all disabled:opacity-50"
         >
           {isPending ? (
-            <span>Sending Request...</span>
-          ) : (
             <>
-              <Send className="h-4 w-4" /> Submit Partnership Proposal
+            Submitting
+            <Loader2 className="h-4 w-4 animate-spin" />
             </>
+          ) : (
+          "Submit Partnership Proposal"
           )}
         </button>
       </form>

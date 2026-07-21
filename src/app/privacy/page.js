@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy | HH Foundation",
-  description: "Learn how the HEPHZIBAH Humanitarian Foundation collects, uses, and secures your personal and transactional information.",
+  description: "Learn how the Hephzibah Humanitarian Foundation collects, uses, and secures your personal and transactional information.",
 };
 
 const SECTIONS = [
@@ -10,7 +10,7 @@ const SECTIONS = [
     title: "Introduction",
     content: (
       <div className="space-y-3">
-        <p>HEPHZIBAH Humanitarian Foundation (&quot;the Foundation,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting the privacy, confidentiality, and security of the personal information entrusted to us by our donors, beneficiaries, volunteers, employees, partners, website visitors, and members of the public.</p>
+        <p>Hephzibah Humanitarian Foundation (&quot;the Foundation,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting the privacy, confidentiality, and security of the personal information entrusted to us by our donors, beneficiaries, volunteers, employees, partners, website visitors, and members of the public.</p>
         <p>This Privacy Policy explains how we collect, use, disclose, store, and protect personal information obtained through our website and other interactions with the Foundation.</p>
         <p>By using our website or engaging with our services, you acknowledge that you have read and understood this Privacy Policy.</p>
       </div>
@@ -196,7 +196,7 @@ const SECTIONS = [
     title: "Contact Us",
     content: (
       <div className="space-y-2 mt-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 text-xs sm:text-sm">
-        <p><strong>HEPHZIBAH Humanitarian Foundation</strong></p>
+        <p><strong>Hephzibah Humanitarian Foundation</strong></p>
         <p><strong>Email:</strong> <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 dark:text-blue-400 hover:underline">info@hephzibahhumanitarianf.org</a></p>
         <p><strong>Telephone:</strong> 08075889097</p>
         <p><strong>Registered Office:</strong> 10 Prof. Daddy Hezekiah Avenue, Inland-town Onitsha, Anambra State, Nigeria</p>
@@ -225,7 +225,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <div className="flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-wider text-zinc-400">
-            <span>HEPHZIBAH Humanitarian Foundation</span>
+            <span>Hephzibah Humanitarian Foundation</span>
             <span>•</span>
             <span>Last Updated: July 16, 2026</span>
           </div>

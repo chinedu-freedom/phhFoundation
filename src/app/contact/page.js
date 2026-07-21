@@ -22,7 +22,7 @@ export default function ContactPage() {
       {/* 2. Contact Details & Form */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
             {/* Left Side: Contact Information Cards */}
             <div className="lg:col-span-5 space-y-6">
               {/* Main Info */}
@@ -82,31 +82,34 @@ export default function ContactPage() {
                   </li>
                 </ul>
               </div>
-
-              {/* Map Container */}
-              <div className="rounded-3xl overflow-hidden border border-slate-100/80 bg-zinc-100 h-60 relative dark:border-zinc-800">
-                {/* Embedded Iframe Mock or Simulated Map graphic */}
-                <div className="absolute inset-0 flex flex-col justify-center items-center p-6 text-center bg-blue-950 text-white">
-                  <MapPin className="h-8 w-8 text-blue-400 animate-bounce mb-3" />
-                  <h4 className="font-bold text-sm font-poppins">HH Innovation Center Location</h4>
-                  <p className="text-xs text-blue-200 mt-2">
-                    Onitsha, Anambra State, Nigeria
-                  </p>
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700"
-                  >
-                    Open in Google Maps
-                  </a>
-                </div>
-              </div>
             </div>
 
             {/* Right Side: Form */}
             <div className="lg:col-span-7">
               <ContactForm />
+            </div>
+          </div>
+
+          {/* Full Width Map Container below */}
+          <div className="mt-12 rounded-md overflow-hidden border border-slate-100/80 bg-zinc-100 dark:border-zinc-800 shadow-md relative group h-[500px]">
+            <iframe
+              src="https://maps.google.com/maps?q=10%20Prof.%20Daddy%20Hezekiah%20Avenue,%20Inland-town,%20Onitsha&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full border-0 grayscale dark:invert dark:contrast-90 dark:opacity-85"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            {/* Overlay Action Button to compare directions */}
+            <div className="absolute bottom-6 right-6 left-6 md:left-auto md:w-80">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=10+Prof.+Daddy+Hezekiah+Avenue,+Inland-town,+Onitsha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-blue-600 px-5 py-3.5 text-xs font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer text-center"
+              >
+                <MapPin className="h-4 w-4" />
+                Get Directions
+              </a>
             </div>
           </div>
         </div>

@@ -1,10 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createDonationAction, confirmDonationAction } from "@/app/actions/donation";
 import { Heart, Landmark, CreditCard, DollarSign, Wallet, ShieldCheck, CheckCircle } from "lucide-react";
+import { toast } from "sonner";
+import CustomSelect from "@/components/CustomSelect";
 
-export default function DonateForm({ campaigns = [], initialCampaignId = "", initialAmount = "" }) {
+export default function DonateForm({ 
+  campaigns = [], 
+  initialCampaignId = "", 
+  initialAmount = "",
+  paymentRef = "",
+  isPaystackPayment = false
+}) {
   const presets = [5000, 10000, 20000, 50000];
 
   const parsedInitialAmount = parseFloat(initialAmount) || 0;
@@ -33,6 +41,43 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
   const [simulationRef, setSimulationRef] = useState(null);
   const [simulationAmount, setSimulationAmount] = useState(0);
 
+  // Auto-verify Paystack transactions on callback redirect
+  useEffect(() => {
+    if (paymentRef && isPaystackPayment) {
+      const verifyPaystackTrx = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+          const res = await confirmDonationAction(paymentRef);
+          if (res.error) {
+            setError(res.error);
+            toast.error(res.error);
+          } else {
+            toast.success("Payment verified! Thank you for your support.");
+            setSuccessDonation({
+              reference: paymentRef,
+              amount: res.donation.amount,
+              donorName: res.donation.donorName || "Anonymous Donor",
+              donorEmail: res.donation.donorEmail,
+              paymentMethod: res.donation.paymentMethod,
+            });
+            // Clean browser URL reference to prevent duplicate verification on reload
+            if (typeof window !== "undefined") {
+              window.history.replaceState({}, document.title, window.location.pathname);
+            }
+          }
+        } catch (err) {
+          console.error("Auto verification error:", err);
+          setError("Failed to verify Paystack transaction.");
+          toast.error("Failed to verify Paystack transaction.");
+        } finally {
+          setLoading(false);
+        }
+      };
+      verifyPaystackTrx();
+    }
+  }, [paymentRef, isPaystackPayment]);
+
   const getFinalAmount = () => {
     return amountType === "preset" ? presetAmount : parseFloat(customAmount) || 0;
   };
@@ -44,13 +89,17 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
 
     const finalAmount = getFinalAmount();
     if (finalAmount <= 0) {
-      setError("Please enter or select a valid donation amount.");
+      const errMessage = "Please enter or select a valid donation amount.";
+      setError(errMessage);
+      toast.error(errMessage);
       setLoading(false);
       return;
     }
 
     if (!isAnonymous && (!donorName || !donorEmail)) {
-      setError("Please provide your name and email address.");
+      const errMessage = "Please provide your name and email address.";
+      setError(errMessage);
+      toast.error(errMessage);
       setLoading(false);
       return;
     }
@@ -68,12 +117,19 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
       const res = await createDonationAction(null, formData);
       if (res.error) {
         setError(res.error);
+        toast.error(res.error);
+      } else if (res.checkoutUrl) {
+        toast.success("Redirecting to Paystack payment gateway...");
+        window.location.href = res.checkoutUrl;
       } else {
         setSimulationRef(res.reference);
         setSimulationAmount(finalAmount);
+        toast.success("Donation initialized! Please complete payment simulation.");
       }
     } catch (err) {
-      setError("An unexpected error occurred. Please try again.");
+      const errMessage = "An unexpected error occurred. Please try again.";
+      setError(errMessage);
+      toast.error(errMessage);
     } finally {
       setLoading(false);
     }
@@ -86,7 +142,9 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
       const res = await confirmDonationAction(simulationRef);
       if (res.error) {
         setError(res.error);
+        toast.error(res.error);
       } else {
+        toast.success("Payment successful! Thank you for your support.");
         setSuccessDonation({
           reference: simulationRef,
           amount: simulationAmount,
@@ -97,7 +155,9 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
         setSimulationRef(null);
       }
     } catch (err) {
-      setError("Error confirming simulated payment.");
+      const errMessage = "Error confirming simulated payment.";
+      setError(errMessage);
+      toast.error(errMessage);
     } finally {
       setLoading(false);
     }
@@ -174,18 +234,18 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
           <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300">
             Select Campaign (Optional)
           </label>
-          <select
-            value={campaignId}
-            onChange={(e) => setCampaignId(e.target.value)}
-            className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
-          >
-            <option value="">General Humanitarian Fund</option>
-            {campaigns.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.title}
-              </option>
-            ))}
-          </select>
+          <div className="mt-2">
+            <CustomSelect
+              value={campaignId}
+              onChange={setCampaignId}
+              options={[
+                { value: "", label: "General Humanitarian Fund" },
+                ...campaigns.map((c) => ({ value: c.id, label: c.title }))
+              ]}
+              className="w-full"
+              icon={<Heart className="h-4 w-4" />}
+            />
+          </div>
         </div>
 
         {/* 2. Amount Section */}
@@ -202,7 +262,7 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
                   setAmountType("preset");
                   setPresetAmount(amount);
                 }}
-                className={`rounded-xl py-3.5 text-center text-sm font-semibold transition-all border ${
+                className={`rounded-xl py-3.5 text-center text-sm font-semibold transition-all border cursor-pointer ${
                   amountType === "preset" && presetAmount === amount
                     ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
                     : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -217,7 +277,7 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
             <button
               type="button"
               onClick={() => setAmountType("custom")}
-              className={`rounded-xl border px-4 py-3.5 text-sm font-semibold transition-all ${
+              className={`rounded-xl border px-4 py-3.5 text-sm font-semibold transition-all cursor-pointer ${
                 amountType === "custom"
                   ? "bg-blue-600 text-white border-blue-600 shadow-md"
                   : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -255,7 +315,7 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
                 type="checkbox"
                 checked={isAnonymous}
                 onChange={(e) => setIsAnonymous(e.target.checked)}
-                className="h-4 w-4 rounded border-zinc-300 text-blue-600 focus:ring-blue-500"
+                className="h-4 w-4 rounded border-zinc-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
               />
               Donate Anonymously
             </label>
@@ -287,28 +347,11 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
           )}
         </div>
 
-        {/* 4. Payment Method */}
-        <div>
-          <label className="block text-sm font-bold text-zinc-700 dark:text-zinc-300">
-            Payment Provider
-          </label>
-          <div className="mt-4 max-w-sm">
-            {/* Paystack ONLY */}
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-blue-600 bg-blue-50/20 text-blue-700 dark:border-blue-400 dark:bg-blue-950/10 dark:text-blue-400">
-              <CreditCard className="h-5 w-5 text-blue-600" />
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-zinc-900 dark:text-white">Paystack</span>
-                <span className="text-xxs text-zinc-400">Cards, Bank Transfer, USSD</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Submit */}
         <button
           type="submit"
           disabled={loading}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-4 text-base font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-4 text-base font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all active:scale-[0.98] disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
         >
           {loading ? "Processing..." : `Donate ₦${getFinalAmount().toLocaleString()}`}
         </button>
@@ -321,7 +364,14 @@ export default function DonateForm({ campaigns = [], initialCampaignId = "", ini
 
       {/* Payment Gateway Simulation Modal overlay */}
       {simulationRef && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setSimulationRef(null);
+            }
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+        >
           <div className="w-full max-w-md rounded-3xl bg-white p-8 border border-zinc-100 shadow-2xl dark:bg-zinc-900 dark:border-zinc-800">
             <div className="text-center">
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 dark:bg-blue-950/20 dark:text-blue-400">

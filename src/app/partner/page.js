@@ -5,7 +5,7 @@ import { Shield, FileSpreadsheet, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Partner With Us | HH Foundation",
-  description: "Collaborate with Princess Hephzibah Humanitarian Foundation in Onitsha and across Nigeria. We design high-impact CSR partnerships, employee engagement programs, and co-branded advocacy campaigns.",
+  description: "Collaborate with Hephzibah Humanitarian Foundation in Onitsha and across Nigeria. We design high-impact CSR partnerships, employee engagement programs, and co-branded advocacy campaigns.",
 };
 
 export default function PartnerPage() {

@@ -1,9 +1,9 @@
 "use client";
-
 import { useState } from "react";
 import { rsvpEventAction } from "@/app/actions/event";
-import { Calendar, MapPin, Users, Check, AlertCircle, Clock, X } from "lucide-react";
+import { Calendar, MapPin, Users, Check, AlertCircle, Clock, X , Loader2 } from "lucide-react";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export default function EventsList({ initialEvents = [] }) {
   const [events, setEvents] = useState(initialEvents);
@@ -14,8 +14,6 @@ export default function EventsList({ initialEvents = [] }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
 
   // Group and sort events
   const now = new Date();
@@ -28,8 +26,6 @@ export default function EventsList({ initialEvents = [] }) {
     setRsvpEvent(event);
     setName("");
     setEmail("");
-    setError(null);
-    setSuccess(false);
   };
 
   const handleRsvpSubmit = async (e) => {
@@ -37,15 +33,13 @@ export default function EventsList({ initialEvents = [] }) {
     if (!rsvpEvent) return;
 
     setLoading(true);
-    setError(null);
-    setSuccess(false);
 
     try {
       const res = await rsvpEventAction(rsvpEvent.id, name, email);
       if (res.error) {
-        setError(res.error);
+        toast.error(res.error);
       } else {
-        setSuccess(true);
+        toast.success(`Successfully registered for ${rsvpEvent.title}!`);
         // Optimistically increment local state attendee count
         setEvents(prev =>
           prev.map((item) =>
@@ -54,9 +48,10 @@ export default function EventsList({ initialEvents = [] }) {
               : item
           )
         );
+        setRsvpEvent(null);
       }
     } catch (err) {
-      setError("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -118,7 +113,7 @@ export default function EventsList({ initialEvents = [] }) {
                 />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span
-                    className={`rounded-full px-3 py-1 text-xxs font-bold text-white uppercase backdrop-blur-md ${
+                    className={`rounded-full px-2 py-0.5 text-[10px] font-bold text-white uppercase backdrop-blur-md ${
                       event.status === "CANCELLED"
                         ? "bg-red-500/80"
                         : isUpcoming
@@ -129,8 +124,8 @@ export default function EventsList({ initialEvents = [] }) {
                     {event.status}
                   </span>
                   {event.registrationRequired && isUpcoming && (
-                    <span className="rounded-full bg-emerald-600/80 px-3 py-1 text-xxs font-bold text-white uppercase backdrop-blur-md">
-                      RSVP Required
+                    <span className="rounded-full bg-emerald-600/80 px-2 py-0.5 text-[10px] font-bold text-white uppercase backdrop-blur-md">
+                      Register
                     </span>
                   )}
                 </div>
@@ -187,19 +182,19 @@ export default function EventsList({ initialEvents = [] }) {
                   </div>
                 </div>
 
-                {/* RSVP Action */}
+                {/* Registration Action */}
                 {isUpcoming && (
                   <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800">
                     {event.registrationRequired ? (
                       <button
                         onClick={() => handleOpenRsvp(event)}
-                        className="w-full rounded-xl bg-blue-600 py-2.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/10"
+                        className="w-full cursor-pointer rounded-xl bg-blue-600 py-2.5 text-xs font-bold text-white hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/10"
                       >
-                        Register / RSVP Now
+                        Register Now
                       </button>
                     ) : (
                       <div className="text-center py-2 text-xxs font-bold text-zinc-400 uppercase tracking-widest bg-zinc-50 dark:bg-zinc-950 rounded-xl">
-                        Open Invitation (No RSVP)
+                        Open Invitation (No Registration Required)
                       </div>
                     )}
                   </div>
@@ -218,7 +213,14 @@ export default function EventsList({ initialEvents = [] }) {
 
       {/* RSVP Modal Overlay */}
       {rsvpEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div 
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setRsvpEvent(null);
+            }
+          }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in"
+        >
           <div className="w-full max-w-md rounded-3xl bg-white p-8 border border-slate-100/70 shadow-[0_30px_60px_rgba(0,0,0,0.1)] dark:bg-zinc-900 dark:border-zinc-800/80">
             <div className="flex justify-between items-start mb-6">
               <div>
@@ -231,76 +233,55 @@ export default function EventsList({ initialEvents = [] }) {
               </div>
               <button
                 onClick={() => setRsvpEvent(null)}
-                className="text-zinc-400 hover:text-zinc-600 dark:hover:text-white"
+                className="text-zinc-400 hover:text-zinc-600 dark:hover:text-white cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            {success ? (
-              <div className="text-center py-6 space-y-4">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-950/20 dark:text-emerald-400">
-                  <Check className="h-6 w-6" />
-                </div>
-                <h4 className="text-base font-bold text-zinc-900 dark:text-white">
-                  Registration Successful!
-                </h4>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  You are registered to attend this event. An email confirmation has been sent to you.
-                </p>
-                <button
-                  onClick={() => setRsvpEvent(null)}
-                  className="mt-6 w-full rounded-xl bg-blue-600 py-3 text-xs font-bold text-white hover:bg-blue-700 transition-colors"
-                >
-                  Done
-                </button>
+            <form onSubmit={handleRsvpSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-zinc-700 dark:text-zinc-300">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your full name"
+                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleRsvpSubmit} className="space-y-4">
-                {error && (
-                  <div className="flex items-center gap-2 rounded-xl bg-red-50 p-3 text-xs font-semibold text-red-700 dark:bg-red-950/20 dark:text-red-400">
-                    <AlertCircle className="h-4 w-4 shrink-0" />
-                    <span>{error}</span>
-                  </div>
+
+              <div>
+                <label className="block text-xs font-bold text-zinc-700 dark:text-zinc-300">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full cursor-pointer mt-2 rounded-xl bg-blue-600 py-3.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors disabled:opacity-50"
+              >
+                {loading ? (
+                  <span className="flex items-center justify-center gap-2">
+                    Registering <Loader2 className="w-4 h-4 animate-spin" />
+                  </span>
+                ) : (
+                  "Confirm Registration"
                 )}
-
-                <div>
-                  <label className="block text-xs font-bold text-zinc-700 dark:text-zinc-300">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Enter your full name"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-zinc-700 dark:text-zinc-300">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-2.5 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full mt-6 rounded-xl bg-blue-600 py-3.5 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors disabled:opacity-50"
-                >
-                  {loading ? "Registering..." : "Confirm RSVP"}
-                </button>
-              </form>
-            )}
+              </button>
+            </form>
           </div>
         </div>
       )}

@@ -57,13 +57,13 @@ export default function CookieConsent() {
           <div className="mt-4 pt-2 flex items-center gap-3">
             <button
               onClick={handleAccept}
-              className="rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
+              className="rounded-lg cursor-pointer bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-blue-500/20 hover:bg-blue-700 transition-colors"
             >
               Accept All
             </button>
             <button
               onClick={handleReject}
-              className="rounded-xl bg-zinc-800 px-4 py-2 text-xs font-bold text-zinc-300 hover:bg-zinc-700 transition-colors"
+              className="rounded-lg cursor-pointer bg-zinc-800 px-4 py-2 text-xs font-bold text-zinc-300 hover:bg-zinc-700 transition-colors"
             >
               Reject
             </button>

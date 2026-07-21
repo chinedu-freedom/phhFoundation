@@ -5,11 +5,13 @@ import { prisma } from "@/lib/db";
 export async function submitContactForm(prevState, formData) {
   const name = formData.get("name")?.toString().trim();
   const email = formData.get("email")?.toString().trim();
-  const subject = formData.get("subject")?.toString().trim();
+  const phone = formData.get("phone")?.toString().trim();
+  const organisation = formData.get("organisation")?.toString().trim();
+  const subject = formData.get("subject")?.toString().trim() || "No Subject";
   const message = formData.get("message")?.toString().trim();
 
-  if (!name || !email || !subject || !message) {
-    return { error: "All fields are required." };
+  if (!name || !email || !phone || !message) {
+    return { error: "Name, email, phone, and message are required." };
   }
 
   try {
@@ -18,7 +20,7 @@ export async function submitContactForm(prevState, formData) {
       data: {
         action: "CONTACT_FORM_SUBMIT",
         userEmail: email,
-        details: `Name: ${name} | Subject: ${subject} | Message: ${message.slice(0, 150)}...`,
+        details: `Name: ${name} | Phone: ${phone} | Org: ${organisation || "N/A"} | Subject: ${subject} | Message: ${message.slice(0, 150)}...`,
       },
     });
 

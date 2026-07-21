@@ -16,7 +16,8 @@ const SOCIAL_LINKS = [
   {
     name: "Twitter",
     href: "https://x.com/hhfoundation_26",
-    hoverBg: "hover:bg-[#1DA1F2]",
+    // hoverBg: "hover:bg-[#1DA1F2]",
+    hoverBg: "hover:bg-black dark:hover:bg-zinc-800",
     icon: (
       <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -87,7 +88,7 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="relative h-10 w-10 overflow-hidden rounded-lg shadow-sm border border-zinc-200 dark:border-zinc-800">
+              <div className="relative h-10 w-10 overflow-hidden shadow-sm dark:border-zinc-800">
                 <Image
                   src="/logo.jpeg"
                   alt="HH Foundation Logo"
@@ -148,6 +149,16 @@ export default function Footer() {
               <li>
                 <Link href="/gallery" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
                   Media Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Blog Updates
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-zinc-600 hover:text-blue-600 transition-colors dark:text-zinc-400 dark:hover:text-blue-400">
+                  Contact Us
                 </Link>
               </li>
               <li>

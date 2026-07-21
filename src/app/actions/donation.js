@@ -1,4 +1,4 @@
-﻿"use server";
+"use server";
 
 import { prisma } from "@/lib/db";
 import { sendEmail, getDonationThankYouHTML } from "@/lib/zohoMailer";
@@ -39,6 +39,48 @@ export async function createDonationAction(prevState, formData) {
       },
     });
 
+    // If PAYSTACK_SECRET_KEY is present, initialize transaction with Paystack API
+    if (process.env.PAYSTACK_SECRET_KEY && paymentMethod === "PAYSTACK") {
+      try {
+        const paystackRes = await fetch("https://api.paystack.co/transaction/initialize", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: isAnonymous ? "anonymous@hhfoundation.org" : donorEmail,
+            amount: Math.round(amount * 100), // Paystack expects amount in kobo
+            reference,
+            callback_url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/donate?payment=paystack&reference=${reference}`,
+            metadata: {
+              campaignId: campaignId || null,
+              donorName: isAnonymous ? "Anonymous Donor" : donorName,
+              isAnonymous,
+            },
+          }),
+        });
+
+        const paystackData = await paystackRes.json();
+        if (!paystackData.status) {
+          // If Paystack init fails, roll back the pending donation record
+          await prisma.donation.delete({ where: { id: donation.id } });
+          return { error: paystackData.message || "Failed to initialize payment with Paystack." };
+        }
+
+        return {
+          success: true,
+          reference,
+          donationId: donation.id,
+          checkoutUrl: paystackData.data.authorization_url,
+        };
+      } catch (paystackErr) {
+        console.error("Paystack initialization API error:", paystackErr);
+        await prisma.donation.delete({ where: { id: donation.id } });
+        return { error: "Failed to contact Paystack payment gateway." };
+      }
+    }
+
     return { success: true, reference, donationId: donation.id };
   } catch (error) {
     console.error("Create donation error:", error);
@@ -62,7 +104,32 @@ export async function confirmDonationAction(reference) {
     }
 
     if (donation.status === "SUCCESSFUL") {
-      return { success: true, message: "Donation already processed." };
+      return { success: true, message: "Donation already processed.", donation };
+    }
+
+    // If PAYSTACK_SECRET_KEY is present and it is a Paystack donation, verify it via API
+    if (process.env.PAYSTACK_SECRET_KEY && donation.paymentMethod === "PAYSTACK") {
+      try {
+        const paystackRes = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
+          headers: {
+            Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+          },
+        });
+        const paystackData = await paystackRes.json();
+
+        if (!paystackData.status || paystackData.data.status !== "success") {
+          return { error: `Paystack payment verification failed: ${paystackData.message || 'Payment not successful'}` };
+        }
+
+        // Safety check: ensure the verified amount matches the recorded donation amount
+        const verifiedAmount = paystackData.data.amount / 100;
+        if (Math.abs(verifiedAmount - donation.amount) > 0.01) {
+          return { error: "Payment verification failed: Amount mismatch." };
+        }
+      } catch (paystackErr) {
+        console.error("Paystack verification API error:", paystackErr);
+        return { error: "Failed to verify payment with Paystack." };
+      }
     }
 
     // 1. Update donation status

@@ -158,7 +158,7 @@ export default function ProjectsCatalog({ initialCampaigns = [] }) {
 
                   {/* Status Tag */}
                   <span
-                    className={`absolute left-4 top-4 rounded-full px-3 py-1.5 text-xxs font-bold text-white uppercase tracking-widest shadow-sm ${
+                    className={`absolute left-4 top-4 rounded-full px-3 py-1 text-xxs font-bold text-white uppercase tracking-widest shadow-sm ${
                       isActive ? "bg-blue-600" : "bg-emerald-600"
                     }`}
                   >

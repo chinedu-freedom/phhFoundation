@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Heart, ArrowRight } from "lucide-react";
+import CustomSelect from "@/components/CustomSelect";
 
 export default function HeroDonateWidget({ campaigns = [] }) {
   const router = useRouter();
@@ -53,7 +54,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
                   setAmountType("preset");
                   setPresetAmount(amount);
                 }}
-                className={`rounded-xl py-3 text-center text-xs font-bold transition-all border ${
+                className={`rounded-xl py-3 text-center text-xs font-bold transition-all border cursor-pointer ${
                   amountType === "preset" && presetAmount === amount
                     ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/10"
                     : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -68,7 +69,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
             <button
               type="button"
               onClick={() => setAmountType("custom")}
-              className={`rounded-xl border px-3 py-3 text-xs font-bold transition-all ${
+              className={`rounded-xl border px-3 py-3 text-xs font-bold transition-all cursor-pointer ${
                 amountType === "custom"
                   ? "bg-blue-600 text-white border-blue-600"
                   : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -100,24 +101,22 @@ export default function HeroDonateWidget({ campaigns = [] }) {
           <label className="block text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
             Select Campaign
           </label>
-          <select
+          <CustomSelect
             value={campaignId}
-            onChange={(e) => setCampaignId(e.target.value)}
-            className="block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-3.5 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
-          >
-            <option value="">General Operations Fund</option>
-            {campaigns.map((c) => (
-              <option key={c.id} value={c.id}>
-                {c.title}
-              </option>
-            ))}
-          </select>
+            onChange={setCampaignId}
+            options={[
+              { value: "", label: "General Operations Fund" },
+              ...campaigns.map((c) => ({ value: c.id, label: c.title }))
+            ]}
+            className="w-full"
+            icon={<Heart className="h-4 w-4" />}
+          />
         </div>
 
         {/* CTA Button */}
         <button
           type="submit"
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3.5 text-xs font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3.5 text-xs font-bold text-white shadow-lg shadow-blue-500/25 hover:bg-blue-700 transition-all active:scale-[0.98] cursor-pointer"
         >
           Donate ₦{getFinalAmount().toLocaleString()} Now <ArrowRight className="h-4 w-4" />
         </button>

@@ -5,6 +5,7 @@ import CountUp from "@/components/CountUp";
 import EventsCarousel from "@/components/EventsCarousel";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import HeroDonateWidget from "@/components/HeroDonateWidget";
+import NewsletterForm from "@/components/NewsletterForm";
 import { 
   Heart, 
   Calendar, 
@@ -51,7 +52,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden min-h-[calc(100vh-5rem)] flex items-center py-20 lg:py-0 bg-slate-100">
+      <section className="relative min-h-[calc(100vh-5rem)] flex items-center py-20 lg:py-0 bg-slate-100">
         {/* Background Image - Clean and Clear */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -65,7 +66,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-black/35 z-10" />
         </div>
 
-        <div className="relative z-20 mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 items-center w-full">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 sm:px-8 lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8 items-center w-full">
           <div className="lg:col-span-7 flex flex-col justify-center py-8 lg:py-0">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl font-poppins drop-shadow-md">
               Together We Can <span className="text-sky-300">Transform Lives</span>
@@ -181,7 +182,7 @@ export default async function Home() {
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {/* Program 1 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Education & Scholarships</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Education & Scholarships</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Sponsoring underrepresented children through primary, secondary, and tertiary educational paths.
               </p>
@@ -192,7 +193,7 @@ export default async function Home() {
 
             {/* Program 2 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Medical Outreach</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Medical & Healthcare</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Delivering free healthcare screenings, treatments, and distribution of medicines directly to villages.
               </p>
@@ -203,7 +204,7 @@ export default async function Home() {
 
             {/* Program 3 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Women Empowerment</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Women Empowerment</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Providing business training, skills workshops, and startup micro-capital to widows and single mothers.
               </p>
@@ -214,7 +215,7 @@ export default async function Home() {
 
             {/* Program 4 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">Food Support</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Food & Relief Support</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Distributing food bundles to families experiencing malnutrition and severe financial distress.
               </p>
@@ -412,20 +413,7 @@ export default async function Home() {
               Get updates about our active campaigns, upcoming community bootcamps, and impact reports.
             </p>
           </div>
-          <form className="flex w-full max-w-md gap-3">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              className="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-            />
-            <button
-              type="submit"
-              className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700 transition-colors"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
     </div>

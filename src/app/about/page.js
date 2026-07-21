@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Heart, Users, Mail, CheckCircle, Award, Video, FileText, ExternalLink, Sparkles, MapPin, Phone } from "lucide-react";
 
 import PageHeader from "@/components/PageHeader";
+import AwardsShowcase from "@/components/AwardsShowcase";
 
 const Linkedin = ({ className }) => (
   <svg
@@ -103,23 +104,7 @@ export default async function AboutPage() {
     teamMembers = DEFAULT_TEAM;
   }
 
-  // List of award image paths from public folder
-  const awardImages = [
-    { src: "/reward.jpeg", title: "Ministry of Labour Award" },
-    { src: "/reward1.jpeg", title: "Honorary Recognition" },
-    { src: "/reward2.jpeg", title: "Garki Chiefdom Title" },
-    { src: "/reward3.jpeg", title: "Garki Chiefdom Merit Award" },
-    { src: "/reward7.jpeg", title: "ABU Leadership Award" },
-    { src: "/reward10.jpeg", title: "IOMP Professional Membership" }
-  ];
 
-  // Drive Evidence Folders
-  const driveLinks = [
-    { label: "Garki Chiefdom Council Recognition", url: "https://drive.google.com/drive/folders/1bCod0sFyHWIRVQTRZyRNAU6SlCefw5WK" },
-    { label: "Ahmadu Bello University Awards", url: "https://drive.google.com/drive/folders/1nCxkuqWjLy-0bmXx58QrQBG-iYc-Kl_k" },
-    { label: "Management Professionals Honors", url: "https://drive.google.com/drive/folders/19J-zRuv08OjwCb0IESekIYM8cNZ9Ug9i" },
-    { label: "Foundation Outreach Archives", url: "https://drive.google.com/drive/folders/1Q3ubeeFIKPHIL_9HuTbDbjauTNsJ1SgS" }
-  ];
 
   return (
     <div className="flex flex-col w-full bg-slate-50 dark:bg-zinc-950/20">
@@ -190,10 +175,10 @@ export default async function AboutPage() {
               </h2>
               <div className="space-y-4 text-sm leading-7 text-zinc-650 dark:text-zinc-400">
                 <p>
-                  Since 2012, I have been at the forefront of championing sustainable humanitarian responses through my outreach initiative, <strong>Princess Hephzibah Outreach Program</strong>. By addressing immediate socio-economic challenges, we strive to build self-reliant communities, ensure that vulnerable groups receive the essential support they need to survive, and create a lasting legacy of structural empowerment.
+                  Since 2012, our organization has been at the forefront of championing sustainable humanitarian responses through our community outreach initiatives. By addressing immediate socio-economic challenges, we strive to build self-reliant communities, ensure that vulnerable groups receive the essential support they need to survive, and create a lasting legacy of structural empowerment.
                 </p>
                 <p>
-                  Within the past decade, over 5000 women and girls, local churches, and marginalized communities have benefitted directly from our structured intervention projects. This milestone was made possible by the unwavering support and kind donations of public-spirited individuals, alongside strategic partnerships with corporate organizations including Victor and Associates Ltd, Anngood Ventures, Living Christ Mission Inc., and the National Youth Service Corps (NYSC) Scheme, Nigeria. These collaborations have allowed us to scale our efforts across multiple regions, ensuring aid reaches those who need it most.
+                  Within the past decade, over 5,000 women and girls, local churches, and marginalized communities have benefitted directly from our structured intervention projects. This milestone was made possible by the unwavering support and kind donations of public-spirited individuals, alongside strategic partnerships with corporate organizations including Victor and Associates Ltd, Anngood Ventures, Living Christ Mission Inc., and the National Youth Service Corps (NYSC) Scheme, Nigeria. These collaborations have allowed us to scale our efforts across multiple regions, ensuring aid reaches those who need it most.
                 </p>
                 <p>
                   Gratefully, through these initiatives, life and living conditions have been dramatically improved by breaking generational cycles of poverty and resource scarcity. We support struggling families with non-refundable micro-business grants, award comprehensive academic scholarships for students hit hard by economic crises (spanning secondary through tertiary education), and run vocational training programs that equip women and girls with scalable entrepreneurship skills to build resilient, self-sustained futures.
@@ -202,10 +187,10 @@ export default async function AboutPage() {
                   <Sparkles className="h-5 w-5 text-blue-600" /> What Inspired Our Work?
                 </h4>
                 <p>
-                  Before gaining admission into the University, I had the privilege of venturing into business. It was the most financially liberating experience of my life. I didn’t think furthering my education was necessary because I was relatively comfortable. It was until I had a conversation with a friend that I had the conviction to go back to school.
+                  The motivation behind establishing the Hephzibah Humanitarian Foundation stems from a deep conviction in the transformative power of quality education paired with practical empowerment. While entrepreneurship provides financial independence, combining formal education with vocational skills unlocks limitless possibilities for long-term growth.
                 </p>
                 <p>
-                  My experience as a political science student at the University of Nigeria Nsukka empowered my mind. I realized that there is a limit to where business can take you; however, being educated opens your mind to possibilities and makes you better at what you do. This inspired my decision to start the foundation. It is my dream for every child to have their skills nurtured whilst accessing quality education. Vocational skills are great, but when backed up with quality education, they become profound.
+                  This vision drives our commitment to ensuring every child and young adult gains access to quality schooling while nurturing their innate skills for a self-sustained future. Vocational skills are essential, but when backed by quality education, their impact becomes profound.
                 </p>
               </div>
             </div>
@@ -270,7 +255,7 @@ export default async function AboutPage() {
               
               <div className="space-y-4 text-sm leading-7 text-zinc-650 dark:text-zinc-400">
                 <p>
-                  The urgency in actualizing the Sustainable Development Goals by 2030 has made collective action imperative. Princess Hephzibah Humanitarian Foundation was established to contribute its quota towards bridging the gaps that exist in Education through active humanitarian response, robust scholarship schemes, and provision of learning materials.
+                  The urgency in actualizing the Sustainable Development Goals by 2030 has made collective action imperative. Hephzibah Humanitarian Foundation was established to contribute its quota towards bridging the gaps that exist in Education through active humanitarian response, robust scholarship schemes, and provision of learning materials.
                 </p>
                 <p>
                   Since inception in 2021, the organization has impacted the lives of <strong>2,500 students</strong> across all educational levels.
@@ -300,59 +285,11 @@ export default async function AboutPage() {
               Recognized for Dedicated Service
             </h2>
             <p className="mt-4 text-xs text-zinc-550 dark:text-zinc-400 max-w-xl mx-auto">
-              In recognition of our commitment to advancing Education and community development, the Princess Hephzibah Humanitarian Foundation has received prestigious titles and awards.
+              In recognition of our commitment to advancing Education and community development, the Hephzibah Humanitarian Foundation has received prestigious titles and awards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 items-start">
-            {/* Awards Narrative and Drive Links */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="rounded-3xl bg-white p-8 border border-slate-100 dark:bg-zinc-900 dark:border-zinc-850 shadow-sm">
-                <h4 className="text-lg font-bold text-zinc-900 dark:text-white font-poppins mb-4">Verifiable Honors & Prestigious Titles</h4>
-                <p className="text-sm text-zinc-650 dark:text-zinc-400 leading-relaxed mb-6">
-                  Princess Hephzibah has been honored by <strong>The Garki Chiefdom Council AMAC</strong> (conferring a prestigious title to a non-indigene for the first time), <strong>Ahmadu Bello University Postgraduate Representative Council</strong>, and the <strong>International Organization of Management Professionals</strong>, among others.
-                </p>
-                <div className="space-y-3">
-                  <span className="text-xxs font-bold text-zinc-400 uppercase tracking-widest block mb-1">Official Evidence Folders:</span>
-                  {driveLinks.map((link, idx) => (
-                    <a
-                      key={idx}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-3.5 rounded-xl border border-zinc-150 bg-zinc-50/50 hover:bg-white hover:border-blue-500 hover:text-blue-600 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900 transition-all text-xs font-semibold text-zinc-700 dark:text-zinc-300"
-                    >
-                      <span className="flex items-center gap-2">
-                        <Award className="h-4 w-4 text-blue-600 shrink-0" />
-                        {link.label}
-                      </span>
-                      <ExternalLink className="h-3.5 w-3.5 opacity-60" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Awards Image Showcase Grid */}
-            <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {awardImages.map((award, index) => (
-                <div 
-                  key={index}
-                  className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-zinc-200/60 dark:border-zinc-800 shadow-sm bg-zinc-100"
-                >
-                  <Image 
-                    src={award.src}
-                    alt={award.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                    <span className="text-xxs font-bold text-white tracking-wide">{award.title}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <AwardsShowcase />
         </div>
       </section>
 
@@ -383,7 +320,7 @@ export default async function AboutPage() {
                     className={`object-cover ${member.objectPosition || "object-center"} transition-transform duration-300 group-hover:scale-105`}
                   />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white text-md font-poppins uppercase">{member.name}</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white text-sm font-poppins uppercase min-h-[2.5rem] flex items-center leading-snug">{member.name}</h3>
                 <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider block mt-1">
                   {member.role}
                 </span>

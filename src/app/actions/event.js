@@ -92,6 +92,21 @@ export async function rsvpEventAction(eventId, name, email) {
       return { error: "Event not found." };
     }
 
+    // Check if the email has already registered for this event
+    const existingRegistration = await prisma.auditLog.findFirst({
+      where: {
+        action: "EVENT_RSVP",
+        userEmail: email.trim().toLowerCase(),
+        details: {
+          contains: `RSVPed for event: ${event.title}`,
+        },
+      },
+    });
+
+    if (existingRegistration) {
+      return { error: "You have already registered for this event." };
+    }
+
     await prisma.event.update({
       where: { id: eventId },
       data: {
@@ -102,11 +117,12 @@ export async function rsvpEventAction(eventId, name, email) {
     });
 
     // Write to audit log
+    const normalizedEmail = email.trim().toLowerCase();
     await prisma.auditLog.create({
       data: {
         action: "EVENT_RSVP",
-        details: `User ${name} (${email}) RSVPed for event: ${event.title}`,
-        userEmail: email
+        details: `User ${name} (${normalizedEmail}) RSVPed for event: ${event.title}`,
+        userEmail: normalizedEmail
       }
     });
 

@@ -1,10 +1,9 @@
 import { prisma } from "@/lib/db";
 import Link from "next/link";
-import Image from "next/image";
 import CountUp from "@/components/CountUp";
 import PageHeader from "@/components/PageHeader";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
-import { Award, CheckCircle, Quote, FileDown, PieChart, TrendingUp, Heart } from "lucide-react";
+import { PieChart, TrendingUp } from "lucide-react";
 
 export const metadata = {
   title: "Our Impact & Transparency | HH Foundation",
@@ -209,35 +208,33 @@ export default async function ImpactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((test) => (
-              <div
-                key={test.id}
-                className="relative rounded-3xl border border-slate-100/80 bg-white p-8 dark:bg-zinc-900 dark:border-zinc-800/80 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.035)] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <Quote className="h-8 w-8 text-blue-600/20 dark:text-blue-400/10 mb-4" />
-                  <p className="text-sm leading-7 text-zinc-600 dark:text-zinc-400 italic">
-                    "{test.quote}"
-                  </p>
-                </div>
+          <TestimonialsCarousel testimonials={testimonials} variant="light" />
+        </div>
+      </section>
 
-                <div className="mt-8 flex items-center gap-4 pt-6 border-t border-zinc-100 dark:border-zinc-850">
-                  <div className="relative h-12 w-12 rounded-full overflow-hidden shrink-0">
-                    <Image
-                      src={test.image || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80"}
-                      alt={test.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm font-poppins">{test.name}</h4>
-                    <span className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{test.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* 5. Call to Action Banner */}
+      <section className="py-20 bg-white dark:bg-zinc-950/30 border-t border-slate-100/80 dark:border-zinc-900 text-center">
+        <div className="mx-auto max-w-4xl px-6 sm:px-8">
+          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Make an Impact</span>
+          <h2 className="mt-3 text-3xl font-extrabold text-zinc-900 dark:text-white font-poppins sm:text-4xl">
+            Ready to Transform Lives Today?
+          </h2>
+          <p className="mt-4 max-w-xl mx-auto text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+            Your support directly powers educational scholarships, rural healthcare clinics, and emergency relief drives across vulnerable communities.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/donate"
+              className="rounded-xl bg-blue-600 px-7 py-3.5 text-sm font-bold text-white hover:bg-blue-700 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98]"
+            >
+              Donate Now
+            </Link>
+            <Link
+              href="/get-involved"
+              className="rounded-xl border border-zinc-200 bg-white px-7 py-3.5 text-sm font-bold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 transition-all"
+            >
+              Become a Volunteer
+            </Link>
           </div>
         </div>
       </section>

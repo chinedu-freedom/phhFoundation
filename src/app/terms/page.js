@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Terms of Service | HH Foundation",
-  description: "Read the governing terms and conditions regarding donations, platform usage, and volunteer agreements with the HEPHZIBAH Humanitarian Foundation.",
+  description: "Read the governing terms and conditions regarding donations, platform usage, and volunteer agreements with the Hephzibah Humanitarian Foundation.",
 };
 
 const SECTIONS = [
@@ -10,7 +10,7 @@ const SECTIONS = [
     title: "Acceptance of These Terms",
     content: (
       <div className="space-y-3">
-        <p>Welcome to the official website of <strong>HEPHZIBAH Humanitarian Foundation</strong> (&quot;the Foundation,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).</p>
+        <p>Welcome to the official website of <strong>Hephzibah Humanitarian Foundation</strong> (&quot;the Foundation,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;).</p>
         <p>These Terms of Service (&quot;Terms&quot;) govern your access to and use of our website, online services, digital platforms, donation portals, applications, and related services.</p>
         <p>By accessing or using our website, you agree to be legally bound by these Terms. If you do not agree, please discontinue use of the website.</p>
       </div>
@@ -20,7 +20,7 @@ const SECTIONS = [
     title: "About the Foundation",
     content: (
       <p>
-        HEPHZIBAH Humanitarian Foundation is a non-profit, non-governmental humanitarian organization established to improve lives through humanitarian assistance, education, healthcare, poverty reduction, community development, advocacy, emergency response, environmental sustainability, and related charitable activities in Nigeria and internationally.
+        Hephzibah Humanitarian Foundation is a non-profit, non-governmental humanitarian organization established to improve lives through humanitarian assistance, education, healthcare, poverty reduction, community development, advocacy, emergency response, environmental sustainability, and related charitable activities in Nigeria and internationally.
       </p>
     )
   },
@@ -95,7 +95,7 @@ const SECTIONS = [
     title: "Intellectual Property",
     content: (
       <div className="space-y-3">
-        <p>Unless otherwise stated, all content on this website, including logos, trademarks, text, photographs, graphics, reports, publications, videos, software, databases, and designs, is owned by or licensed to HEPHZIBAH Humanitarian Foundation and is protected by applicable intellectual property laws.</p>
+        <p>Unless otherwise stated, all content on this website, including logos, trademarks, text, photographs, graphics, reports, publications, videos, software, databases, and designs, is owned by or licensed to Hephzibah Humanitarian Foundation and is protected by applicable intellectual property laws.</p>
         <p>No content may be reproduced, distributed, modified, sold, or publicly displayed without prior written permission, except where permitted by law.</p>
       </div>
     )
@@ -153,7 +153,7 @@ const SECTIONS = [
     title: "Limitation of Liability",
     content: (
       <div className="space-y-3">
-        <p>To the fullest extent permitted by applicable law, HEPHZIBAH Humanitarian Foundation, its Trustees, officers, employees, volunteers, partners, and affiliates shall not be liable for any indirect, incidental, consequential, punitive, or special damages arising from:</p>
+        <p>To the fullest extent permitted by applicable law, Hephzibah Humanitarian Foundation, its Trustees, officers, employees, volunteers, partners, and affiliates shall not be liable for any indirect, incidental, consequential, punitive, or special damages arising from:</p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li>use of the website;</li>
           <li>inability to access the website;</li>
@@ -170,7 +170,7 @@ const SECTIONS = [
     title: "Indemnification",
     content: (
       <div className="space-y-3">
-        <p>You agree to indemnify and hold harmless HEPHZIBAH Humanitarian Foundation, its Trustees, officers, employees, volunteers, and representatives from any claims, liabilities, damages, costs, or expenses arising from:</p>
+        <p>You agree to indemnify and hold harmless Hephzibah Humanitarian Foundation, its Trustees, officers, employees, volunteers, and representatives from any claims, liabilities, damages, costs, or expenses arising from:</p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li>your breach of these Terms;</li>
           <li>your misuse of the website;</li>
@@ -233,7 +233,7 @@ const SECTIONS = [
     title: "Contact Information",
     content: (
       <div className="space-y-2 mt-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-800 text-xs sm:text-sm">
-        <p><strong>HEPHZIBAH Humanitarian Foundation</strong></p>
+        <p><strong>Hephzibah Humanitarian Foundation</strong></p>
         <p><strong>Email:</strong> <a href="mailto:info@hephzibahhumanitarianf.org" className="text-blue-600 dark:text-blue-400 hover:underline">info@hephzibahhumanitarianf.org</a></p>
         <p><strong>Telephone:</strong> 08075889097</p>
         <p><strong>Registered Office:</strong> 10 Prof. Daddy Hezekiah Avenue, Inland-town Onitsha, Anambra State, Nigeria</p>
@@ -254,7 +254,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <div className="flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-wider text-zinc-400">
-            <span>HEPHZIBAH Humanitarian Foundation</span>
+            <span>Hephzibah Humanitarian Foundation</span>
             <span>•</span>
             <span>Last Updated: July 16, 2026</span>
           </div>

@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/login", "/logout", "/register"],
+      disallow: [],
     },
     sitemap: "https://phhfoundation.org/sitemap.xml",
   };

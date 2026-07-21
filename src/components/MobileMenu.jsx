@@ -10,9 +10,11 @@ const NAV_ITEMS = [
   { href: "/programs", label: "Programs" },
   { href: "/projects", label: "Projects" },
   { href: "/impact", label: "Our Impact" },
+  { href: "/blog", label: "Blog" },
   { href: "/get-involved", label: "Get Involved" },
   { href: "/partner", label: "Partner" },
   { href: "/faq", label: "FAQs" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function MobileMenu() {
@@ -20,7 +22,7 @@ export default function MobileMenu() {
   const pathname = usePathname();
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-200 text-zinc-600 dark:border-zinc-800 dark:text-zinc-300 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900"

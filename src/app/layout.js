@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import Analytics from "@/components/Analytics";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,17 +22,17 @@ const poppins = Poppins({
 export const metadata = {
   metadataBase: new URL("https://phhfoundation.org"),
   title: {
-    default: "HEPHZIBAH Humanitarian Foundation | HHF",
-    template: "%s | HEPHZIBAH Humanitarian Foundation"
+    default: "Hephzibah Humanitarian Foundation | HHF",
+    template: "%s | Hephzibah Humanitarian Foundation"
   },
-  description: "HEPHZIBAH Humanitarian Foundation (HHF) is a non-governmental organization dedicated to improving lives through humanitarian assistance, educational scholarships, healthcare outreach, skills development, and community empowerment.",
+  description: "Hephzibah Humanitarian Foundation (HHF) is a non-governmental organization dedicated to improving lives through humanitarian assistance, educational scholarships, healthcare outreach, skills development, and community empowerment.",
   keywords: [
     "Humanitarian aid Nigeria", 
     "Education scholarships", 
     "Healthcare outreach Africa", 
     "Poverty alleviation", 
     "HH Foundation",
-    "HEPHZIBAH Humanitarian Foundation",
+    "Hephzibah Humanitarian Foundation",
     "NGO Nigeria",
     "Charity donations Nigeria"
   ],
@@ -39,16 +40,16 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "HEPHZIBAH Humanitarian Foundation (HHF)",
+    title: "Hephzibah Humanitarian Foundation (HHF)",
     description: "Transforming lives and building hope through educational scholarships, healthcare outreach, and community empowerment.",
     url: "https://phhfoundation.org",
-    siteName: "HEPHZIBAH Humanitarian Foundation",
+    siteName: "Hephzibah Humanitarian Foundation",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "HEPHZIBAH Humanitarian Foundation (HHF)",
+    title: "Hephzibah Humanitarian Foundation (HHF)",
     description: "Transforming lives and building hope through educational scholarships, healthcare outreach, and community empowerment.",
   },
   robots: {
@@ -76,6 +77,7 @@ export default function RootLayout({ children }) {
         <main className="flex-1 flex flex-col pt-20">{children}</main>
         <Footer />
         <CookieConsent />
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );
