@@ -26,6 +26,11 @@ export const metadata = {
     template: "%s | Hephzibah Humanitarian Foundation"
   },
   description: "Hephzibah Humanitarian Foundation (HHF) is a non-governmental organization dedicated to improving lives through humanitarian assistance, educational scholarships, healthcare outreach, skills development, and community empowerment.",
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   keywords: [
     "Humanitarian aid Nigeria", 
     "Education scholarships", 
