@@ -90,17 +90,21 @@ const DEFAULT_TEAM = [
 ];
 
 export default async function AboutPage() {
-  // Try to load team members from the DB; fallback to default list if empty
+  // Load team members from DB using $queryRaw to ensure all columns (facebook, email, phone, whatsapp, linkedin) are fetched directly
   let teamMembers = [];
   try {
-    teamMembers = await prisma.teamMember.findMany({
-      orderBy: { order: "asc" },
-    });
+    teamMembers = await prisma.$queryRaw`SELECT * FROM "TeamMember" ORDER BY "order" ASC`;
   } catch (error) {
-    console.error("Error loading team members from database:", error);
+    try {
+      teamMembers = await prisma.teamMember.findMany({
+        orderBy: { order: "asc" },
+      });
+    } catch (e) {
+      console.error("Error loading team members from database:", e);
+    }
   }
 
-  if (teamMembers.length === 0) {
+  if (!teamMembers || teamMembers.length === 0) {
     teamMembers = DEFAULT_TEAM;
   }
 
@@ -348,9 +352,9 @@ export default async function AboutPage() {
                       <Mail className="h-4 w-4" />
                     </a>
                   )}
-                  {member.whatsapp && (
+                  {(member.whatsapp || member.phone) && (
                     <a
-                      href={`https://wa.me/${member.whatsapp.replace(/[^0-9]/g, "")}`}
+                      href={`https://wa.me/${(member.whatsapp || member.phone).replace(/[^0-9]/g, "")}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-zinc-400 hover:text-blue-600 transition-colors"
