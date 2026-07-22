@@ -54,7 +54,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
                   setAmountType("preset");
                   setPresetAmount(amount);
                 }}
-                className={`rounded-xl py-3 text-center text-xs font-bold transition-all border cursor-pointer ${
+                className={`h-11 flex items-center justify-center rounded-xl text-center text-xs font-bold transition-all border cursor-pointer ${
                   amountType === "preset" && presetAmount === amount
                     ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/10"
                     : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -69,7 +69,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
             <button
               type="button"
               onClick={() => setAmountType("custom")}
-              className={`rounded-xl border px-3 py-3 text-xs font-bold transition-all cursor-pointer ${
+              className={`h-11 px-4 flex items-center justify-center rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                 amountType === "custom"
                   ? "bg-blue-600 text-white border-blue-600"
                   : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
@@ -89,7 +89,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
                   value={customAmount}
                   onChange={(e) => setCustomAmount(e.target.value)}
                   placeholder="Amount (Min ₦500)"
-                  className="block w-full rounded-xl border border-zinc-200 bg-zinc-50 py-2.5 pl-7 pr-3 text-xs text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="block w-full h-11 rounded-xl border border-zinc-200 bg-zinc-50 pl-7 pr-3 text-xs text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 />
               </div>
             )}

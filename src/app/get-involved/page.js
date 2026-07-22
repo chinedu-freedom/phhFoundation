@@ -485,7 +485,7 @@ export default function GetInvolvedPage() {
                           required
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                           placeholder="John Doe"
                         />
                         {errors.name && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.name}</span>}
@@ -500,7 +500,7 @@ export default function GetInvolvedPage() {
                           required
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                           placeholder="john@example.com"
                         />
                         {errors.email && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.email}</span>}
@@ -518,7 +518,7 @@ export default function GetInvolvedPage() {
                           required
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                           placeholder="+234 800 000 0000"
                         />
                         {errors.phone && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.phone}</span>}
@@ -533,7 +533,7 @@ export default function GetInvolvedPage() {
                           required
                           value={location}
                           onChange={(e) => setLocation(e.target.value)}
-                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50/50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                           placeholder="Enugu, Enugu State"
                         />
                         {errors.location && <span className="mt-1.5 block text-xs font-bold text-red-500">{errors.location}</span>}
@@ -584,7 +584,7 @@ export default function GetInvolvedPage() {
                           required
                           value={customSkills}
                           onChange={(e) => setCustomSkills(e.target.value)}
-                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                          className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                           placeholder="e.g. Project Manager, PHP Programmer, Pediatric Doctor"
                         />
                       </div>
@@ -622,7 +622,7 @@ export default function GetInvolvedPage() {
                         rows="4"
                         value={motivation}
                         onChange={(e) => setMotivation(e.target.value)}
-                        className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                        className="mt-2 block w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                         placeholder="Tell us briefly why you wish to volunteer with the HH Foundation..."
                       />
                     </div>

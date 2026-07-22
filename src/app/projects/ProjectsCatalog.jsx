@@ -67,7 +67,7 @@ export default function ProjectsCatalog({ initialCampaigns = [] }) {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search campaigns by name or focus..."
-            className="w-full rounded-2xl border border-zinc-200 bg-white/80 py-3.5 pl-11 pr-10 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-zinc-850 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500"
+            className="w-full rounded-2xl border border-zinc-200 bg-white/80 py-3.5 pl-11 pr-10 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-600 focus:bg-white focus:outline-none dark:border-zinc-850 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-500 dark:focus:bg-zinc-800"
           />
           {searchTerm && (
             <button

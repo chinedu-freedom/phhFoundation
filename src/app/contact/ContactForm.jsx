@@ -98,7 +98,7 @@ export default function ContactForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="John Doe"
-            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
           />
         </div>
         <div>
@@ -113,7 +113,7 @@ export default function ContactForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="john@example.com"
-            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
           />
         </div>
       </div>
@@ -131,7 +131,7 @@ export default function ContactForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+234..."
-            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
           />
         </div>
         <div>
@@ -145,7 +145,7 @@ export default function ContactForm() {
             value={organisation}
             onChange={(e) => setOrganisation(e.target.value)}
             placeholder="NGO, School or Company Name"
-            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+            className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
           />
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function ContactForm() {
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
           placeholder="E.g., Scholarship Inquiry, Partnerships"
-          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
         />
       </div>
 
@@ -177,7 +177,7 @@ export default function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message details here..."
-          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+          className="mt-2 block w-full rounded-xl border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
         />
       </div>
 

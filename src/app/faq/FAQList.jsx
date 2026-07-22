@@ -48,7 +48,7 @@ export default function FAQList({ categories = [] }) {
               setSearchQuery(e.target.value);
               setExpandedIndex(null); // Reset toggle on search
             }}
-            className="block w-full rounded-xl border border-zinc-200/50 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white"
+            className="block w-full rounded-xl border border-zinc-200/50 bg-white py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-white dark:focus:bg-zinc-800"
           />
         </div>
 

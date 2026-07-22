@@ -131,7 +131,7 @@ export default function PartnerForm() {
                 placeholder="e.g. Acme Corp Foundation"
                 className={`block w-full rounded-lg border ${
                   errors.orgName ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
-                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
+                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900`}
               />
             </div>
             {errors.orgName && <span className="mt-1 block text-xs font-bold text-red-500">{errors.orgName}</span>}
@@ -153,7 +153,7 @@ export default function PartnerForm() {
                 placeholder="e.g. Jane Doe"
                 className={`block w-full rounded-lg border ${
                   errors.contactName ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
-                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
+                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900`}
               />
             </div>
             {errors.contactName && <span className="mt-1 block text-xs font-bold text-red-500">{errors.contactName}</span>}
@@ -177,7 +177,7 @@ export default function PartnerForm() {
                 placeholder="e.g. partner@acme.org"
                 className={`block w-full rounded-lg border ${
                   errors.email ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
-                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
+                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900`}
               />
             </div>
             {errors.email && <span className="mt-1 block text-xs font-bold text-red-500">{errors.email}</span>}
@@ -199,7 +199,7 @@ export default function PartnerForm() {
                 placeholder="e.g. +234 803 123 4567"
                 className={`block w-full rounded-lg border ${
                   errors.phone ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
-                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
+                } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900`}
               />
             </div>
             {errors.phone && <span className="mt-1 block text-xs font-bold text-red-500">{errors.phone}</span>}
@@ -239,7 +239,7 @@ export default function PartnerForm() {
               placeholder="Tell us about your brand goals, target focus areas (Enugu primary schools, maternal healthcare, widows skills, etc.), and how you'd like to partner..."
               className={`block w-full rounded-xl border ${
                 errors.message ? "border-red-500" : "border-zinc-200/50 dark:border-zinc-800/80"
-              } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white`}
+              } bg-zinc-50 py-3 pl-10 pr-4 text-sm text-zinc-900 placeholder-zinc-400 focus:border-blue-500 focus:bg-white focus:outline-none dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900`}
             />
           </div>
           {errors.message && <span className="mt-1 block text-xs font-bold text-red-500">{errors.message}</span>}

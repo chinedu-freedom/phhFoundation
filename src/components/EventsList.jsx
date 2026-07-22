@@ -250,7 +250,7 @@ export default function EventsList({ initialEvents = [] }) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 />
               </div>
 
@@ -264,7 +264,7 @@ export default function EventsList({ initialEvents = [] }) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white"
+                  className="mt-1.5 block w-full rounded-lg border border-zinc-200/50 bg-zinc-50 px-4 py-3 text-xs text-zinc-900 focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800/80 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 />
               </div>
 

@@ -96,7 +96,7 @@ export default function TransparencyCalculator() {
                   step="1000"
                   value={donationAmount}
                   onChange={(e) => setDonationAmount(Math.max(0, Number(e.target.value)))}
-                  className="block w-full rounded-2xl border border-zinc-200 bg-zinc-50/50 py-3.5 pl-9 pr-4 text-sm text-zinc-900 font-bold focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white"
+                  className="block w-full rounded-2xl border border-zinc-200 bg-zinc-50/50 py-3.5 pl-9 pr-4 text-sm text-zinc-900 font-bold focus:border-blue-500 focus:bg-white focus:outline-none dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:focus:bg-zinc-900"
                 />
               </div>
             </div>

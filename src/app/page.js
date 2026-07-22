@@ -74,16 +74,16 @@ export default async function Home() {
             <p className="mt-6 text-lg leading-8 text-zinc-100 max-w-xl drop-shadow-sm">
               Join the HH Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
                 href="/donate"
-                className="rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-700 active:scale-[0.98]"
+                className="w-full sm:w-auto text-center rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-700 active:scale-[0.98]"
               >
                 Donate Now
               </Link>
               <Link
                 href="/get-involved"
-                className="rounded-xl border border-white/25 bg-white/10 backdrop-blur px-6 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-white/25"
+                className="w-full sm:w-auto text-center rounded-xl border border-white/25 bg-white/10 backdrop-blur px-6 py-3.5 text-base font-semibold text-white shadow-sm transition-all hover:bg-white/25"
               >
                 Become a Volunteer
               </Link>
