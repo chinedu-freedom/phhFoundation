@@ -72,7 +72,7 @@ export default async function Home() {
               Together We Can <span className="text-sky-300">Transform Lives</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-zinc-100 max-w-xl drop-shadow-sm">
-              Join the Hephzibah Humanitarian Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
+              Join the Hephzibah Humanitarian Foundation in our commitment to provide educational scholarships, medical outreach, human empowerment, and disaster relief to marginalized communities.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
@@ -204,7 +204,7 @@ export default async function Home() {
 
             {/* Program 3 */}
             <div className="flex flex-col rounded-2xl bg-white p-8 shadow-sm transition-transform hover:-translate-y-1 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Women Empowerment</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white h-14 flex items-center">Human Empowerment</h3>
               <p className="mt-4 text-sm leading-6 text-slate-500 dark:text-zinc-400 flex-1">
                 Providing business training, skills workshops, and startup micro-capital to widows and single mothers.
               </p>

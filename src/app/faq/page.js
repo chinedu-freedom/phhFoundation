@@ -12,7 +12,7 @@ export default function FAQPage() {
       items: [
         {
           question: "What is the Hephzibah Humanitarian Foundation?",
-          answer: "Hephzibah Humanitarian Foundation is a non-profit humanitarian organization dedicated to providing hope and relief through educational scholarships, free medical outreach, women empowerment initiatives, and community development projects."
+          answer: "Hephzibah Humanitarian Foundation is a non-profit humanitarian organization dedicated to providing hope and relief through educational scholarships, free medical outreach, human empowerment initiatives, and community development projects."
         },
         {
           question: "Where are you located and which regions do you serve?",

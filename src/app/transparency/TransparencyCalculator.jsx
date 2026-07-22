@@ -25,7 +25,7 @@ export default function TransparencyCalculator() {
       desc: "Supplying pharmaceutical drugs, clinical diagnostic kits, and medical personnel."
     },
     {
-      label: "Youth & Women Empowerment",
+      label: "Youth & Human Empowerment",
       percentage: 15,
       icon: "💼",
       color: "bg-sky-500",

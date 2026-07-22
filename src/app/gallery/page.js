@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 
 export const metadata = {
   title: "Photo Gallery | HH Foundation",
-  description: "Browse high-definition pictures capturing the real impact of our medical outstations, school scholarship campaigns, and women empowerment sessions.",
+  description: "Browse high-definition pictures capturing the real impact of our medical outstations, school scholarship campaigns, and human empowerment sessions.",
 };
 
 const DEFAULT_IMAGES = [
