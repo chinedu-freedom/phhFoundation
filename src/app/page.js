@@ -72,7 +72,7 @@ export default async function Home() {
               Together We Can <span className="text-sky-300">Transform Lives</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-zinc-100 max-w-xl drop-shadow-sm">
-              Join the HH Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
+              Join the Hephzibah Humanitarian Foundation in our commitment to provide educational scholarships, medical outreach, women empowerment, and disaster relief to marginalized communities.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
@@ -142,7 +142,7 @@ export default async function Home() {
               Providing Hope, Support and Empowerment to the Vulnerable
             </h2>
             <p className="mt-6 text-base leading-7 text-slate-600 dark:text-zinc-400">
-              HH Foundation is a non-governmental organization committed to helping families, widows, orphans, and students from impoverished backgrounds. We develop actionable programs in education, medical services, and career development to bring long-term sustainable growth to local communities.
+              Hephzibah Humanitarian Foundation is a non-governmental organization committed to helping families, widows, orphans, and students from impoverished backgrounds. We develop actionable programs in education, medical services, and career development to bring long-term sustainable growth to local communities.
             </p>
             <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div>
