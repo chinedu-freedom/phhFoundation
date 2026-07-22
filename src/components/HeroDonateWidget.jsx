@@ -57,7 +57,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
                 className={`h-11 flex items-center justify-center rounded-xl text-center text-xs font-bold transition-all border cursor-pointer ${
                   amountType === "preset" && presetAmount === amount
                     ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/10"
-                    : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
+                    : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-white dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
                 }`}
               >
                 ₦{amount.toLocaleString()}
@@ -72,7 +72,7 @@ export default function HeroDonateWidget({ campaigns = [] }) {
               className={`h-11 px-4 flex items-center justify-center rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                 amountType === "custom"
                   ? "bg-blue-600 text-white border-blue-600"
-                  : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
+                  : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-white dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
               }`}
             >
               Custom

@@ -265,7 +265,7 @@ export default function DonateForm({
                 className={`rounded-xl py-3.5 text-center text-sm font-semibold transition-all border cursor-pointer ${
                   amountType === "preset" && presetAmount === amount
                     ? "bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-500/20"
-                    : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
+                    : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-white dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
                 }`}
               >
                 ₦{amount.toLocaleString()}
@@ -280,7 +280,7 @@ export default function DonateForm({
               className={`rounded-xl border px-4 py-3.5 text-sm font-semibold transition-all cursor-pointer ${
                 amountType === "custom"
                   ? "bg-blue-600 text-white border-blue-600 shadow-md"
-                  : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
+                  : "bg-zinc-50 text-zinc-700 border-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-white dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
               }`}
             >
               Custom Amount
