@@ -96,7 +96,7 @@ export default function PartnerForm() {
   }
 
   return (
-    <div className="rounded-3xl border border-slate-100/75 bg-white p-8 dark:bg-zinc-900 dark:border-zinc-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.025)] relative overflow-hidden backdrop-blur-md">
+    <div className="rounded-3xl border border-slate-100/75 bg-white p-8 dark:bg-zinc-900 dark:border-zinc-800/80 shadow-[0_20px_50px_rgba(0,0,0,0.025)] relative backdrop-blur-md">
       <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
       
       <h3 className="text-xl font-bold text-zinc-900 dark:text-white font-poppins mb-1">

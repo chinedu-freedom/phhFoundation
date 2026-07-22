@@ -93,8 +93,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
-textarea{
+textarea {
   resize: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+textarea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Hide number input spinners globally */

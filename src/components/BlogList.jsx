@@ -156,19 +156,19 @@ export default function BlogList({ posts = [] }) {
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
-                <div className="flex items-center gap-4 text-xxs font-semibold text-zinc-400">
-                  <span className="flex items-center gap-1">
-                    <User className="h-3 w-3 text-blue-600" /> {post.authorName}
+              <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xxs font-semibold text-zinc-400">
+                  <span className="flex items-center gap-1 shrink-0">
+                    <User className="h-3 w-3 text-blue-600 shrink-0" /> {post.authorName}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3 w-3 text-blue-600" />
+                  <span className="flex items-center gap-1 shrink-0">
+                    <Clock className="h-3 w-3 text-blue-600 shrink-0" />
                     {new Date(post.createdAt).toLocaleDateString()}
                   </span>
                 </div>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400"
+                  className="text-xs font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 self-end sm:self-auto shrink-0"
                 >
                   Read
                 </Link>
