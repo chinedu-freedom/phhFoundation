@@ -400,7 +400,7 @@ export default function GetInvolvedPage() {
                 <div className="mt-4 flex items-center gap-3">
                   <div className="relative h-9 w-9 rounded-full overflow-hidden shrink-0 border border-blue-300">
                     <Image
-                      src="/team3.jpeg"
+                      src="/chioma.png"
                       alt="Volunteer"
                       fill
                       className="object-cover"
