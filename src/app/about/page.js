@@ -55,7 +55,7 @@ const DEFAULT_TEAM = [
   },
   {
     id: "secretary",
-    name: "AMB Christian Ikoroha",
+    name: "AMB. Christian Ikoroha",
     role: "Secretary HHF",
     bio: "Over 10 years of experience in NGO operations and field coordination. Specializes in educational sponsorships and rural relief.",
     image: "/team2.jpeg",

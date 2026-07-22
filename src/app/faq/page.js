@@ -11,8 +11,8 @@ export default function FAQPage() {
       category: "General Information",
       items: [
         {
-          question: "What is the HH Foundation?",
-          answer: "HH Foundation is a non-profit humanitarian organization dedicated to providing hope and relief through educational scholarships, free medical outreach, women empowerment initiatives, and community development projects."
+          question: "What is the Hephzibah Humanitarian Foundation?",
+          answer: "Hephzibah Humanitarian Foundation is a non-profit humanitarian organization dedicated to providing hope and relief through educational scholarships, free medical outreach, women empowerment initiatives, and community development projects."
         },
         {
           question: "Where are you located and which regions do you serve?",
@@ -20,7 +20,7 @@ export default function FAQPage() {
         },
         {
           question: "Is the foundation registered?",
-          answer: "Yes, HH Foundation is registered as a non-governmental organization (NGO) under corporate affairs regulations, governed by a board of trustees comprising reputable community leaders and professionals."
+          answer: "Yes, Hephzibah Humanitarian Foundation is registered as a non-governmental organization (NGO) under corporate affairs regulations, governed by a board of trustees comprising reputable community leaders and professionals."
         }
       ]
     },
@@ -58,7 +58,7 @@ export default function FAQPage() {
         },
         {
           question: "Is there any cost associated with volunteering?",
-          answer: "No, volunteering with the HH Foundation is free. We do not charge volunteers. For remote or local campaigns, basic logistics, water, and lunch are typically provided by the foundation."
+          answer: "No, volunteering with the Hephzibah Humanitarian Foundation is free. We do not charge volunteers. For remote or local campaigns, basic logistics, water, and lunch are typically provided by the foundation."
         }
       ]
     },
