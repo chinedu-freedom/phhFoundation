@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
+import ThemeToggle from "./ThemeToggle";
 
 export default async function Header() {
   return (
@@ -28,7 +29,9 @@ export default async function Header() {
         <NavLinks />
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <ThemeToggle />
+
           <Link
             href="/donate"
             className="hidden sm:flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-700 hover:shadow-blue-600/30 active:scale-[0.98]"

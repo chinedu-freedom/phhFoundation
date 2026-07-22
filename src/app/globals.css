@@ -65,8 +65,17 @@
   }
 }
 
+@variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --background: #0B0F19; /* Sleek Dark Navy */
+  --foreground: #F8FAFC;
+  --card-bg: #111827;
+  --border-color: #1F2937;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light) {
     --background: #0B0F19; /* Sleek Dark Navy */
     --foreground: #F8FAFC;
     --card-bg: #111827;
